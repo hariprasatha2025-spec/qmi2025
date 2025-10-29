@@ -1,5 +1,3 @@
-so consider all these and give me the full code after the corrections and this is the full code
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,6 +42,30 @@ so consider all these and give me the full code after the corrections and this i
     h5.fw-bold {
       font-size: 1.25rem;
     }
+
+    /* Social icon style */
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      margin-top: 8px;
+      display: inline-block;
+      transition: transform 0.18s ease-in-out, opacity 0.18s ease-in-out;
+    }
+    .social-link {
+      display: inline-block;
+      margin-top: 6px;
+    }
+    .social-link:hover .social-icon {
+      transform: scale(1.15);
+      opacity: 0.95;
+    }
+
+    /* center icon under image container */
+    .img-with-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   </style>
 </head>
 <body>
@@ -83,8 +105,12 @@ so consider all these and give me the full code after the corrections and this i
 
   <!-- Speaker 1 -->
  <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center img-with-icon">
       <img src="amit.png" alt="National Speaker 8" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <!-- LinkedIn for non-professor -->
+      <a class="social-link" href="#" target="_blank" aria-label="LinkedIn - Dr. Amit Kumar Chauhan">
+        <img src="linkedin.png" alt="LinkedIn" class="social-icon">
+      </a>
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Dr. Amit Kumar Chauhan</h5>
@@ -98,8 +124,12 @@ so consider all these and give me the full code after the corrections and this i
   
   <!-- Speaker 2 -->
  <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center img-with-icon">
       <img src="aswath.jpeg" alt="National Speaker 3" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <!-- Assistant Professor => Google Scholar -->
+      <a class="social-link" href="#" target="_blank" aria-label="Google Scholar - Dr. Aswath Babu">
+        <img src="google-scholar.png" alt="Google Scholar" class="social-icon">
+      </a>
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Dr. Aswath Babu</h5>
@@ -112,12 +142,15 @@ Dr. Aswath Babu H is an Assistant Professor and Head of the Department of Arts, 
   </div>
   
   
- 
 
   <!-- Speaker 3 -->
   <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center img-with-icon">
       <img src="balasubramaniam.jpeg" alt="National Speaker 9" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <!-- Prof. => Google Scholar -->
+      <a class="social-link" href="#" target="_blank" aria-label="Google Scholar - Prof. P. Balasubramaniam">
+        <img src="google-scholar.png" alt="Google Scholar" class="social-icon">
+      </a>
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Prof. P. Balasubramaniam</h5>
@@ -148,8 +181,12 @@ processing, soft computing, cryptography, neural networks, and quantum computing
   </div>
     <!-- Speaker 4 -->
   <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center img-with-icon">
       <img src="janani.jpg" alt="National Speaker 7" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <!-- IBM researcher => LinkedIn -->
+      <a class="social-link" href="#" target="_blank" aria-label="LinkedIn - Ms. Janani A">
+        <img src="linkedin.png" alt="LinkedIn" class="social-icon">
+      </a>
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Ms. Janani A</h5>
@@ -162,8 +199,12 @@ processing, soft computing, cryptography, neural networks, and quantum computing
   </div>
   <!-- Speaker 5 -->
 <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center img-with-icon">
       <img src="kalaiselvi.jpeg" alt="National Speaker 1" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <!-- Associate professor => Google Scholar -->
+      <a class="social-link" href="#" target="_blank" aria-label="Google Scholar - Dr. T. Kalaiselvi">
+        <img src="google-scholar.png" alt="Google Scholar" class="social-icon">
+      </a>
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Dr. T. Kalaiselvi</h5>
@@ -182,8 +223,12 @@ processing, soft computing, cryptography, neural networks, and quantum computing
   
   <!-- Speaker 6 -->
 <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center img-with-icon">
       <img src="karthiganesh.png" alt="National Speaker 5" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <!-- CEO => LinkedIn -->
+      <a class="social-link" href="#" target="_blank" aria-label="LinkedIn - Mr. Karthiganesh Durai">
+        <img src="linkedin.png" alt="LinkedIn" class="social-icon">
+      </a>
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Mr. Karthiganesh Durai</h5>
@@ -196,12 +241,15 @@ processing, soft computing, cryptography, neural networks, and quantum computing
   </div>
 
   
-  
 
   <!-- Speaker 7 -->
  <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center img-with-icon">
       <img src="kj.jpg" alt="International Speaker 2" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <!-- Lecturer => Google Scholar -->
+      <a class="social-link" href="#" target="_blank" aria-label="Google Scholar - Dr. Keerthana Jaganathan">
+        <img src="google-scholar.png" alt="Google Scholar" class="social-icon">
+      </a>
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Dr. Keerthana Jaganathan</h5>
@@ -215,8 +263,12 @@ processing, soft computing, cryptography, neural networks, and quantum computing
  
   <!-- Speaker 8 -->
 <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center img-with-icon">
       <img src="kunwar.png" alt="National Speaker 10" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <!-- Associate Professor => Google Scholar -->
+      <a class="social-link" href="#" target="_blank" aria-label="Google Scholar - Dr. Kunwar Singh">
+        <img src="google-scholar.png" alt="Google Scholar" class="social-icon">
+      </a>
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Dr. Kunwar Singh</h5>
@@ -232,8 +284,12 @@ processing, soft computing, cryptography, neural networks, and quantum computing
 
   <!-- Speaker 9 -->
  <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center img-with-icon">
       <img src="mostafizur.jpeg" alt="National Speaker 4" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <!-- IBM Research Scientist => LinkedIn -->
+      <a class="social-link" href="#" target="_blank" aria-label="LinkedIn - Dr. Mostafizur Rahaman">
+        <img src="linkedin.png" alt="LinkedIn" class="social-icon">
+      </a>
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Dr. Mostafizur Rahaman</h5>
@@ -250,8 +306,12 @@ processing, soft computing, cryptography, neural networks, and quantum computing
 
   <!-- Speaker 10 -->
 <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center img-with-icon">
       <img src="pranab.png" alt="National Speaker 2" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <!-- CEO => LinkedIn -->
+      <a class="social-link" href="#" target="_blank" aria-label="LinkedIn - Dr. Pranab Dutta">
+        <img src="linkedin.png" alt="LinkedIn" class="social-icon">
+      </a>
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Dr. Pranab Dutta</h5>
@@ -268,8 +328,12 @@ processing, soft computing, cryptography, neural networks, and quantum computing
 
   <!-- Speaker 11 -->
 <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center img-with-icon">
       <img src="raveendran.jpeg" alt="International Speaker 1" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <!-- Prof. => Google Scholar -->
+      <a class="social-link" href="#" target="_blank" aria-label="Google Scholar - Prof. Dr. Raveendran Paramesran">
+        <img src="google-scholar.png" alt="Google Scholar" class="social-icon">
+      </a>
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Prof. Dr. Raveendran Paramesran</h5>
@@ -281,8 +345,12 @@ processing, soft computing, cryptography, neural networks, and quantum computing
   </div>
   <!-- Speaker 12 -->
 <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center img-with-icon">
       <img src="sagard.jpg" alt="National Speaker 6" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <!-- Team Lead => LinkedIn -->
+      <a class="social-link" href="#" target="_blank" aria-label="LinkedIn - Mr. Sagar Dollin">
+        <img src="linkedin.png" alt="LinkedIn" class="social-icon">
+      </a>
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Mr. Sagar Dollin</h5>
@@ -300,8 +368,12 @@ processing, soft computing, cryptography, neural networks, and quantum computing
   <!-- Speaker 13 -->
 
   <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center img-with-icon">
       <img src="saraswathi.jpeg" alt="National Speaker 1" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <!-- Associate Professor => Google Scholar -->
+      <a class="social-link" href="#" target="_blank" aria-label="Google Scholar - Dr. D. Saraswathi">
+        <img src="google-scholar.png" alt="Google Scholar" class="social-icon">
+      </a>
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Dr. D. Saraswathi</h5>
@@ -324,16 +396,3 @@ processing, soft computing, cryptography, neural networks, and quantum computing
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
