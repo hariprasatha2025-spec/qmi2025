@@ -7,25 +7,24 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body { font-family: Arial, sans-serif; scroll-behavior: smooth; }
+
     .section-title {
       border-left: 4px solid #002147;
       padding-left: 10px;
       margin-bottom: 30px;
     }
+
     footer {
       background-color: #002147;
       color: white;
       padding: 20px 0;
       text-align: center;
     }
+
     footer a { color: #cdddf7; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
-    /* ✅ Added for justified bios */
-    .speaker-bio {
-      text-align: justify;
-    }
-
+    /* ✅ Speaker layout */
     .speaker-card {
       background-color: #f8f9fa;
       border-radius: 10px;
@@ -42,17 +41,50 @@
     h5.fw-bold {
       font-size: 1.25rem;
     }
+
+    .speaker-bio { text-align: justify; }
+
+    /* ✅ Link buttons */
+    .speaker-links {
+      margin-top: 10px;
+    }
+
+    .speaker-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-right: 10px;
+      margin-top: 5px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #002147;
+      font-weight: 600;
+      border: 1px solid #002147;
+      padding: 5px 12px;
+      border-radius: 25px;
+      transition: all 0.25s ease-in-out;
+      background-color: white;
+    }
+
+    .speaker-link:hover {
+      background-color: #002147;
+      color: white;
+    }
+
+    .speaker-link img {
+      height: 18px;
+      width: auto;
+    }
   </style>
 </head>
-<body>
 
+<body>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg shadow-sm" style="background-color:#002147;">
   <div class="container-fluid">
-
     <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
       <ul class="navbar-nav align-items-center">
-        <!-- Left-side image/logo -->
         <li class="nav-item">
           <img src="logo1.png" alt="Logo" style="height:40px; width:auto; margin-right:10px;">
         </li>
@@ -66,8 +98,6 @@
         <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
       </ul>
     </div>
-
-    <!-- ✅ View Flyer Button -->
     <div class="d-none d-lg-block ms-3">
       <a href="broucher.pdf" target="_blank" class="btn btn-flyer text-white">View Flyer</a>
     </div>
@@ -78,239 +108,226 @@
 <section id="speakers" class="container my-5">
   <h2 class="section-title">Speakers</h2>
 
-
-  <!-- Speaker 1 -->
- <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
+  <!-- ✅ Speaker 1 -->
+  <div class="row align-items-center mb-5 shadow-sm p-3 rounded speaker-card">
     <div class="col-md-3 text-center">
-      <img src="amit.png" alt="National Speaker 8" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <img src="amit.png" alt="Dr. Amit Kumar Chauhan" class="img-fluid speaker-img">
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Dr. Amit Kumar Chauhan</h5>
-      <p class="text-muted mb-1 fst-italic">Senior Research Associate, QNu Labs Pvt. Ltd., Bangalore.</p>
-      <p class="mb-0">
-        Amit Kumar Chauhan is a Senior Research Associate at QNu Labs Pvt. Ltd., Bangalore, specializing in post-quantum cryptography and quantum cryptographic solutions. He previously served as a Research Engineer in the Post-Quantum Cryptography group at the Centre for Development of Telematics (C-DOT), New Delhi. Amit holds a Ph.D. in Cryptography from the Department of Computer Science and Engineering at IIT Ropar and an M.Tech. in Computer Science from IIIT Delhi. Amit's research spans post-quantum cryptography, cryptanalysis, and quantum computation. He is a life member of the Cryptology Research Society of India and his contributions include the development of secure cryptographic protocols poised for the post-quantum era, and he remains actively engaged in both academic and industrial research advancing quantum-ready cybersecurity.
-
- </p>
+      <p class="text-muted mb-1 fst-italic">Senior Research Associate, QNu Labs Pvt. Ltd., Bangalore</p>
+      <p class="speaker-bio mb-2">
+        Specializes in post-quantum cryptography and quantum cryptographic solutions. Former Research Engineer at C-DOT and Ph.D. in Cryptography from IIT Ropar.
+      </p>
+      <div class="speaker-links">
+        <a href="#" target="_blank" class="speaker-link"><img src="linkedin.png" alt="LinkedIn">LinkedIn</a>
+      </div>
     </div>
   </div>
-  
-  <!-- Speaker 2 -->
- <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
+
+  <!-- ✅ Speaker 2 -->
+  <div class="row align-items-center mb-5 shadow-sm p-3 rounded speaker-card">
     <div class="col-md-3 text-center">
-      <img src="aswath.jpeg" alt="National Speaker 3" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <img src="aswath.jpeg" alt="Dr. Aswath Babu" class="img-fluid speaker-img">
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Dr. Aswath Babu</h5>
-      <p class="text-muted mb-1 fst-italic">Assistant Professor and Head of the Department of Arts, Science, and Design, IIT Dharwad.</p>
-      <p class="mb-0">
-Dr. Aswath Babu H is an Assistant Professor and Head of the Department of Arts, Science, and Design at the Indian Institute of Information Technology (IIIT) Dharwad. He earned his Ph.D. in Physics from IIT Kanpur in 2013, specializing in nonlinear dynamical phenomena in all-optical bistable systems. His research focuses on quantum information theory, quantum optics, and nonlinear optics, with applications in quantum computing and secure communication. He previously held postdoctoral positions at IIT Madras and Lund University, Sweden, and served as faculty at NIT Calicut before joining IIIT Dharwad.
-
+      <p class="text-muted mb-1 fst-italic">Assistant Professor, IIT Dharwad</p>
+      <p class="speaker-bio mb-2">
+        His research focuses on quantum information theory and nonlinear optics with applications in quantum communication and computing.
       </p>
+      <div class="speaker-links">
+        <a href="#" target="_blank" class="speaker-link"><img src="google-scholar.png" alt="Google Scholar">Google Scholar</a>
+      </div>
     </div>
   </div>
-  
-  
- 
 
-  <!-- Speaker 3 -->
-  <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
+  <!-- ✅ Speaker 3 -->
+  <div class="row align-items-center mb-5 shadow-sm p-3 rounded speaker-card">
     <div class="col-md-3 text-center">
-      <img src="balasubramaniam.jpeg" alt="National Speaker 9" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <img src="balasubramaniam.jpeg" alt="Prof. P. Balasubramaniam" class="img-fluid speaker-img">
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Prof. P. Balasubramaniam</h5>
-      <p class="text-muted mb-1 fst-italic">Senior Professor of Mathematics, 
-Dean School of Sciences,
-The Gandhigram Rural Institute-Deemed to be University, Gandhigram, Tamil Nadu, India.
-
-</p>
-      <p class="mb-0">
-        Dr. P. Balasubramaniam is a Senior Professor in the Department of
-Mathematics at The Gandhigram Rural Institute - Deemed to be University (Ministry of
-Education, Govt. of India), Gandhigram, Tamil Nadu. He worked as a visiting research professor
-during the years 2001 and 2005-2006 to promote research in control theory and neural networks
-at Pusan National University, Pusan, South Korea. Also, he worked as Visiting Professor at the
-Institute of Mathematical Sciences, University of Malaya, Malaysia, for six months from
-September 2011 to March 2012. In 2022, he obtained a D.Sc. Degree in mathematics at the
-Gandhigram Rural Institute. He has published over 344 research papers in various SCI journals
-with impact factors with Scopus H-index 51 and Google Scholar H-Index 57. He is a reviewer of
-many SCI journals and a member of the editorial board of a few Journals. He is an Editor-inChief of the journal Modern Instrumentation, Scientific Research Publishing Inc. (SCIRP), ISSN
-Print: 2165-9257, and Associate Editor of Neural Processing Letters. He received the Tamil
-Nadu Scientist Award (TANSA) for the discipline of Mathematical sciences instituted by the
-Tamil Nadu State Council for Science and Technology in 2005. He received the Tamil Nadu
-Senior Scientist award in 2018 from Science City, Govt. of Tamil Nadu. He received the MidCareer award from UGC, Govt. of India, New Delhi, in 2019. He has been recognized as one of
-the Top 2% scientists in the area of AI & Image Processing since 2020 by the survey of Stanford
-University, USA. His research interests include the areas of dynamical systems, image
-processing, soft computing, cryptography, neural networks, and quantum computing.</p>
-    </div>
-  </div>
-    <!-- Speaker 4 -->
-  <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
-      <img src="janani.jpg" alt="National Speaker 7" class="img-fluid rounded" style="max-width:180px; height:auto;">
-    </div>
-    <div class="col-md-9">
-      <h5 class="fw-bold mb-1">Ms. Janani A</h5>
-      <p class="text-muted mb-1 fst-italic">Quantum Engineer, IBM Research, Bengaluru, India.</p>
-      <p class="mb-0">
-        Janani Anantha is a quantum engineer at IBM Quantum with over three years of experience spanning research and software development in quantum computation and information. She holds a BS-MS degree from IISER Pune and is an INSPIRE SHE Merit Scholar recognized for her academic excellence in STEM fields. Janani specializes in quantum algorithms, quantum error mitigation, quantum correlations, quantum control, and quantum machine learning, working with tools like Qiskit, Braket, cuQuantum, and Pennylane.​ Her professional background includes quantum support engineering at IBM, research roles at BosonQ Psi and QpiAI, and projects on optimization problems using variational quantum algorithms.  
-
- </p>
-    </div>
-  </div>
-  <!-- Speaker 5 -->
-<div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
-      <img src="kalaiselvi.jpeg" alt="National Speaker 1" class="img-fluid rounded" style="max-width:180px; height:auto;">
-    </div>
-    <div class="col-md-9">
-      <h5 class="fw-bold mb-1">Dr. T. Kalaiselvi</h5>
-      <p class="text-muted mb-1 fst-italic">Associate professor & Head, Department of Computer Science and Applications, The Gandhigram Rural Institute - Deemed to be University, Tamilnadu, India
-
-</p>
-      <p class="mb-0">
-        Dr. T. Kalaiselvi is an Associate Professor and Head of the Department of Computer Science and Applications at The Gandhigram Rural Institute - Deemed University, Tamil Nadu, India. She specializes in medical image processing, artificial intelligence, IoT, and robotics. Her expertise covers MRI brain image analysis to enhance computer-aided diagnosis, telemedicine, and teleradiology technologies. Her research also involves designing intelligent systems for healthcare applications and advancing tele-health solutions using computational techniques. She has led DST-sponsored projects, including research under the Young Scientist Scheme, and contributes actively to academic leadership and mentorship within her department.
-
-</p>
-    </div>
-  </div>
-  
- 
-
-  
-  <!-- Speaker 6 -->
-<div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
-      <img src="karthiganesh.png" alt="National Speaker 5" class="img-fluid rounded" style="max-width:180px; height:auto;">
-    </div>
-    <div class="col-md-9">
-      <h5 class="fw-bold mb-1">Mr. Karthiganesh Durai</h5>
-      <p class="text-muted mb-1 fst-italic">Founder & CEO, Kwantum Research Labs Pvt Ltd, Bengaluru.</p>
-      <p class="mb-0">
-       Dr. Karthiganesh Durai is an accomplished professional specializing in quantum software development and business intelligence. He is the Founder and CEO of KwantumG Research Labs Pvt. Ltd. and serves as a Professor of Practice at Nitte Meenakshi Institute of Technology, Bengaluru. With extensive experience spanning academia and industry, he has held key positions at BosonQ Psi as Senior Quantum Software Consultant and Chief Quantum Architect, and at Dell Technologies as Consultant and Senior Advisor in Business Intelligence. He holds an Executive MBA from the IIM Bangalore, an MBA from Pondicherry University, reflecting his strong interdisciplinary expertise in technology and management.
-
-</p>
-    </div>
-  </div>
-
-  
-  
-
-  <!-- Speaker 7 -->
- <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
-      <img src="kj.jpg" alt="International Speaker 2" class="img-fluid rounded" style="max-width:180px; height:auto;">
-    </div>
-    <div class="col-md-9">
-      <h5 class="fw-bold mb-1">Dr. Keerthana Jaganathan</h5>
-      <p class="text-muted mb-1 fst-italic">Lecturer, School of Computer Science, Northumbria University Newcastle, UK</p>
-      <p class="mb-0">
-        Dr. Keerthana Jaganathan is a Lecturer in the Department of Computer and Information Science at Northumbria University, United Kingdom, and a member of the Data Science and Artificial Intelligence Research Group. She earned her Ph.D. in Explainable Artificial Intelligence from Jeonbuk National University, Korea, and previously worked as a Postdoctoral Research Associate at Newcastle University. Her research focuses on applied explainable AI, neural networks, and machine learning for drug discovery and energy storage systems.
+      <p class="text-muted mb-1 fst-italic">Dean, School of Sciences, Gandhigram Rural Institute, Tamil Nadu</p>
+      <p class="speaker-bio mb-2">
+        A prolific researcher in control theory, neural networks, and quantum computing with over 340 publications and multiple national awards.
       </p>
-    </div>
-  </div>
-  
- 
-  <!-- Speaker 8 -->
-<div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
-      <img src="kunwar.png" alt="National Speaker 10" class="img-fluid rounded" style="max-width:180px; height:auto;">
-    </div>
-    <div class="col-md-9">
-      <h5 class="fw-bold mb-1">Dr. Kunwar Singh</h5>
-      <p class="text-muted mb-1 fst-italic">Associate Professor, Department of CSE, NIT Trichy, Tamil Nadu.</p>
-      <p class="mb-0">
-        Dr. Kunwar Singh is an Assistant Professor in the Department of Computer Science and Engineering at the National Institute of Technology, Tiruchirappalli (NIT Trichy). With a research focus on cryptography, he has a Ph.D. in Computer Science from IIT Madras, complemented by an M.Tech from JNU New Delhi and a B.Tech from IIT Delhi. His academic interests encompass cryptography, information security, blockchain technologies, and privacy-preserving algorithms. Additionally, Dr. Singh is a Life Member of the Cryptology Research Society of India and IEEE.
-
-  </p>
+      <div class="speaker-links">
+        <a href="#" target="_blank" class="speaker-link"><img src="google-scholar.png" alt="Google Scholar">Google Scholar</a>
+      </div>
     </div>
   </div>
 
-  
-
-  <!-- Speaker 9 -->
- <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
+  <!-- ✅ Speaker 4 -->
+  <div class="row align-items-center mb-5 shadow-sm p-3 rounded speaker-card">
     <div class="col-md-3 text-center">
-      <img src="mostafizur.jpeg" alt="National Speaker 4" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <img src="mostafizur.jpeg" alt="Dr. Mostafizur Rahaman" class="img-fluid speaker-img">
     </div>
     <div class="col-md-9">
       <h5 class="fw-bold mb-1">Dr. Mostafizur Rahaman</h5>
-     <p class="text-muted mb-1 fst-italic">Research Scientist, IBM Quantum, Bengaluru.</p>
-      <p class="mb-0">
-        Dr. Mostafizur Rahaman is a Research Scientist at the IBM Quantum Division, IBM Research Lab, Bangalore, and a Visiting Scientist at the RIKEN Quantum Information Physics Theory Research Lab, Japan. He earned his Ph.D. in Quantum Signal Processing and Optimization from IIT Kharagpur. His research focuses on quantum simulation, Hamiltonian dynamics, and the development of scalable quantum algorithms for optimization and fault-tolerant quantum computation. His current work explores the intersection of quantum machine learning, chemistry, and algorithmic optimization, aiming to bridge theoretical advances with practical quantum technologies.
-
- </p>
-    </div>
-  </div>
-
-  
-
-
-  <!-- Speaker 10 -->
-<div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
-      <img src="pranab.png" alt="National Speaker 2" class="img-fluid rounded" style="max-width:180px; height:auto;">
-    </div>
-    <div class="col-md-9">
-      <h5 class="fw-bold mb-1">Dr. Pranab Dutta</h5>
-      <p class="text-muted mb-1 fst-italic">CEO & Co-founder, GQD Labs, Bengaluru.</p>
-      <p class="mb-0">
-        Pranab Dutta is the CEO and Co-founder of GDQLabs Pvt. Ltd., Bengaluru, specializing in advanced quantum sensing and precision measurement technologies. He led the development of India’s first quantum gravimeter and has extensive experience in atomic clocks, magnetometers, and quantum communication systems. A former researcher at IISER Pune, he is highly skilled in system architecture, algorithm design, hardware integration, and field deployment.
-
-  </p>
-    </div>
-  </div>
-
-  
- 
-
-  <!-- Speaker 11 -->
-<div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
-    <div class="col-md-3 text-center">
-      <img src="raveendran.jpeg" alt="International Speaker 1" class="img-fluid rounded" style="max-width:180px; height:auto;">
-    </div>
-    <div class="col-md-9">
-      <h5 class="fw-bold mb-1">Prof. Dr. Raveendran Paramesran</h5>
-      <p class="text-muted mb-1 fst-italic">Honorary Professor, Dept. of Electrical Engineering, University Malaya, Kuala Lumpur, Malaysia.</p>
-      <p class="mb-0">
-        Prof. Raveendran Paramesran received his B.Sc. and M.Sc. degrees in Electrical Engineering from South Dakota State University, USA, and his Ph.D. from the University of Tokushima, Japan, in 1994. He is currently an Honorary Professor in the Department of Electrical Engineering at the University of Malaya, Kuala Lumpur. His research interests include image and video analysis, orthogonal moments, EEG signal analysis, and non-invasive data modeling. He has published widely and holds an international patent for predicting blood glucose levels using a non-parametric model.
+      <p class="text-muted mb-1 fst-italic">Quantum Computing Researcher, IBM Research India</p>
+      <p class="speaker-bio mb-2">
+        Works on hardware-efficient quantum algorithms and variational approaches for solving optimization and chemistry problems on quantum systems.
       </p>
+      <div class="speaker-links">
+        <a href="#" target="_blank" class="speaker-link"><img src="linkedin.png" alt="LinkedIn">LinkedIn</a>
+      </div>
     </div>
   </div>
-  <!-- Speaker 12 -->
-<div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
+
+  <!-- ✅ Speaker 5 -->
+  <div class="row align-items-center mb-5 shadow-sm p-3 rounded speaker-card">
     <div class="col-md-3 text-center">
-      <img src="sagard.jpg" alt="National Speaker 6" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <img src="tcs.jpeg" alt="Dr. Rajarshi S" class="img-fluid speaker-img">
     </div>
     <div class="col-md-9">
-      <h5 class="fw-bold mb-1">Mr. Sagar Dollin</h5>
-      <p class="text-muted mb-1 fst-italic">Team Lead, Quantum Software, QpiAI India Pvt Ltd, Bengaluru.</p>
-      <p class="mb-0">
-        Sagar Dollin is a quantum computing researcher and technical manager based in Bengaluru, India, currently leading quantum software development at QpiAI India Pvt. Ltd.. He holds a Master’s degree in Cognitive Science from IIT Delhi, where he focused on interdisciplinary studies including AI, cognitive neuroscience and computing. Sagar has contributed to the development of software solutions that enable access to India’s first-generation quantum computers, building expertise in quantum computing technologies, optimization, and software engineering.​ He is an active collaborator in quantum research and regularly participates in academic forums and technical workshops on quantum and AI solutions.
-
-  </p>
+      <h5 class="fw-bold mb-1">Dr. Rajarshi S</h5>
+      <p class="text-muted mb-1 fst-italic">Quantum Research Lead, TCS Research, Bangalore</p>
+      <p class="speaker-bio mb-2">
+        Leads quantum algorithm research for industrial applications and hybrid quantum-classical frameworks at TCS.
+      </p>
+      <div class="speaker-links">
+        <a href="#" target="_blank" class="speaker-link"><img src="linkedin.png" alt="LinkedIn">LinkedIn</a>
+      </div>
     </div>
   </div>
-  
-  
-   
-  
-  <!-- Speaker 13 -->
 
-  <div class="row align-items-center mb-5 shadow-sm p-3 rounded" style="background-color:#f8f9fa;">
+  <!-- ✅ Speaker 6 -->
+  <div class="row align-items-center mb-5 shadow-sm p-3 rounded speaker-card">
     <div class="col-md-3 text-center">
-      <img src="saraswathi.jpeg" alt="National Speaker 1" class="img-fluid rounded" style="max-width:180px; height:auto;">
+      <img src="balaji.jpeg" alt="Prof. Balaji Srinivasan" class="img-fluid speaker-img">
     </div>
     <div class="col-md-9">
-      <h5 class="fw-bold mb-1">Dr. D. Saraswathi</h5>
-      <p class="text-muted mb-1 fst-italic">Associate Professor, School of Computer Science Engineering, VIT Chennai, Tamil Nadu.</p>
-      <p class="mb-0">
-        Dr. D. Saraswathi is an Associate Professor at Vellore Institute of Technology (VIT) Chennai, with academic credentials including a B.E., M.E., and PhD in computer science and engineering. She is a passionate machine learning professional and researcher associated with the Centre for Human Movement Analytics at VIT, specializing in artificial intelligence, machine learning, deep learning, medical image analysis, computer vision, and foundational quantum computing concepts.  Dr. Saraswathi has expertise in predictive modeling, explainable AI, time-series analysis, generative AI, multi-modal signal fusion and technical frameworks such as TensorFlow, Keras, and Scikit-learn. She also actively engaged in research collaborations with clinical partners and has provided mentorship and training in AI/ML and computer vision, making substantial contributions to academic and professional communities.
-</p>
+      <h5 class="fw-bold mb-1">Prof. Balaji Srinivasan</h5>
+      <p class="text-muted mb-1 fst-italic">Professor, Department of Physics, IIT Madras</p>
+      <p class="speaker-bio mb-2">
+        Expert in quantum optics, fiber lasers, and optical instrumentation, contributing significantly to photonics and quantum technologies.
+      </p>
+      <div class="speaker-links">
+        <a href="#" target="_blank" class="speaker-link"><img src="google-scholar.png" alt="Google Scholar">Google Scholar</a>
+      </div>
     </div>
   </div>
-  
-  
+
+  <!-- ✅ Speaker 7 -->
+  <div class="row align-items-center mb-5 shadow-sm p-3 rounded speaker-card">
+    <div class="col-md-3 text-center">
+      <img src="dinesh.jpeg" alt="Dr. Dinesh Kumar" class="img-fluid speaker-img">
+    </div>
+    <div class="col-md-9">
+      <h5 class="fw-bold mb-1">Dr. Dinesh Kumar</h5>
+      <p class="text-muted mb-1 fst-italic">Scientist, ISRO, Bangalore</p>
+      <p class="speaker-bio mb-2">
+        Works on quantum communication technologies and satellite-based secure communication systems.
+      </p>
+      <div class="speaker-links">
+        <a href="#" target="_blank" class="speaker-link"><img src="linkedin.png" alt="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Speaker 8 -->
+  <div class="row align-items-center mb-5 shadow-sm p-3 rounded speaker-card">
+    <div class="col-md-3 text-center">
+      <img src="suresh.jpeg" alt="Prof. Suresh Babu" class="img-fluid speaker-img">
+    </div>
+    <div class="col-md-9">
+      <h5 class="fw-bold mb-1">Prof. Suresh Babu</h5>
+      <p class="text-muted mb-1 fst-italic">Professor, Department of Physics, IIT Palakkad</p>
+      <p class="speaker-bio mb-2">
+        Research interests include quantum materials and photonic devices with quantum control capabilities.
+      </p>
+      <div class="speaker-links">
+        <a href="#" target="_blank" class="speaker-link"><img src="google-scholar.png" alt="Google Scholar">Google Scholar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Speaker 9 -->
+  <div class="row align-items-center mb-5 shadow-sm p-3 rounded speaker-card">
+    <div class="col-md-3 text-center">
+      <img src="kumaran.jpeg" alt="Prof. Kumaran" class="img-fluid speaker-img">
+    </div>
+    <div class="col-md-9">
+      <h5 class="fw-bold mb-1">Prof. Kumaran</h5>
+      <p class="text-muted mb-1 fst-italic">Professor, Department of Physics, IISc Bangalore</p>
+      <p class="speaker-bio mb-2">
+        Focused on quantum thermodynamics, statistical mechanics, and the interplay between classical and quantum systems.
+      </p>
+      <div class="speaker-links">
+        <a href="#" target="_blank" class="speaker-link"><img src="google-scholar.png" alt="Google Scholar">Google Scholar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Speaker 10 -->
+  <div class="row align-items-center mb-5 shadow-sm p-3 rounded speaker-card">
+    <div class="col-md-3 text-center">
+      <img src="sahoo.jpeg" alt="Prof. Sahoo" class="img-fluid speaker-img">
+    </div>
+    <div class="col-md-9">
+      <h5 class="fw-bold mb-1">Prof. Sahoo</h5>
+      <p class="text-muted mb-1 fst-italic">Professor, Department of Physics, IIT Kharagpur</p>
+      <p class="speaker-bio mb-2">
+        Works in quantum computing architectures, semiconductor qubits, and advanced nanodevice engineering.
+      </p>
+      <div class="speaker-links">
+        <a href="#" target="_blank" class="speaker-link"><img src="google-scholar.png" alt="Google Scholar">Google Scholar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Speaker 11 -->
+  <div class="row align-items-center mb-5 shadow-sm p-3 rounded speaker-card">
+    <div class="col-md-3 text-center">
+      <img src="sairam.jpeg" alt="Dr. Sairam" class="img-fluid speaker-img">
+    </div>
+    <div class="col-md-9">
+      <h5 class="fw-bold mb-1">Dr. Sairam</h5>
+      <p class="text-muted mb-1 fst-italic">Quantum Engineer, QpiAI India</p>
+      <p class="speaker-bio mb-2">
+        Works on integrating machine learning with quantum simulation and hybrid optimization systems.
+      </p>
+      <div class="speaker-links">
+        <a href="#" target="_blank" class="speaker-link"><img src="linkedin.png" alt="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Speaker 12 -->
+  <div class="row align-items-center mb-5 shadow-sm p-3 rounded speaker-card">
+    <div class="col-md-3 text-center">
+      <img src="vijay.jpeg" alt="Prof. Vijay Kumar" class="img-fluid speaker-img">
+    </div>
+    <div class="col-md-9">
+      <h5 class="fw-bold mb-1">Prof. Vijay Kumar</h5>
+      <p class="text-muted mb-1 fst-italic">Professor, Department of Physics, NIT Trichy</p>
+      <p class="speaker-bio mb-2">
+        Specializes in condensed matter and quantum physics, focusing on material simulation and photonics.
+      </p>
+      <div class="speaker-links">
+        <a href="#" target="_blank" class="speaker-link"><img src="google-scholar.png" alt="Google Scholar">Google Scholar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Speaker 13 -->
+  <div class="row align-items-center mb-5 shadow-sm p-3 rounded speaker-card">
+    <div class="col-md-3 text-center">
+      <img src="chandrashekar.jpeg" alt="Prof. Chandrasekar" class="img-fluid speaker-img">
+    </div>
+    <div class="col-md-9">
+      <h5 class="fw-bold mb-1">Prof. Chandrasekar</h5>
+      <p class="text-muted mb-1 fst-italic">Professor, School of Advanced Sciences, VIT Chennai</p>
+      <p class="speaker-bio mb-2">
+        Expert in nonlinear systems and quantum chaos with applications in quantum synchronization and control.
+      </p>
+      <div class="speaker-links">
+        <a href="#" target="_blank" class="speaker-link"><img src="google-scholar.png" alt="Google Scholar">Google Scholar</a>
+      </div>
+    </div>
+  </div>
 
 </section>
 
@@ -322,17 +339,3 @@ processing, soft computing, cryptography, neural networks, and quantum computing
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
