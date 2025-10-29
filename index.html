@@ -20,13 +20,15 @@
       display: inline-block;
     }
 
+    /* ✅ Hero section restored with visible background */
     .hero {
-      background-image: url('bg.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      min-height: 60vh;
+      background: url('bg.jpg') no-repeat center center / cover;
+      min-height: 90vh;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
     }
 
     .hero::before {
@@ -34,7 +36,8 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.45); /* keeps text readable */
+      z-index: 0;
     }
 
     .hero .container {
@@ -163,12 +166,9 @@
   </div>
 </nav>
 
-<!-- Hero Section -->
-<section id="home" class="hero d-flex align-items-center">
-  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4);"></div>
-
-  <div class="container" style="position:relative; z-index:1;">
-    
+<!-- Hero Section (Background restored) -->
+<section id="home" class="hero">
+  <div class="container">
     <!-- Logos Row -->
     <div class="row justify-content-between align-items-center mb-4 text-center text-lg-start">
       <div class="col-4 text-start">
@@ -177,8 +177,9 @@
       <div class="col-4 text-center">
         <img src="VIT Logo.jpg" alt="VIT Logo" class="img-fluid" style="max-width:160px;">
       </div>
-      <div class="col-4 text-end">
+      <div class="col-4 text-end position-relative">
         <img src="iic.jpg" alt="IIC Logo" class="img-fluid mb-2" style="max-width:140px;">
+        <p style="font-size:1rem; color:#fff; margin-top:-5px;">📅 December 15 – 19, 2025</p>
       </div>
     </div>
 
@@ -190,9 +191,6 @@
           "Quantum Mathematics and Imaging for Smart Manufacturing and Industry 4.0"
         </h2>
         <p class="lead mb-1"> QMI – 2025 | 5 Days International Workshop</p>
-        <p style="font-size:1.3rem; font-weight:500; color:#fff;">
-          📅 December 15 – 19, 2025
-        </p>
       </div>
     </div>
 
@@ -201,7 +199,6 @@
       <h6>Sponsored by</h6>
       <img src="serb.png" alt="SERB Sponsor">
     </div>
-
   </div>
 </section>
 
@@ -217,13 +214,13 @@
 <!-- About Workshop -->
 <section id="overview" class="container my-5">
   <h2 class="section-title">About Workshop</h2>
-  <p><b>QMI-2025</b> is an international five-days workshop dedicated to advancing the integration of quantum mathematics and imaging technologies in the context of Smart Manufacturing and Industry 4.0. The title ‘QMI’ highlights the convergence of mathematical foundations, quantum-inspired techniques, and imaging innovations, fostering interdisciplinary collaboration across science, engineering, and industrial domains. Designed as a synergy of theory and practice, the workshop provides a platform to explore the transformative role of quantum mathematics and cutting-edge imaging in enabling intelligent, efficient, and sustainable manufacturing systems. Participants will gain in-depth insights into theoretical frameworks, computational tools, and industrial applications, while also engaging with emerging trends and future directions. QMI-2025 aspires to spark innovation, inspire cross-disciplinary research, and empower attendees to contribute to the evolving landscape of Industry 4.0 through the lens of quantum mathematics and imaging.</p>
+  <p><b>QMI-2025</b> is an international five-days workshop dedicated to advancing the integration of quantum mathematics and imaging technologies in the context of Smart Manufacturing and Industry 4.0...</p>
 </section>
 
 <!-- About SAS -->
 <section id="overview" class="container my-5">
   <h2 class="section-title">About SAS</h2>
-  <p>The School of Advanced Sciences (SAS) at Vellore Institute of Technology (VIT) Chennai, comprises Department of Mathematics, Physics and Chemistry. It offers the following programmes: Ph.D, M.Sc Data Science, M.Sc Physics, M.Sc Chemistry. The school also offers a plethora of core and elective courses facilitating B.Tech, M.Tech, MCA, Integrated M.Tech, Management and Law programmes.</p>
+  <p>The School of Advanced Sciences (SAS) at Vellore Institute of Technology (VIT) Chennai...</p>
 </section>
 
 <!-- About VIT -->
@@ -235,37 +232,13 @@
 <!-- About VIT Chennai -->
 <section id="overview" class="container my-5">
   <h2 class="section-title">About VIT Chennai</h2>
-  <p>VIT Chennai was established in 2010 and has since become a beacon of excellence in higher education...</p>
+  <p>VIT Chennai was established in 2010 and has since become a beacon of excellence...</p>
 </section>
 
-<!-- Themes Section -->
-<section id="themes" class="py-5" style="background-color:#0b132b; color:white;">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-5">Key Insights from the Workshop</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card h-100 shadow text-center p-4" style="border-radius:15px;">
-          <div class="mb-3"><img src="ss.jpg" alt="Quantum Mathematics" style="max-height:60px;"></div>
-          <h5 class="fw-bold">Quantum Mathematics</h5>
-          <p>Explore the core principles...</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow text-center p-4" style="border-radius:15px;">
-          <div class="mb-3"><img src="ai.jpg" alt="Imaging" style="max-height:60px;"></div>
-          <h5 class="fw-bold">Imaging & Smart Manufacturing</h5>
-          <p>Discover advanced imaging...</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow text-center p-4" style="border-radius:15px;">
-          <div class="mb-3"><img src="qi.jpg" alt="AI & Industry 4.0" style="max-height:60px;"></div>
-          <h5 class="fw-bold">AI & Industry 4.0</h5>
-          <p>Explore the role of AI...</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- Members Section -->
+<section id="members" class="container my-5">
+  <h2 class="section-title">Members</h2>
+  <p>All faculty members and research scholars of the Department of Mathematics, SAS, VIT Chennai.</p>
 </section>
 
 <!-- Sponsors Section -->
