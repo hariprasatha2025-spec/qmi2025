@@ -42,6 +42,31 @@
       z-index: 1;
     }
 
+    /* Sponsor in bottom-right corner */
+    .sponsor-bottom-right {
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      text-align: center;
+      color: white;
+    }
+
+    .sponsor-bottom-right h6 {
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .sponsor-bottom-right img {
+      max-width: 120px;
+      height: auto;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 4px;
+    }
+
     .section-title {
       border-left: 4px solid #002147;
       padding-left: 10px;
@@ -79,6 +104,13 @@
     @media (max-width: 576px) {
       .adaptive-logo { max-width: clamp(60px, 8vw, 90px); }
       .adaptive-logo-right { max-width: clamp(70px, 9vw, 110px); }
+      .sponsor-bottom-right {
+        right: 10px;
+        bottom: 10px;
+      }
+      .sponsor-bottom-right img {
+        max-width: 80px;
+      }
     }
 
     .deadline-banner {
@@ -147,10 +179,6 @@
       </div>
       <div class="col-4 text-end">
         <img src="iic.jpg" alt="IIC Logo" class="img-fluid mb-2" style="max-width:140px;">
-        <!-- Sponsor logo directly below IIC logo -->
-        <div class="mt-2">
-          <img src="serb.png" alt="SERB Sponsor" class="img-fluid" style="max-width:120px;">
-        </div>
       </div>
     </div>
 
@@ -166,6 +194,12 @@
           📅 December 15 – 19, 2025
         </p>
       </div>
+    </div>
+
+    <!-- Sponsor logo in bottom right -->
+    <div class="sponsor-bottom-right">
+      <h6>Sponsored by</h6>
+      <img src="serb.png" alt="SERB Sponsor">
     </div>
 
   </div>
@@ -195,7 +229,7 @@
 <!-- About VIT -->
 <section id="overview" class="container my-5">
   <h2 class="section-title">About VIT</h2>
-  <p><b>Founded in 1984</b>, as Vellore Engineering College, a self-financing institution dedicated to providing quality higher education. In 2001, the Union Ministry of Human Resource Development conferred university status on the institution under Section 3 of the University Grants Commission (UGC) Act, 1956. VIT is led by its visionary Founder and Chancellor, Dr. G. Viswanathan, a former Parliamentarian and Minister in the Government of Tamil Nadu. In recognition of his exceptional contributions to education, Dr. G. Viswanathan was awarded an honorary doctorate by West Virginia University (USA) in 2009 and the State University of New York (USA) in 2024. With a commitment to delivering world-class education on par with international standards, VIT continually adopts innovative approaches to teaching and research...</p>
+  <p><b>Founded in 1984</b>, as Vellore Engineering College...</p>
 </section>
 
 <!-- About VIT Chennai -->
