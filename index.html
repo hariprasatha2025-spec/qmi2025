@@ -27,6 +27,7 @@
       background-repeat: no-repeat;
       min-height: 60vh;
       position: relative;
+      color: white;
     }
 
     .hero::before {
@@ -34,7 +35,7 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.25); /* Reduced opacity for visible background */
     }
 
     .hero .container {
@@ -130,6 +131,15 @@
       0% { transform: translateX(-100%); }
       100% { transform: translateX(100%); }
     }
+
+    /* Centered date below IIC logo */
+    .date-below-logo {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -165,8 +175,6 @@
 
 <!-- Hero Section -->
 <section id="home" class="hero d-flex align-items-center">
-  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4);"></div>
-
   <div class="container" style="position:relative; z-index:1;">
     
     <!-- Logos Row -->
@@ -179,6 +187,8 @@
       </div>
       <div class="col-4 text-end">
         <img src="iic.jpg" alt="IIC Logo" class="img-fluid mb-2" style="max-width:140px;">
+        <!-- Date placed below IIC logo -->
+        <p class="date-below-logo">📅 December 15 – 19, 2025</p>
       </div>
     </div>
 
@@ -190,9 +200,6 @@
           "Quantum Mathematics and Imaging for Smart Manufacturing and Industry 4.0"
         </h2>
         <p class="lead mb-1"> QMI – 2025 | 5 Days International Workshop</p>
-        <p style="font-size:1.3rem; font-weight:500; color:#fff;">
-          📅 December 15 – 19, 2025
-        </p>
       </div>
     </div>
 
