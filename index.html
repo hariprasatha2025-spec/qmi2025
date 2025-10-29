@@ -7,23 +7,21 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body { font-family: Arial, sans-serif; scroll-behavior: smooth; }
-    .navbar { background-color: #002147; } /* Dark Blue like IITM */
+    .navbar { background-color: #002147; }
     .navbar-brand img { max-height: 50px; }
     .navbar-nav .nav-link { color: white !important; margin: 0 10px; }
     .navbar-nav .nav-link:hover { text-decoration: underline; }
     .btn-flyer { border: 1px solid #fff; color: #fff; }
     .btn-flyer:hover { background: #fff; color: #002147; }
 
-    /* Universal image responsiveness */
     img {
       max-width: 100%;
       height: auto;
       display: inline-block;
     }
 
-    /* Hero Section */
     .hero {
-      background-image: url('bg.jpg');   /* ✅ Change to your file name */
+      background-image: url('bg.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -31,13 +29,12 @@
       position: relative;
     }
 
-    /* Optional overlay */
     .hero::before {
       content: "";
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.4); /* dark overlay for readability */
+      background: rgba(0,0,0,0.4);
     }
 
     .hero .container {
@@ -58,12 +55,10 @@
     footer a { color: #cdddf7; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
-    /* ✅ Justify only main content paragraphs */
     section p {
       text-align: justify;
     }
 
-    /* ✅ Adaptive Logo Sizes using clamp() for true responsiveness */
     .adaptive-logo {
       width: 100%;
       height: auto;
@@ -77,21 +72,31 @@
     }
 
     @media (max-width: 992px) {
-      .adaptive-logo {
-        max-width: clamp(70px, 9vw, 120px);
-      }
-      .adaptive-logo-right {
-        max-width: clamp(80px, 10vw, 150px);
-      }
+      .adaptive-logo { max-width: clamp(70px, 9vw, 120px); }
+      .adaptive-logo-right { max-width: clamp(80px, 10vw, 150px); }
     }
 
     @media (max-width: 576px) {
-      .adaptive-logo {
-        max-width: clamp(60px, 8vw, 90px);
-      }
-      .adaptive-logo-right {
-        max-width: clamp(70px, 9vw, 110px);
-      }
+      .adaptive-logo { max-width: clamp(60px, 8vw, 90px); }
+      .adaptive-logo-right { max-width: clamp(70px, 9vw, 110px); }
+    }
+
+    .deadline-banner {
+      background-color: #dc3545;
+      color: white;
+      font-size: 18px;
+      overflow: hidden;
+    }
+
+    .deadline-banner p {
+      display: inline-block;
+      white-space: nowrap;
+      animation: moveText 30s linear infinite;
+    }
+
+    @keyframes moveText {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
     }
   </style>
 </head>
@@ -100,19 +105,15 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg shadow-sm" style="background-color:#002147;">
   <div class="container-fluid">
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
       <ul class="navbar-nav align-items-center">
-        
-        <!-- ✅ Image placed to the left of Home -->
         <li class="nav-item">
           <img src="logo1.png" alt="Logo" class="adaptive-logo" style="max-width:60px; margin-right:10px;">
         </li>
-
         <li class="nav-item"><a class="nav-link text-white" href="index.html#home">Home</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="organizers.html">Organizers</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="speakers.html#speakers">Speakers</a></li>
@@ -124,7 +125,6 @@
       </ul>
     </div>
 
-    <!-- ✅ Button OUTSIDE modal -->
     <div class="d-none d-lg-block ms-3">
       <a href="broucher.pdf" target="_blank" class="btn btn-flyer">View Flyer</a>
     </div>
@@ -132,14 +132,7 @@
 </nav>
 
 <!-- Hero Section -->
-<section id="home" class="hero d-flex align-items-center" 
-  style="
-    background: url('bg.png') no-repeat center center/cover;
-    min-height:60vh;
-    position: relative;
-  ">
-  
-  <!-- Optional dark overlay for better readability -->
+<section id="home" class="hero d-flex align-items-center">
   <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4);"></div>
 
   <div class="container" style="position:relative; z-index:1;">
@@ -147,16 +140,17 @@
     <!-- Logos Row -->
     <div class="row justify-content-between align-items-center mb-4 text-center text-lg-start">
       <div class="col-4 text-start">
-        <img src="logo1.png" alt="QMI Logo" class="img-fluid" 
-             style="max-width:140px; height:auto;">
+        <img src="logo1.png" alt="QMI Logo" class="img-fluid" style="max-width:140px;">
       </div>
       <div class="col-4 text-center">
-        <img src="VIT Logo.jpg" alt="VIT Logo" class="img-fluid" 
-             style="max-width:160px; height:auto;">
+        <img src="VIT Logo.jpg" alt="VIT Logo" class="img-fluid" style="max-width:160px;">
       </div>
       <div class="col-4 text-end">
-        <img src="iic.jpg" alt="IIC Logo" class="img-fluid" 
-             style="max-width:140px; height:auto;">
+        <img src="iic.jpg" alt="IIC Logo" class="img-fluid mb-2" style="max-width:140px;">
+        <!-- Sponsor logo directly below IIC logo -->
+        <div class="mt-2">
+          <img src="serb.png" alt="SERB Sponsor" class="img-fluid" style="max-width:120px;">
+        </div>
       </div>
     </div>
 
@@ -177,7 +171,6 @@
   </div>
 </section>
 
-
 <!-- Registration Deadline Notice -->
 <section class="deadline-banner py-2">
   <div class="container text-center">
@@ -187,151 +180,56 @@
   </div>
 </section>
 
-<style>
-  .deadline-banner {
-    background-color: #dc3545; /* Red background */
-    color: white;
-    font-size: 18px;
-    overflow: hidden;
-  }
-  .deadline-banner p {
-    display: inline-block;
-    white-space: nowrap;
-    animation: moveText 30s linear infinite;
-  }
-  @keyframes moveText {
-    0%   { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-  }
-</style>
-
 <!-- About Workshop -->
 <section id="overview" class="container my-5">
-  <h2 class="section-title">About Workshop </h2>
-  <p>
-    <b>QMI-2025</b> is an international five-days workshop dedicated to advancing the integration of quantum mathematics and imaging technologies in the context of Smart Manufacturing and Industry 4.0. The title ‘QMI’ highlights the convergence of mathematical foundations, quantum-inspired techniques, and imaging innovations, fostering interdisciplinary collaboration across science, engineering, and industrial domains. Designed as a synergy of theory and practice, the workshop provides a platform to explore the transformative role of quantum mathematics and cutting-edge imaging in enabling intelligent, efficient, and sustainable manufacturing systems. Participants will gain in-depth insights into theoretical frameworks, computational tools, and industrial applications, while also engaging with emerging trends and future directions. QMI-2025 aspires to spark innovation, inspire cross-disciplinary research, and empower attendees to contribute to the evolving landscape of Industry 4.0 through the lens of quantum mathematics and imaging.
-  </p>
- </section>
+  <h2 class="section-title">About Workshop</h2>
+  <p><b>QMI-2025</b> is an international five-days workshop dedicated to advancing the integration of quantum mathematics and imaging technologies in the context of Smart Manufacturing and Industry 4.0. The title ‘QMI’ highlights the convergence of mathematical foundations, quantum-inspired techniques, and imaging innovations, fostering interdisciplinary collaboration across science, engineering, and industrial domains. Designed as a synergy of theory and practice, the workshop provides a platform to explore the transformative role of quantum mathematics and cutting-edge imaging in enabling intelligent, efficient, and sustainable manufacturing systems. Participants will gain in-depth insights into theoretical frameworks, computational tools, and industrial applications, while also engaging with emerging trends and future directions. QMI-2025 aspires to spark innovation, inspire cross-disciplinary research, and empower attendees to contribute to the evolving landscape of Industry 4.0 through the lens of quantum mathematics and imaging.</p>
+</section>
 
 <!-- About SAS -->
 <section id="overview" class="container my-5">
-  <h2 class="section-title">About SAS </h2>
-  <p>
-    The School of Advanced Sciences (SAS) at Vellore Institute of Technology (VIT) Chennai, comprises Department of Mathematics, Physics and Chemistry. It offers the following programmes: 
-    Ph.D, M.Sc Data Science, M.Sc Physics, M.Sc Chemistry.  The school also offers a plethora of core and elective courses facilitating B.Tech, M.Tech, MCA, Integrated M.Tech, Management and Law programmes.
-  </p>
- </section>
+  <h2 class="section-title">About SAS</h2>
+  <p>The School of Advanced Sciences (SAS) at Vellore Institute of Technology (VIT) Chennai, comprises Department of Mathematics, Physics and Chemistry. It offers the following programmes: Ph.D, M.Sc Data Science, M.Sc Physics, M.Sc Chemistry. The school also offers a plethora of core and elective courses facilitating B.Tech, M.Tech, MCA, Integrated M.Tech, Management and Law programmes.</p>
+</section>
 
 <!-- About VIT -->
 <section id="overview" class="container my-5">
-  <h2 class="section-title">About VIT </h2>
-  <p>
-    <b>Founded in 1984</b>, as Vellore Engineering College, a self-financing institution dedicated to providing quality higher education.
-In 2001, the Union Ministry of Human Resource Development
-conferred university status on the institution under Section 3 of the
-University Grants Commission (UGC) Act, 1956. VIT is led by its
-visionary Founder and Chancellor, Dr. G. Viswanathan, a former
-Parliamentarian and Minister in the Government of Tamil Nadu. In
-recognition of his exceptional contributions to education,
-Dr. G. Viswanathan was awarded an honorary doctorate by West
-Virginia University (USA) in 2009 and the State University of New
-York (USA) in 2024. With a commitment to delivering world-class
-education on par with international standards, VIT continually adopts
-innovative approaches to teaching and research. Our Memoranda of
-Understanding with various international universities, being a major
-strength, enable meaningful collaborations via student and faculty
-exchanges and foster joint research projects. Many of our students,
-working in international organizations and universities, deliver highquality solutions and conduct research that bring esteem to India
-and make us proud of our legacy. At VIT, the pursuit of excellence in education and research is complemented by a dynamic ecosystem of
-innovation, research and global engagement. As we advance
-steadily, we remain steadfast in our mission to nurture leaders and
-innovators who can make a meaningful impact on the world.
-  </p>
- </section>
+  <h2 class="section-title">About VIT</h2>
+  <p><b>Founded in 1984</b>, as Vellore Engineering College, a self-financing institution dedicated to providing quality higher education. In 2001, the Union Ministry of Human Resource Development conferred university status on the institution under Section 3 of the University Grants Commission (UGC) Act, 1956. VIT is led by its visionary Founder and Chancellor, Dr. G. Viswanathan, a former Parliamentarian and Minister in the Government of Tamil Nadu. In recognition of his exceptional contributions to education, Dr. G. Viswanathan was awarded an honorary doctorate by West Virginia University (USA) in 2009 and the State University of New York (USA) in 2024. With a commitment to delivering world-class education on par with international standards, VIT continually adopts innovative approaches to teaching and research...</p>
+</section>
 
-<!-- About VIT Chennai-->
+<!-- About VIT Chennai -->
 <section id="overview" class="container my-5">
   <h2 class="section-title">About VIT Chennai</h2>
-  <p> VIT Chennai was established in 2010 and has since become
-a beacon of excellence in higher education. Spearheaded by
-Vice-President Dr. G. V. Selvam, a pioneering visionary who laid the
-foundation of VIT Chennai, he is an insightful architect of its
-evergreen campus and an ingenious leader whose comprehensive
-vision and mission have shaped its growth. Under his guidance, VIT
-Chennai has rapidly evolved into a hub of innovation and academic
-distinction. The leadership team, including Vice-Chancellor
-Dr. V. S. Kanchana Bhaaskaran, Pro-Vice Chancellor
-Dr. T. Thyagarajan, Director Dr. K. Sathiyanarayanan and Additional
-Registrar Dr. P. K. Manoharan, drives its mission of delivering
-transformative education and impactful research. Strategically
-located in the capital city of Tamil Nadu, VIT Chennai is a globally
-engaged, competitive, and research-enriched institution.
-  </p>
-  <p>VIT Chennai proactively addresses industrial, social, economic and
-environmental challenges, fostering application-based learning that
-produces industry-ready professionals. Known for its cosmopolitan
-atmosphere, VIT Chennai attracts students from across the globe,
-fostering a vibrant and multicultural community. Committed to
-maximizing industrial connectivity and establishing Centers of
-Excellence in cutting-edge research areas, VIT Chennai enriches
-technological and managerial human capital through a collaborative
-and inclusive academic environment. It serves as a platform for
-intellectual exchange, encouraging the convergence of diverse
-ideas to drive innovation and learning. Dedicated to societal and
-industrial advancement, VIT Chennai leverages its resources to
-benefit the community, supports national knowledge-building
-initiatives and fosters international collaborations for mutual
-progress in research and education. With a clear vision and an
-unwavering mission, VIT Chennai continues to redefine the
-landscape of higher education in India and beyond.
-</p>
- </section>
+  <p>VIT Chennai was established in 2010 and has since become a beacon of excellence in higher education...</p>
+</section>
 
 <!-- Themes Section -->
 <section id="themes" class="py-5" style="background-color:#0b132b; color:white;">
   <div class="container">
     <h2 class="text-center fw-bold mb-5">Key Insights from the Workshop</h2>
     <div class="row g-4">
-
-      <!-- Card 1 -->
       <div class="col-md-4">
         <div class="card h-100 shadow text-center p-4" style="border-radius:15px;">
-          <div class="mb-3">
-            <img src="ss.jpg" alt="Quantum Mathematics" style="max-height:60px;">
-          </div>
+          <div class="mb-3"><img src="ss.jpg" alt="Quantum Mathematics" style="max-height:60px;"></div>
           <h5 class="fw-bold">Quantum Mathematics</h5>
-          <p>
-            Explore the core principles and applications of quantum mathematics in solving complex challenges across computation, communication, and Industry 4.0.
-          </p>
+          <p>Explore the core principles...</p>
         </div>
       </div>
-
-      <!-- Card 2 -->
       <div class="col-md-4">
         <div class="card h-100 shadow text-center p-4" style="border-radius:15px;">
-          <div class="mb-3">
-            <img src="ai.jpg" alt="Imaging & Smart Manufacturing" style="max-height:60px;">
-          </div>
+          <div class="mb-3"><img src="ai.jpg" alt="Imaging" style="max-height:60px;"></div>
           <h5 class="fw-bold">Imaging & Smart Manufacturing</h5>
-          <p>
-            Discover advanced imaging techniques and their integration with industrial automation for defect detection, quality assurance, and predictive maintenance.
-          </p>
+          <p>Discover advanced imaging...</p>
         </div>
       </div>
-
-      <!-- Card 3 -->
       <div class="col-md-4">
         <div class="card h-100 shadow text-center p-4" style="border-radius:15px;">
-          <div class="mb-3">
-            <img src="qi.jpg" alt="AI & Entrepreneurship" style="max-height:60px;">
-          </div>
+          <div class="mb-3"><img src="qi.jpg" alt="AI & Industry 4.0" style="max-height:60px;"></div>
           <h5 class="fw-bold">AI & Industry 4.0</h5>
-          <p>
-            Explore the role of Artificial Intelligence in Industry 4.0 and its transformation of innovative research into practical entrepreneurial ventures.
-          </p>
+          <p>Explore the role of AI...</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -340,13 +238,9 @@ landscape of higher education in India and beyond.
 <section class="container my-5 text-center">
   <h2 class="fw-bold mb-4">Sponsored By</h2>
   <div class="row justify-content-center align-items-center g-4">
-
-    <!-- Sponsor 1 -->
     <div class="col-md-3 col-6">
       <img src="serb.png" alt="serb logo" class="img-fluid mb-2" style="max-height:150px;">
-      <p class="fw-bold small"><br><span class="fw-normal"></span></p>
     </div>
-
   </div>
 </section>
 
@@ -354,19 +248,11 @@ landscape of higher education in India and beyond.
 <footer class="bg-light text-dark pt-5 pb-3 mt-5">
   <div class="container">
     <div class="row">
-
-      <!-- Contact -->
       <div class="col-md-4 mb-4">
         <h5 class="fw-bold">Contact Us</h5>
-        <p>
-          Department of Mathematics (SAS),<br>
-          Vellore Institute of Technology,<br>
-          Chennai – 600127, Tamil Nadu, India
-        </p>
+        <p>Department of Mathematics (SAS),<br>Vellore Institute of Technology,<br>Chennai – 600127, Tamil Nadu, India</p>
         <p><b>Email:</b> qmivitc2025@gmail.com</p>
       </div>
-
-      <!-- Useful Links -->
       <div class="col-md-4 mb-4">
         <h5 class="fw-bold">Useful Links</h5>
         <ul class="list-unstyled">
@@ -375,39 +261,22 @@ landscape of higher education in India and beyond.
           <li><a href="registration.html" class="text-dark text-decoration-none">Registration</a></li>
         </ul>
       </div>
-
-      <!-- Campus Map -->
       <div class="col-md-4 mb-4">
         <h5 class="fw-bold">Campus Map</h5>
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.178862832812!2d80.15363987462314!3d12.840640918367667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5259aa7ef4c4b7%3A0xeab3ff5b05a6e94f!2sVIT%20Chennai%20Campus!5e0!3m2!1sen!2sin!4v1692960123456!5m2!1sen!2sin" 
-          width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
-        <p class="mt-2">
-          <a href="https://maps.google.com/?q=VIT+Chennai+Campus" target="_blank" class="btn btn-sm btn-outline-primary">
-            View on Google Maps
-          </a>
-        </p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <p class="mt-2"><a href="https://maps.google.com/?q=VIT+Chennai+Campus" target="_blank" class="btn btn-sm btn-outline-primary">View on Google Maps</a></p>
       </div>
-
-    </div> <!-- row end -->
-  </div> <!-- container end -->
-</footer>
-
-<!-- Footer -->
-<footer>
-  <div class="container text-center">
-    <p>© 2025 QMI Workshop – VIT Chennai | All Rights Reserved</p>
-    <div>
-      <a href="#speakers">Speakers</a> |   
-      <a href="#contact">Contact</a>
     </div>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<footer>
+  <div class="container text-center">
+    <p>© 2025 QMI Workshop – VIT Chennai | All Rights Reserved</p>
+    <div><a href="#speakers">Speakers</a> | <a href="#contact">Contact</a></div>
+  </div>
+</footer>
 
-<!-- Bootstrap 5 JS bundle (includes Popper) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
