@@ -14,16 +14,10 @@
     .btn-flyer { border: 1px solid #fff; color: #fff; }
     .btn-flyer:hover { background: #fff; color: #002147; }
 
-    /* Universal image responsiveness */
-    img {
-      max-width: 100%;
-      height: auto;
-      display: inline-block;
-    }
+    img { max-width: 100%; height: auto; display: inline-block; }
 
-    /* Hero Section */
     .hero {
-      background-image: url('bg.jpg');   /* ✅ Change to your file name */
+      background-image: url('bg.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -31,19 +25,15 @@
       position: relative;
     }
 
-    /* Optional overlay */
     .hero::before {
       content: "";
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.4); /* dark overlay for readability */
+      background: rgba(0,0,0,0.4);
     }
 
-    .hero .container {
-      position: relative;
-      z-index: 1;
-    }
+    .hero .container { position: relative; z-index: 1; }
 
     .section-title {
       border-left: 4px solid #002147;
@@ -58,18 +48,13 @@
     footer a { color: #cdddf7; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
-    /* ✅ Justify only main content paragraphs */
-    section p {
-      text-align: justify;
-    }
+    section p { text-align: justify; }
 
-    /* ✅ Adaptive Logo Sizes using clamp() for true responsiveness */
     .adaptive-logo {
       width: 100%;
       height: auto;
       max-width: clamp(80px, 10vw, 140px);
     }
-
     .adaptive-logo-right {
       width: 100%;
       height: auto;
@@ -77,21 +62,13 @@
     }
 
     @media (max-width: 992px) {
-      .adaptive-logo {
-        max-width: clamp(70px, 9vw, 120px);
-      }
-      .adaptive-logo-right {
-        max-width: clamp(80px, 10vw, 150px);
-      }
+      .adaptive-logo { max-width: clamp(70px, 9vw, 120px); }
+      .adaptive-logo-right { max-width: clamp(80px, 10vw, 150px); }
     }
 
     @media (max-width: 576px) {
-      .adaptive-logo {
-        max-width: clamp(60px, 8vw, 90px);
-      }
-      .adaptive-logo-right {
-        max-width: clamp(70px, 9vw, 110px);
-      }
+      .adaptive-logo { max-width: clamp(60px, 8vw, 90px); }
+      .adaptive-logo-right { max-width: clamp(70px, 9vw, 110px); }
     }
   </style>
 </head>
@@ -108,7 +85,6 @@
     <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
       <ul class="navbar-nav align-items-center">
         
-        <!-- ✅ Image placed to the left of Home -->
         <li class="nav-item">
           <img src="logo1.png" alt="Logo" class="adaptive-logo" style="max-width:60px; margin-right:10px;">
         </li>
@@ -124,7 +100,6 @@
       </ul>
     </div>
 
-    <!-- ✅ Button OUTSIDE modal -->
     <div class="d-none d-lg-block ms-3">
       <a href="qmi2025.pdf" target="_blank" class="btn btn-flyer">View Flyer</a>
     </div>
@@ -133,13 +108,8 @@
 
 <!-- Hero Section -->
 <section id="home" class="hero d-flex align-items-center" 
-  style="
-    background: url('bg.png') no-repeat center center/cover;
-    min-height:60vh;
-    position: relative;
-  ">
+  style="background: url('bg.png') no-repeat center center/cover; min-height:60vh; position: relative;">
   
-  <!-- Optional dark overlay for better readability -->
   <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4);"></div>
 
   <div class="container" style="position:relative; z-index:1;">
@@ -147,55 +117,49 @@
     <!-- Logos Row -->
     <div class="row justify-content-between align-items-center mb-4 text-center text-lg-start">
       <div class="col-4 text-start">
-        <img src="logo1.png" alt="QMI Logo" class="img-fluid" 
-             style="max-width:140px; height:auto;">
+        <img src="logo1.png" alt="QMI Logo" class="img-fluid" style="max-width:140px; height:auto;">
       </div>
       <div class="col-4 text-center">
-        <img src="VIT Logo.jpg" alt="VIT Logo" class="img-fluid" 
-             style="max-width:160px; height:auto;">
+        <img src="VIT Logo.jpg" alt="VIT Logo" class="img-fluid" style="max-width:160px; height:auto;">
       </div>
       <div class="col-4 text-end">
-        <img src="iic.jpg" alt="IIC Logo" class="img-fluid" 
-             style="max-width:140px; height:auto;">
+        <img src="iic.jpg" alt="IIC Logo" class="img-fluid" style="max-width:140px; height:auto;">
       </div>
     </div>
 
     <!-- Title & Text -->
     <div class="row justify-content-center text-white text-center">
-  <div class="col-lg-10 d-flex flex-column align-items-center">
-    <h2 class="fw-bold mb-4" style="font-size:2rem; line-height:1.4;">
-      <span style="font-size:2.3rem; display:block;">International Workshop on</span>
-      “Quantum Mathematics and Imaging for Smart Manufacturing and Industry 4.0”
-    </h2>
-<!-- ✅ Added line below the title -->
+      <div class="col-lg-10 d-flex flex-column align-items-center">
+        <h2 class="fw-bold mb-4" style="font-size:2rem; line-height:1.4;">
+          <span style="font-size:2.3rem; display:block;">International Workshop on</span>
+          “Quantum Mathematics and Imaging for Smart Manufacturing and Industry 4.0”
+        </h2>
+
+        <!-- ✅ Added line below the title -->
         <p class="fw-semibold mb-3" style="font-size:1.4rem; color:#fff;">(Hybrid Mode)</p>
-    <div class="text-center">
-      <p class="lead mb-2 fw-semibold" style="font-size:1.3rem;">QMI – 2025 | 5 Days International Workshop</p>
-      <p style="font-size:1.3rem; font-weight:500; color:#fff;">
-  📅 December 15 – 19, 2025
-</p>
 
+        <div class="text-center">
+          <p class="lead mb-2 fw-semibold" style="font-size:1.3rem;">QMI – 2025 | 5 Days International Workshop</p>
+          <p style="font-size:1.3rem; font-weight:500; color:#fff;">📅 December 15 – 19, 2025</p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
 
   </div>
 </section>
-
 
 <!-- Registration Deadline Notice -->
 <section class="deadline-banner py-2">
   <div class="container text-center">
     <p class="mb-0 fw-bold text-white">
-      🚨 Last date for early registration: <span style="text-decoration: underline;">November 20, 2025</span> &nbsp; </span>
+      🚨 Last date for early registration: <span style="text-decoration: underline;">November 20, 2025</span>
     </p>
   </div>
 </section>
 
 <style>
   .deadline-banner {
-    background-color: #dc3545; /* Red background */
+    background-color: #dc3545;
     color: white;
     font-size: 18px;
     overflow: hidden;
@@ -206,10 +170,11 @@
     animation: moveText 30s linear infinite;
   }
   @keyframes moveText {
-    0%   { transform: translateX(-100%); }
+    0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
   }
 </style>
+
 
 <!-- About Workshop -->
 <section id="overview" class="container my-5">
