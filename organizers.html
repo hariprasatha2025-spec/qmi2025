@@ -24,16 +24,24 @@
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg shadow-sm" style="background-color:#002147;">
+<!-- ✅ Responsive Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color:#002147;">
   <div class="container-fluid">
 
+    <!-- Brand Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="index.html#home">
+      <img src="logo1.png" alt="Logo" style="height:40px; width:auto; margin-right:10px;">
+    </a>
+
+    <!-- ✅ Mobile Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- ✅ Collapsible Menu -->
     <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
-      <ul class="navbar-nav align-items-center">
-        <!-- Left-side image/logo -->
-        <li class="nav-item">
-          <img src="logo1.png" alt="Logo" style="height:40px; width:auto; margin-right:10px;">
-        </li>
+      <ul class="navbar-nav align-items-lg-center ms-2">
         <li class="nav-item"><a class="nav-link text-white" href="index.html#home">Home</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="organizers.html">Organizers</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="speakers.html#speakers">Speakers</a></li>
@@ -43,16 +51,19 @@
         <li class="nav-item"><a class="nav-link text-white" href="sightseeing.html">Sightseeing</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
       </ul>
+
+      <!-- ✅ Mobile Flyer Button -->
+      <div class="d-lg-none text-center mt-3">
+        <a href="QMI 2025 Brouchure.png" target="_blank" class="btn btn-outline-light w-100">View Flyer</a>
+      </div>
     </div>
 
-    <!-- ✅ Button OUTSIDE modal -->
-<div class="d-none d-lg-block ms-3">
-  <a href="QMI 2025 Brouchure.png" target="_blank" class="btn btn-flyer text-white">View Flyer</a>
-</div>
-</div>
+    <!-- ✅ Desktop Flyer Button -->
+    <div class="d-none d-lg-block ms-3">
+      <a href="QMI 2025 Brouchure.png" target="_blank" class="btn btn-flyer text-white border border-white">View Flyer</a>
+    </div>
+  </div>
 </nav>
-
-
 
 <!-- Organizers Section -->
 <section id="organizers" class="container my-5">
@@ -69,10 +80,9 @@
     </div>
   </div>
 
-   <!-- Patrons -->
+  <!-- Patrons -->
   <h2 class="section-title mt-5">Patrons</h2>
 
-  <!-- First Row (3 Patrons) -->
   <div class="row text-center g-4">
     <div class="col-md-4 col-sm-6">
       <img src="vpa_small.jpg" alt="Patron 1" class="img-fluid mb-3 shadow-sm"
@@ -96,7 +106,7 @@
     </div>
   </div>
 
-  <!-- Second Row (2 Patrons) -->
+  <!-- Second Row of Patrons -->
   <div class="row text-center g-4 mt-4">
     <div class="col-md-6 col-sm-6">
       <img src="vsk.jpg" alt="Patron 4" class="img-fluid mb-3 shadow-sm"
@@ -112,7 +122,6 @@
       <p class="mb-1">Pro-Vice Chancellor<br>VIT Chennai</p>
     </div>
   </div>
-
 
   <!-- Convenor -->
   <h2 class="section-title mt-5">Convenor</h2>
@@ -132,17 +141,17 @@
       <img src="hs.jpg" alt="Co-Convenor 1" class="img-fluid mb-3 shadow-sm" 
            style="max-width:180px; height:auto; border-radius:10px;">
       <h5 class="fw-bold">Dr. S. Harshavarthini</h5>
-      <p class="mb-1">Assistant Professor <br>VIT Chennai</p>
+      <p class="mb-1">Assistant Professor<br>VIT Chennai</p>
     </div>
     <div class="col-md-6 col-sm-6">
       <img src="pn.jpg" alt="Co-Convenor 2" class="img-fluid mb-3 shadow-sm" 
            style="max-width:180px; height:auto; border-radius:10px;">
       <h5 class="fw-bold">Dr. N. Padmaja</h5>
-      <p class="mb-1">Assistant Professor <br>VIT Chennai</p>
+      <p class="mb-1">Assistant Professor<br>VIT Chennai</p>
     </div>
   </div>
 
-   <!-- Members -->
+  <!-- Members -->
   <h2 class="section-title mt-5">Organizing Members</h2>
   <div class="row text-center g-4">
     <div class="col-12">
@@ -151,23 +160,23 @@
       </p>
     </div>
   </div>
-<!-- Advisory Committee -->
+
+  <!-- Advisory Committee -->
   <h2 class="section-title mt-5">Advisory Committee</h2>
   <div class="row text-center g-4">
     <div class="col-md-6 col-sm-6">
-      <img src="dean.jpg" alt="Co-Convenor 1" class="img-fluid mb-3 shadow-sm" 
+      <img src="dean.jpg" alt="Dean" class="img-fluid mb-3 shadow-sm" 
            style="max-width:180px; height:auto; border-radius:10px;">
       <h5 class="fw-bold">Dr. G. Vinitha</h5>
       <p class="mb-1">Professor and Dean<br>School of Advanced Sciences (SAS)<br>VIT Chennai</p>
     </div>
     <div class="col-md-6 col-sm-6">
-      <img src="hod.jpg" alt="Co-Convenor 2" class="img-fluid mb-3 shadow-sm" 
+      <img src="hod.jpg" alt="HoD" class="img-fluid mb-3 shadow-sm" 
            style="max-width:180px; height:auto; border-radius:10px;">
       <h5 class="fw-bold">Dr. A. Manivannan</h5>
       <p class="mb-1">Associate Professor and Head<br>Department of Mathematics<br>VIT Chennai</p>
     </div>
   </div>
-
 </section>
 
 <!-- Footer -->
@@ -178,7 +187,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
-
