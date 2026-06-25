@@ -33,7 +33,20 @@ body{
 .gallery-img:hover{
     transform:scale(1.03);
 }
+.carousel-item img{
+    height: 600px;
+    width: 100%;
+    object-fit: contain;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    padding: 18px;
+}
 footer{
     background:#002147;
     color:white;
@@ -69,154 +82,179 @@ footer{
     <h2 class="section-title">QMI 2025 Gallery</h2>
 
     <!-- DAY 1 -->
-    <div class="event-card mb-5">
-        <h3 class="fw-bold text-primary">Day 1</h3>
-
-        <p class="text-muted">
-            Inaugural Ceremony, Registration, Welcome Address, and Technical Sessions.
-        </p>
-
-        <img src="day1.jpg"
-             class="img-fluid rounded shadow-sm mb-3"
-             alt="Day 1 Activities">
-
-        <p>
-            The workshop commenced with registration and the inaugural ceremony.
-            Distinguished guests, speakers, faculty members, and participants
-            gathered to mark the beginning of QMI 2025. The day featured
-            keynote lectures and technical sessions introducing the themes
-            of quantum mathematics, imaging, and Industry 4.0 technologies.
-        </p>
+    <div id="day1Carousel" class="carousel slide mb-3" data-bs-ride="false">
+  <div class="carousel-inner rounded shadow-sm">
+    <div class="carousel-item active">
+      <img src="day1_1.jpg" class="d-block w-100" alt="Day 1">
     </div>
+    <div class="carousel-item">
+      <img src="day1_2.jpg" class="d-block w-100" alt="Day 1">
+    </div>
+    <div class="carousel-item">
+      <img src="day1_3.jpg" class="d-block w-100" alt="Day 1">
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#day1Carousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#day1Carousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
 
     <!-- DAY 2 -->
-    <div class="event-card mb-5">
-        <h3 class="fw-bold text-primary">Day 2</h3>
-
-        <p class="text-muted">
-            Expert Lectures and Interactive Technical Sessions.
-        </p>
-
-        <img src="day2.jpg"
-             class="img-fluid rounded shadow-sm mb-3"
-             alt="Day 2 Activities">
-
-        <p>
-            Day 2 focused on advanced topics delivered by invited experts.
-            Participants actively engaged in discussions and explored
-            emerging research directions in quantum computing,
-            mathematical modelling, and imaging technologies.
-        </p>
+   <div id="day2Carousel" class="carousel slide mb-3" data-bs-ride="false">
+  <div class="carousel-inner rounded shadow-sm">
+    <div class="carousel-item active">
+      <img src="day2_1.jpg" class="d-block w-100" alt="Day 2">
     </div>
+    <div class="carousel-item">
+      <img src="day2_2.jpg" class="d-block w-100" alt="Day 2">
+    </div>
+    <div class="carousel-item">
+      <img src="day2_3.jpg" class="d-block w-100" alt="Day 2">
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#day2Carousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#day2Carousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
 
     <!-- DAY 3 -->
-    <div class="event-card mb-5">
-        <h3 class="fw-bold text-primary">Day 3</h3>
-
-        <p class="text-muted">
-            Hands-on Activities, Technical Discussions, and Networking.
-        </p>
-
-        <img src="day3.jpg"
-             class="img-fluid rounded shadow-sm mb-3"
-             alt="Day 3 Activities">
-
-        <p>
-            The third day encouraged collaborative learning through
-            interactive activities, technical discussions, and networking
-            opportunities among participants, researchers, and faculty members.
-        </p>
+    <div id="day3Carousel" class="carousel slide mb-3" data-bs-ride="false">
+  <div class="carousel-inner rounded shadow-sm">
+    <div class="carousel-item active">
+      <img src="day3_1.jpg" class="d-block w-100" alt="Day 3">
     </div>
+    <div class="carousel-item">
+      <img src="day3_2.jpg" class="d-block w-100" alt="Day 3">
+    </div>
+    <div class="carousel-item">
+      <img src="day3_3.jpg" class="d-block w-100" alt="Day 3">
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#day3Carousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#day3Carousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
 
     <!-- DAY 4 -->
-    <div class="event-card mb-5">
-        <h3 class="fw-bold text-primary">Day 4</h3>
-
-        <p class="text-muted">
-            Refreshments, Quiz Competition, and Participant Engagement.
-        </p>
-
-        <img src="day4.jpg"
-             class="img-fluid rounded shadow-sm mb-3"
-             alt="Day 4 Activities">
-
-        <p>
-            Day 4 featured participant engagement activities including
-            refreshments, networking interactions, and a quiz competition.
-            These activities provided an opportunity for participants to
-            reinforce their learning and collaborate with peers.
-        </p>
+   <div id="day4Carousel" class="carousel slide mb-3" data-bs-ride="false">
+  <div class="carousel-inner rounded shadow-sm">
+    <div class="carousel-item active">
+      <img src="day4_1.jpg" class="d-block w-100" alt="Day 4">
     </div>
+    <div class="carousel-item">
+      <img src="day4_2.jpg" class="d-block w-100" alt="Day 4">
+    </div>
+    <div class="carousel-item">
+      <img src="day4_3.jpg" class="d-block w-100" alt="Day 4">
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#day4Carousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#day4Carousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
 
     <!-- DAY 5 -->
-    <div class="event-card mb-5">
-        <h3 class="fw-bold text-primary">Day 5</h3>
-
-        <p class="text-muted">
-            Expert Sessions, Valedictory Function, and Prize Distribution.
-        </p>
-
-        <img src="day5.jpg"
-             class="img-fluid rounded shadow-sm mb-3"
-             alt="Day 5 Activities">
-
-        <p>
-            The final day included expert lectures, technical presentations,
-            prize distribution, certificate distribution, and the valedictory
-            function. The workshop concluded with a vote of thanks and a
-            group photograph commemorating the successful completion of QMI 2025.
-        </p>
+    <div id="day5Carousel" class="carousel slide mb-3" data-bs-ride="false">
+  <div class="carousel-inner rounded shadow-sm">
+    <div class="carousel-item active">
+      <img src="day5_1.jpg" class="d-block w-100" alt="Day 5">
     </div>
+    <div class="carousel-item">
+      <img src="day5_2.jpg" class="d-block w-100" alt="Day 5">
+    </div>
+    <div class="carousel-item">
+      <img src="day5_3.jpg" class="d-block w-100" alt="Day 5">
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#day5Carousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#day5Carousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
 
     <!-- ORGANIZERS -->
-    <div class="event-card mb-5">
-        <h3 class="fw-bold text-primary">Organizing Committee</h3>
-
-        <img src="organizers.jpg"
-             class="img-fluid rounded shadow-sm mb-3"
-             alt="Organizing Committee">
-
-        <p>
-            The organizing committee, faculty members, research scholars,
-            and volunteers of the Department of Mathematics, VIT Chennai,
-            played a vital role in the successful conduct of QMI 2025.
-        </p>
+   <div id="organizersCarousel" class="carousel slide mb-3" data-bs-ride="false">
+  <div class="carousel-inner rounded shadow-sm">
+    <div class="carousel-item active">
+      <img src="organizers_1.jpg" class="d-block w-100" alt="Organizers">
     </div>
+    <div class="carousel-item">
+      <img src="organizers_2.jpg" class="d-block w-100" alt="Organizers">
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#organizersCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#organizersCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
 
     <!-- PARTICIPANTS -->
-    <div class="event-card">
-        <h3 class="fw-bold text-primary">Participants Group Photograph</h3>
-
-        <img src="participants.jpg"
-             class="img-fluid rounded shadow-sm mb-3"
-             alt="Participants Group Photo">
-
-        <p>
-            Participants from various universities, research institutions,
-            and industries joined together for a group photograph,
-            celebrating the successful completion of the workshop.
-        </p>
+    <<div id="participantsCarousel" class="carousel slide mb-3" data-bs-ride="false">
+  <div class="carousel-inner rounded shadow-sm">
+    <div class="carousel-item active">
+      <img src="participants_1.jpg" class="d-block w-100" alt="Participants">
     </div>
-<div class="event-card mb-5">
-    <h3 class="fw-bold text-primary">Food & Refreshments</h3>
+    <div class="carousel-item">
+      <img src="participants_2.jpg" class="d-block w-100" alt="Participants">
+    </div>
+  </div>
 
-    <p class="text-muted">
-        Refreshment Breaks and Networking Sessions
-    </p>
+  <button class="carousel-control-prev" type="button" data-bs-target="#participantsCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
 
-    <img src="refreshments.jpg"
-         class="img-fluid rounded shadow-sm mb-3"
-         alt="Food and Refreshments">
+  <button class="carousel-control-next" type="button" data-bs-target="#participantsCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+<div id="refreshmentsCarousel" class="carousel slide mb-3" data-bs-ride="false">
+  <div class="carousel-inner rounded shadow-sm">
+    <div class="carousel-item active">
+      <img src="refreshments_1.jpg" class="d-block w-100" alt="Refreshments">
+    </div>
+    <div class="carousel-item">
+      <img src="refreshments_2.jpg" class="d-block w-100" alt="Refreshments">
+    </div>
+    <div class="carousel-item">
+      <img src="refreshments_3.jpg" class="d-block w-100" alt="Refreshments">
+    </div>
+  </div>
 
-    <p>
-        Throughout QMI 2025, participants were provided with refreshments
-        and meals during scheduled breaks. These sessions created a relaxed
-        environment for networking, academic discussions, and interactions
-        among speakers, faculty members, research scholars, and students.
-        The refreshment breaks served as valuable opportunities for
-        collaboration and knowledge exchange beyond the formal technical
-        sessions.
-    </p>
+  <button class="carousel-control-prev" type="button" data-bs-target="#refreshmentsCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#refreshmentsCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
 </div>
 </section>
 
