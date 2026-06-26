@@ -73,6 +73,24 @@
       .adaptive-logo { max-width: clamp(60px, 8vw, 90px); }
       .adaptive-logo-right { max-width: clamp(70px, 9vw, 110px); }
     }
+    .card{
+    transition:0.3s;
+    border-radius:25px;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,0,0,.18)!important;
+}
+
+.card p{
+    font-size:16px;
+    line-height:1.7;
+}
+
+.card h5{
+    color:#002147;
+}
   </style>
 </head>
 <body>
@@ -284,16 +302,30 @@ landscape of higher education in India and beyond.
     <div class="row g-4">
 
       <!-- Card 1 -->
-      <div class="col-md-4">
-        <div class="card h-100 shadow text-center p-4" style="border-radius:50px;">
-          <div class="mb-3">
-            <img src="01.png" alt="Quantum Mathematics" style="max-height:60px;">
-          </div>
-          <p>
-            14 Expert Talks by Academia, Clinicians, and Industry Experts and Hands-on Training Sessions
-          </p>
+<div class="col-md-4 mb-4">
+    <div class="card h-100 shadow border-0 p-4 text-center"
+         style="border-radius:25px;">
+
+        <div class="mx-auto mb-3 d-flex justify-content-center align-items-center"
+             style="width:90px;height:90px;border-radius:50%;background:#eef5ff;">
+
+            <img src="01.png"
+                 style="width:55px;height:55px;object-fit:contain;">
+
         </div>
-      </div>
+
+        <h5 class="fw-bold text-primary">
+            14 Expert Talks
+        </h5>
+
+        <p class="text-muted">
+            Delivered by leading academicians, clinicians, and industry
+            experts, along with interactive hands-on training sessions
+            throughout the workshop.
+        </p>
+
+    </div>
+</div>
 
       <!-- Card 2 -->
       <div class="col-md-4">
