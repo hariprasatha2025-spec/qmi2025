@@ -25,19 +25,6 @@
       position: relative;
     }
 
-   .feature-card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(255,255,255,0.70);
-    z-index:1;
-    }
-
-    .feature-overlay{
-    position:relative;
-    z-index:2;
-    }
-
     .section-title {
       border-left: 4px solid #002147;
       padding-left: 10px;
@@ -76,7 +63,8 @@
     content:"";
     position:absolute;
     inset:0;
-    background:rgba(255,255,255,0.45)
+    background:rgba(255,255,255,0.70); /* Try 0.70, 0.75 or 0.80 */
+    z-index:1;
 }
 
 /* Different Background Images */
