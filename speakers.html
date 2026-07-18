@@ -1,92 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sightseeing – QMI 2025</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .section-title {
-      font-weight: bold;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      position: relative;
-    }
-    .section-title::before {
-      content: "";
-      position: absolute;
-      width: 5px;
-      height: 100%;
-      background: #ffc107;
-      left: -15px;
-      top: 0;
-    }
-    .card {
-      transition: transform 0.3s ease;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-    }
-    .card img {
-      height: 220px;
-      object-fit: cover;
-    }
-  </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Speakers - QMI 2026</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fb;
+}
+
+/* Navbar */
+
+.navbar{
+    background:#002147;
+}
+
+.navbar .nav-link{
+    color:white !important;
+}
+
+.navbar .nav-link:hover{
+    text-decoration:underline;
+}
+
+.btn-flyer{
+    border:1px solid white;
+}
+
+.btn-flyer:hover{
+    background:white;
+    color:#002147 !important;
+}
+
+/* Section Title */
+
+.section-title{
+    font-size:2.3rem;
+    font-weight:bold;
+    margin-bottom:40px;
+    position:relative;
+}
+
+.section-title::before{
+    content:"";
+    position:absolute;
+    left:-15px;
+    top:0;
+    width:5px;
+    height:100%;
+    background:#ffc107;
+}
+
+/* Speaker Card */
+
+.speaker-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+    transition:.3s;
+
+}
+
+.speaker-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+}
+
+/* Speaker Image */
+
+.speaker-photo{
+
+    width:190px;
+
+    height:230px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    border:5px solid #f2f2f2;
+
+}
+
+/* LinkedIn Button */
+
+.linkedin{
+
+    margin-top:15px;
+
+    font-size:34px;
+
+    color:#0A66C2;
+
+    transition:.3s;
+
+}
+
+.linkedin:hover{
+
+    color:#004182;
+
+}
+
+/* Text */
+
+.speaker-name{
+
+    color:#002147;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+}
+
+.designation{
+
+    font-size:1.2rem;
+
+    font-weight:600;
+
+    color:#444;
+
+}
+
+.organization{
+
+    color:#666;
+
+    font-size:1.05rem;
+
+}
+
+.topic{
+
+    margin-top:20px;
+
+    background:#eef4ff;
+
+    border-left:5px solid #002147;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+}
+
+.topic strong{
+
+    color:#002147;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.speaker-photo{
+
+width:170px;
+
+height:210px;
+
+}
+
+.speaker-name{
+
+margin-top:20px;
+
+text-align:center;
+
+}
+
+.designation,
+
+.organization{
+
+text-align:center;
+
+}
+
+.topic{
+
+margin-top:25px;
+
+}
+
+}
+
+footer{
+
+background:#002147;
+
+color:white;
+
+padding:20px;
+
+margin-top:60px;
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-  <!-- Navbar -->
-<nav class="navbar navbar-expand-lg shadow-sm" style="background-color:#002147;">
-  <div class="container-fluid">
+<!-- NAVBAR -->
 
-    <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
-      <ul class="navbar-nav align-items-center">
-        <!-- Left-side image/logo -->
-        <li class="nav-item">
-          <img src="QMI 2026.png" alt="Logo" style="height:40px; width:auto; margin-right:10px;">
-        </li>
-        <li class="nav-item"><a class="nav-link text-white" href="index.html#home">Home</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="organizers.html">Organizers</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="speakers.html#speakers">Speakers</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="registration.html">Registration</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="schedule.html">Schedule</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="howtoreach.html">How to Reach</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="sightseeing.html">Sightseeing</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="pastevents.html">Past Events</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
-      </ul>
-    </div>
+<nav class="navbar navbar-expand-lg">
 
-    <!-- ✅ Button OUTSIDE modal -->
-<div class="d-none d-lg-block ms-3">
-  <a href="QMI 2026.pdf" target="_blank" class="btn btn-flyer text-white">View Flyer</a>
+<div class="container-fluid">
+
+<a class="navbar-brand" href="index.html">
+
+<img src="QMI 2026.png" style="height:50px;">
+
+</a>
+
+<button class="navbar-toggler bg-light"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+
+<ul class="navbar-nav">
+
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
+<li class="nav-item"><a class="nav-link" href="organizers.html">Organizers</a></li>
+
+<li class="nav-item"><a class="nav-link" href="speakers.html">Speakers</a></li>
+
+<li class="nav-item"><a class="nav-link" href="registration.html">Registration</a></li>
+
+<li class="nav-item"><a class="nav-link" href="schedule.html">Schedule</a></li>
+
+<li class="nav-item"><a class="nav-link" href="howtoreach.html">How to Reach</a></li>
+
+<li class="nav-item"><a class="nav-link" href="sightseeing.html">Sightseeing</a></li>
+
+<li class="nav-item"><a class="nav-link" href="pastevents.html">Past Events</a></li>
+
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+</ul>
+
+<div class="ms-auto">
+
+<a href="QMI 2026.pdf" class="btn btn-outline-light btn-flyer">
+
+View Flyer
+
+</a>
+
 </div>
+
 </div>
+
+</div>
+
 </nav>
 
-<section id="speakers" class="container my-5">
-    <h2 class="section-title">Speakers</h2>
 
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="shadow-sm p-5 rounded text-center" style="background-color:#f8f9fa;">
-                <h3 class="fw-bold mb-3">Speaker Line-up Coming Soon</h3>
 
-                <p class="mb-0">
-                    Details of invited speakers and their session topics will be announced shortly. Please stay tuned for updates.
-                </p>
-            </div>
-        </div>
-    </div>
+<!-- SPEAKERS -->
+
+<section class="container my-5">
+
+<h2 class="section-title">
+
+Invited Speakers
+
+</h2>
+
+<div class="speaker-card">
+
+<div class="row align-items-center">
+
+<!-- Left -->
+
+<div class="col-lg-3 text-center">
+
+<img src="nrb.jpeg" class="speaker-photo">
+
+<br>
+
+<a href="https://www.linkedin.com/" target="_blank">
+
+<i class="fab fa-linkedin linkedin"></i>
+
+</a>
+
+</div>
+
+<!-- Right -->
+
+<div class="col-lg-9">
+
+<div class="speaker-name">
+
+Dr. N. Ramesh babu
+
+</div>
+
+<br>
+
+<div class="designation">
+
+Professor
+
+</div>
+
+<div class="organization">
+
+Department of Biomedical Engineering<br>
+
+National University of Singapore<br>
+
+Singapore
+
+</div>
+
+<div class="topic">
+
+<strong>Talk Title:</strong><br><br>
+
+Artificial Intelligence and Quantum Computing for Intelligent Healthcare Systems
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
- <!-- Footer -->
-  <footer class="bg-dark text-light text-center py-3">
-    <p class="mb-0">&copy; 2026 QMI Workshop</p>
-  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<footer>
+
+<div class="container text-center">
+
+© 2026 QMI Workshop – VIT Chennai
+
+</div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
