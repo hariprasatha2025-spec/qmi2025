@@ -8,6 +8,8 @@ import Speakers from './pages/Speakers';
 import Registration from './pages/Registration';
 import Schedule from './pages/Schedule';
 import HowToReach from './pages/HowToReach';
+import Sightseeing from './pages/Sightseeing';
+import PastEvents from './pages/PastEvents';
 const Placeholder = ({ title }) => (
   <div className="section bg-white text-center" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
     <div className="container">
@@ -30,9 +32,11 @@ function App() {
             <Route path="/registration" element={<Registration />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/how-to-reach" element={<HowToReach />} />
-            <Route path="/sightseeing" element={<Placeholder title="Sightseeing" />} />
-            <Route path="/past-events" element={<Placeholder title="Past Events" />} />
+            <Route path="/sightseeing" element={<Sightseeing />} />
+            <Route path="/past-events" element={<PastEvents />} />
             <Route path="/contact" element={<Placeholder title="Contact" />} />
+            <Route path="/gallery" element={<Placeholder title="Gallery" />} />
+            <Route path="/awards" element={<Placeholder title="Awards" />} />
           </Routes>
         </main>
         <Footer />
