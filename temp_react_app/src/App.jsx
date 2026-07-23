@@ -7,6 +7,7 @@ import Organizers from './pages/Organizers';
 import Speakers from './pages/Speakers';
 import Registration from './pages/Registration';
 import Schedule from './pages/Schedule';
+import HowToReach from './pages/HowToReach';
 const Placeholder = ({ title }) => (
   <div className="section bg-white text-center" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
     <div className="container">
@@ -28,7 +29,7 @@ function App() {
             <Route path="/speakers" element={<Speakers />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/schedule" element={<Schedule />} />
-            <Route path="/how-to-reach" element={<Placeholder title="How to Reach" />} />
+            <Route path="/how-to-reach" element={<HowToReach />} />
             <Route path="/sightseeing" element={<Placeholder title="Sightseeing" />} />
             <Route path="/past-events" element={<Placeholder title="Past Events" />} />
             <Route path="/contact" element={<Placeholder title="Contact" />} />
