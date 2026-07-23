@@ -1,0 +1,74 @@
+.schedule-header {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.date-header {
+  background: var(--gradient-primary);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  position: relative;
+}
+
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.event-card {
+  border-left-color: var(--accent-color);
+  transition: all var(--transition-normal);
+}
+
+.event-card:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-md);
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-sm {
+  font-size: 0.95rem;
+}
+
+.rounded-lg {
+  border-radius: 12px;
+}
+
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.border-l-4 {
+  border-left-width: 5px;
+  border-left-style: solid;
+}
+
+.px-4 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-3 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
