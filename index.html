@@ -166,6 +166,45 @@
 .card h5{
     color:#002147;
 }
+/* Sponsors Slider */
+
+.sponsor-slider{
+    overflow:hidden;
+    width:100%;
+    position:relative;
+}
+
+.sponsor-track{
+    display:flex;
+    width:max-content;
+    animation:scrollSponsors 20s linear infinite;
+}
+
+.sponsor-item{
+    flex:0 0 auto;
+    width:220px;
+    margin:0 30px;
+}
+
+.sponsor-item img{
+    width:100%;
+    max-height:150px;
+    object-fit:contain;
+}
+
+/* Pause when mouse is over logos */
+.sponsor-track:hover{
+    animation-play-state:paused;
+}
+
+@keyframes scrollSponsors{
+    0%{
+        transform:translateX(0);
+    }
+    100%{
+        transform:translateX(-50%);
+    }
+}
   </style>
 </head>
 <body>
