@@ -1,1 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Speakers - QMI 2026</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fb;
+}
+
+/* Navbar */
+
+.navbar{
+    background:#002147;
+}
+
+.navbar .nav-link{
+    color:white !important;
+}
+
+.navbar .nav-link:hover{
+    text-decoration:underline;
+}
+
+.btn-flyer{
+    border:1px solid white;
+}
+
+.btn-flyer:hover{
+    background:white;
+    color:#002147 !important;
+}
+
+/* Section Title */
+
+.section-title{
+    font-size:2.3rem;
+    font-weight:bold;
+    margin-bottom:40px;
+    position:relative;
+}
+
+.section-title::before{
+    content:"";
+    position:absolute;
+    left:-15px;
+    top:0;
+    width:5px;
+    height:100%;
+    background:#ffc107;
+}
+
+/* Speaker Card */
+
+.speaker-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+    transition:.3s;
+
+}
+
+.speaker-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+}
+
+/* Speaker Image */
+
+.speaker-photo{
+
+    width:190px;
+
+    height:230px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    border:5px solid #f2f2f2;
+
+}
+
+/* LinkedIn Button */
+
+.linkedin{
+
+    margin-top:15px;
+
+    font-size:34px;
+
+    color:#0A66C2;
+
+    transition:.3s;
+
+}
+
+.linkedin:hover{
+
+    color:#004182;
+
+}
+
+/* Text */
+
+.speaker-name{
+
+    color:#002147;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+}
+
+.designation{
+
+    font-size:1.2rem;
+
+    font-weight:600;
+
+    color:#444;
+
+}
+
+.organization{
+
+    color:#666;
+
+    font-size:1.05rem;
+
+}
+
+.topic{
+
+    margin-top:20px;
+
+    background:#eef4ff;
+
+    border-left:5px solid #002147;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+}
+
+.topic strong{
+
+    color:#002147;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.speaker-photo{
+
+width:170px;
+
+height:210px;
+
+}
+
+.speaker-name{
+
+margin-top:20px;
+
+text-align:center;
+
+}
+
+.designation,
+
+.organization{
+
+text-align:center;
+
+}
+
+.topic{
+
+margin-top:25px;
+
+}
+
+}
+
+footer{
+
+background:#002147;
+
+color:white;
+
+padding:20px;
+
+margin-top:60px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg">
+
+<div class="container-fluid">
+
+<a class="navbar-brand" href="index.html">
+
+<img src="QMI 2026.png" style="height:50px;">
+
+</a>
+
+<button class="navbar-toggler bg-light"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+
+<ul class="navbar-nav">
+
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
+<li class="nav-item"><a class="nav-link" href="organizers.html">Organizers</a></li>
+
+<li class="nav-item"><a class="nav-link" href="speakers.html">Speakers</a></li>
+
+<li class="nav-item"><a class="nav-link" href="registration.html">Registration</a></li>
+
+<li class="nav-item"><a class="nav-link" href="accomodation.html">Accomodation</a></li>
+
+<li class="nav-item"><a class="nav-link" href="schedule.html">Schedule</a></li>
+
+<li class="nav-item"><a class="nav-link text-white" href="activities.html">Activities</a></li>
+
+<li class="nav-item"><a class="nav-link" href="howtoreach.html">How to Reach</a></li>
+
+<li class="nav-item"><a class="nav-link" href="sightseeing.html">Sightseeing</a></li>
+
+<li class="nav-item"><a class="nav-link" href="pastevents.html">Past Events</a></li>
+
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+</ul>
+
+<div class="ms-auto">
+
+<a href="QMI 2026 Brochure Updated 12-08.pdf" class="btn btn-outline-light btn-flyer">
+
+View Flyer
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<footer>
+
+<div class="container text-center">
+
+© 2026 QMI Workshop – VIT Chennai
+
+</div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
