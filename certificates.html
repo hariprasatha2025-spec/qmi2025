@@ -18,11 +18,16 @@
 
   <style>
 
+    /* ================= BODY ================= */
+
     body {
       font-family: Arial, sans-serif;
       background-color: #f5f7fa;
       color: #222;
+      margin: 0;
+      padding: 0;
     }
+
 
     /* ================= NAVBAR ================= */
 
@@ -45,6 +50,15 @@
       color: #ffd700 !important;
     }
 
+    .navbar-toggler {
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
+
     /* ================= SECTION ================= */
 
     .certificate-section {
@@ -60,6 +74,7 @@
       margin-bottom: 30px;
     }
 
+
     /* ================= MAIN CARD ================= */
 
     .certificate-card {
@@ -74,10 +89,21 @@
       margin: auto;
     }
 
+
+    /* ================= FORM ================= */
+
     .form-control {
-      height: 50px;
+      min-height: 50px;
       border-radius: 6px;
     }
+
+    .form-control:focus {
+      border-color: #002147;
+      box-shadow: 0 0 0 0.2rem rgba(0,33,71,0.15);
+    }
+
+
+    /* ================= BUTTONS ================= */
 
     .btn-qmi {
       background-color: #002147;
@@ -85,11 +111,17 @@
       border: none;
       font-weight: 600;
       padding: 12px 25px;
+      border-radius: 6px;
     }
 
     .btn-qmi:hover {
       background-color: #003b78;
       color: #fff;
+    }
+
+    .btn-qmi:disabled {
+      background-color: #6c757d;
+      cursor: not-allowed;
     }
 
     .btn-edit {
@@ -98,12 +130,14 @@
       border: none;
       font-weight: 600;
       padding: 12px 25px;
+      border-radius: 6px;
     }
 
     .btn-edit:hover {
       background-color: #c29d2e;
       color: #000;
     }
+
 
     /* ================= DETAILS ================= */
 
@@ -120,22 +154,36 @@
       width: 35%;
       background-color: #f1f4f8;
       color: #002147;
+      font-weight: 700;
     }
 
     .details-table td,
     .details-table th {
       padding: 13px;
       vertical-align: middle;
+      word-break: break-word;
     }
+
 
     /* ================= EDIT MODE ================= */
 
     .edit-input {
       width: 100%;
+      min-height: 42px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      padding: 8px;
+      padding: 8px 10px;
+      font-size: 16px;
+      background-color: #fff;
+      box-sizing: border-box;
     }
+
+    .edit-input:focus {
+      outline: none;
+      border-color: #002147;
+      box-shadow: 0 0 0 0.15rem rgba(0,33,71,0.15);
+    }
+
 
     /* ================= LOADING ================= */
 
@@ -144,12 +192,14 @@
       margin-top: 20px;
     }
 
+
     /* ================= ERROR ================= */
 
     #errorMessage {
       display: none;
       margin-top: 20px;
     }
+
 
     /* ================= FOOTER ================= */
 
@@ -159,6 +209,7 @@
       padding: 20px 0;
       text-align: center;
     }
+
 
     /* ================= MODAL ================= */
 
@@ -173,19 +224,125 @@
       margin-bottom: 15px;
     }
 
+    .already-verified-icon {
+      font-size: 55px;
+      color: #dc3545;
+      margin-bottom: 15px;
+    }
+
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 768px) {
+
+      .certificate-section {
+        padding: 30px 10px;
+      }
+
+      .certificate-card {
+        padding: 20px 15px;
+        border-radius: 10px;
+      }
+
+      .certificate-card h3 {
+        font-size: 21px;
+      }
+
+      .search-box {
+        width: 100%;
+      }
+
+      .input-group {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+
+      .input-group .form-control {
+        min-width: 0;
+        width: 100%;
+      }
+
+      .input-group .btn {
+        white-space: nowrap;
+        padding: 10px 14px;
+      }
+
+      .details-table th {
+        width: 40%;
+        font-size: 14px;
+      }
+
+      .details-table td {
+        font-size: 14px;
+      }
+
+      .edit-input {
+        min-height: 44px;
+        font-size: 16px;
+      }
+
+      #editButton,
+      #submitButton {
+        width: 100%;
+        margin: 5px 0 !important;
+      }
+
+      footer {
+        font-size: 13px;
+      }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+      .navbar-brand img {
+        height: 40px;
+      }
+
+      .certificate-card {
+        padding: 18px 12px;
+      }
+
+      .certificate-card h3 {
+        font-size: 19px;
+      }
+
+      .details-table th,
+      .details-table td {
+        padding: 10px 8px;
+        font-size: 13px;
+      }
+
+      .input-group .btn {
+        padding: 10px 11px;
+      }
+
+      .input-group .btn i {
+        margin-right: 0 !important;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body>
 
-<!-- ================= NAVBAR ================= -->
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
 
 <nav class="navbar navbar-expand-lg">
+
   <div class="container">
 
     <a class="navbar-brand" href="index.html">
       <img src="QMI 2026.png" alt="QMI 2026">
     </a>
+
 
     <button
       class="navbar-toggler"
@@ -200,48 +357,69 @@
 
     </button>
 
+
     <div class="collapse navbar-collapse" id="navbarNav">
 
       <ul class="navbar-nav">
 
         <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="index.html">
+            Home
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="organizers.html">Organizers</a>
+          <a class="nav-link" href="organizers.html">
+            Organizers
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="speakers.html">Speakers</a>
+          <a class="nav-link" href="speakers.html">
+            Speakers
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="registration.html">Registration</a>
+          <a class="nav-link" href="registration.html">
+            Registration
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="accomodation.html">Accomodation</a>
+          <a class="nav-link" href="accomodation.html">
+            Accomodation
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="schedule.html">Schedule</a>
+          <a class="nav-link" href="schedule.html">
+            Schedule
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="activities.html">Activities</a>
+          <a class="nav-link" href="activities.html">
+            Activities
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="howtoreach.html">How to Reach</a>
+          <a class="nav-link" href="howtoreach.html">
+            How to Reach
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="sightseeing.html">Sightseeing</a>
+          <a class="nav-link" href="sightseeing.html">
+            Sightseeing
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="pastevents.html">Past Events</a>
+          <a class="nav-link" href="pastevents.html">
+            Past Events
+          </a>
         </li>
 
         <li class="nav-item">
@@ -251,16 +429,19 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
+          <a class="nav-link" href="contact.html">
+            Contact
+          </a>
         </li>
 
       </ul>
+
 
       <div class="ms-auto">
 
         <a
           href="QMI 2026 Brochure Updated 12-08.pdf"
-          class="btn btn-outline-light btn-flyer">
+          class="btn btn-outline-light">
 
           View Flyer
 
@@ -271,41 +452,68 @@
     </div>
 
   </div>
+
 </nav>
 
 
-<!-- ================= CERTIFICATE SECTION ================= -->
+
+<!-- ============================================================
+     CERTIFICATE SECTION
+============================================================ -->
 
 <section class="certificate-section">
 
   <div class="container">
 
-    <h2 class="section-title">
-      Certificate Verification
-    </h2>
-
     <div class="certificate-card">
+
+
+      <!-- ================= TITLE ================= -->
 
       <div class="text-center mb-4">
 
-        <h3 class="fw-bold" style="color:#002147;">
+        <h3
+          class="fw-bold"
+          style="color:#002147;">
+
           QMI 2026 Certificate Details Verification
+
         </h3>
 
-        <p class="text-muted">
-          Enter your registered mobile number to verify your certificate details.
+
+        <p class="text-muted mb-0">
+
+          Enter your registered mobile number to verify your
+          certificate details.
+
+          <br>
+
+          <strong class="text-danger">
+
+            Once verified, re-verification is not allowed.
+
+          </strong>
+
         </p>
 
       </div>
 
 
-      <!-- ================= SEARCH ================= -->
+
+      <!-- ======================================================
+           SEARCH
+      ======================================================= -->
 
       <div class="search-box">
 
-        <label class="form-label fw-bold">
+        <label
+          for="mobileNumber"
+          class="form-label fw-bold">
+
           Registered Mobile Number
+
         </label>
+
 
         <div class="input-group">
 
@@ -315,13 +523,18 @@
             class="form-control"
             placeholder="Enter your 10-digit mobile number"
             maxlength="10"
-            inputmode="numeric">
+            inputmode="numeric"
+            autocomplete="tel">
+
 
           <button
+            id="searchButton"
             class="btn btn-qmi"
+            type="button"
             onclick="searchParticipant()">
 
             <i class="fas fa-search me-2"></i>
+
             Search
 
           </button>
@@ -331,23 +544,33 @@
       </div>
 
 
-      <!-- ================= LOADING ================= -->
 
-      <div id="loading" class="text-center">
+      <!-- ======================================================
+           LOADING
+      ======================================================= -->
+
+      <div
+        id="loading"
+        class="text-center">
 
         <div
           class="spinner-border text-primary"
           role="status">
         </div>
 
-        <p class="mt-2">
+        <p class="mt-2 mb-0">
+
           Searching your details...
+
         </p>
 
       </div>
 
 
-      <!-- ================= ERROR ================= -->
+
+      <!-- ======================================================
+           ERROR
+      ======================================================= -->
 
       <div
         id="errorMessage"
@@ -355,9 +578,13 @@
       </div>
 
 
-      <!-- ================= PARTICIPANT DETAILS ================= -->
+
+      <!-- ======================================================
+           PARTICIPANT DETAILS
+      ======================================================= -->
 
       <div id="detailsSection">
+
 
         <h4
           class="fw-bold mb-3"
@@ -378,46 +605,79 @@
         </div>
 
 
+
         <div class="table-responsive">
 
-          <table class="table table-bordered details-table">
+          <table
+            class="table table-bordered details-table">
 
             <tbody>
 
+
               <tr>
+
                 <th>S. No.</th>
+
                 <td id="sno"></td>
+
               </tr>
 
+
               <tr>
-                <th>Prefix (Mr./Ms./Mrs./Dr.)</th>
+
+                <th>
+                  Prefix (Mr./Ms./Mrs./Dr.)
+                </th>
+
                 <td id="suffix"></td>
+
               </tr>
 
+
               <tr>
+
                 <th>Name</th>
+
                 <td id="name"></td>
+
               </tr>
 
+
               <tr>
+
                 <th>Designation</th>
+
                 <td id="designation"></td>
+
               </tr>
 
+
               <tr>
+
                 <th>Department</th>
+
                 <td id="department"></td>
+
               </tr>
 
+
               <tr>
+
                 <th>Institution Name</th>
+
                 <td id="institution"></td>
+
               </tr>
 
+
               <tr>
+
                 <th>Place/State</th>
+
                 <td id="place"></td>
+
               </tr>
+
 
             </tbody>
 
@@ -426,16 +686,22 @@
         </div>
 
 
-        <!-- ================= BUTTONS ================= -->
+
+        <!-- ==================================================
+             BUTTONS
+        =================================================== -->
 
         <div class="text-center mt-4">
+
 
           <button
             id="editButton"
             class="btn btn-edit me-2"
+            type="button"
             onclick="enableEditing()">
 
             <i class="fas fa-pen-to-square me-2"></i>
+
             Submit & Edit
 
           </button>
@@ -444,12 +710,15 @@
           <button
             id="submitButton"
             class="btn btn-qmi"
+            type="button"
             onclick="submitVerification()">
 
             <i class="fas fa-check me-2"></i>
+
             Submit
 
           </button>
+
 
         </div>
 
@@ -462,7 +731,10 @@
 </section>
 
 
-<!-- ================= VERIFICATION MODAL ================= -->
+
+<!-- ============================================================
+     SUCCESS VERIFICATION MODAL
+============================================================ -->
 
 <div
   class="modal fade"
@@ -474,44 +746,167 @@
 
     <div class="modal-content">
 
+
       <div class="modal-header">
 
         <h5 class="modal-title">
+
           Certificate Verification
+
         </h5>
+
 
         <button
           type="button"
           class="btn-close btn-close-white"
-          data-bs-dismiss="modal">
+          data-bs-dismiss="modal"
+          aria-label="Close">
         </button>
 
       </div>
 
 
+
       <div class="modal-body text-center p-4">
 
+
         <div class="verification-icon">
+
           <i class="fas fa-circle-check"></i>
+
         </div>
 
+
         <h4 class="fw-bold">
+
           Your Details Are Verified
+
         </h4>
 
+
         <p class="mt-3">
+
           Your details have been successfully verified.
+
         </p>
+
 
         <p>
+
           This verified information will be used in your certificate.
+
         </p>
+
 
         <p class="fw-bold">
+
           Please ensure that the information you submitted is correct.
+
         </p>
 
+
       </div>
+
+
+
+      <div class="modal-footer justify-content-center">
+
+        <button
+          type="button"
+          class="btn btn-qmi px-4"
+          onclick="goToHomePage()">
+
+          OK
+
+        </button>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- ============================================================
+     ALREADY VERIFIED MODAL
+============================================================ -->
+
+<div
+  class="modal fade"
+  id="alreadyVerifiedModal"
+  tabindex="-1"
+  aria-hidden="true">
+
+  <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+        <h5 class="modal-title">
+
+          Certificate Verification
+
+        </h5>
+
+
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close">
+        </button>
+
+      </div>
+
+
+
+      <div class="modal-body text-center p-4">
+
+
+        <div class="already-verified-icon">
+
+          <i class="fas fa-circle-exclamation"></i>
+
+        </div>
+
+
+        <h4 class="fw-bold text-danger">
+
+          Already Verified
+
+        </h4>
+
+
+        <p class="mt-3">
+
+          Your certificate details have already been verified.
+
+        </p>
+
+
+        <p class="fw-bold">
+
+          Re-verification is not allowed.
+
+        </p>
+
+
+        <p>
+
+          If you need to make any changes,
+          please contact the QMI Team.
+
+        </p>
+
+
+      </div>
+
 
 
       <div class="modal-footer justify-content-center">
@@ -527,6 +922,7 @@
 
       </div>
 
+
     </div>
 
   </div>
@@ -534,7 +930,10 @@
 </div>
 
 
-<!-- ================= FOOTER ================= -->
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
 
 <footer>
 
@@ -547,50 +946,77 @@
 </footer>
 
 
-<!-- ================= BOOTSTRAP ================= -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+<!-- ============================================================
+     BOOTSTRAP
+============================================================ -->
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
 </script>
 
 
-<!-- ================= CERTIFICATE JAVASCRIPT ================= -->
+
+<!-- ============================================================
+     CERTIFICATE JAVASCRIPT
+============================================================ -->
 
 <script>
 
-/*
- * ============================================================
- * GOOGLE APPS SCRIPT WEB APP URL
- * ============================================================
- */
+
+/* ============================================================
+   GOOGLE APPS SCRIPT WEB APP URL
+============================================================ */
 
 const API_URL =
-  
 "https://script.google.com/macros/s/AKfycbyMxcx-Wwegu6ItnkR04rqtlzgliJHCNBUZAvcsRqTnA4vQRwmzG6NAXqv0Cz-C08dWyg/exec";
 
+
+
+/* ============================================================
+   GLOBAL PARTICIPANT DATA
+============================================================ */
 
 let participantData = null;
 
 
-/*
- * ============================================================
- * SEARCH PARTICIPANT
- * ============================================================
- */
+
+/* ============================================================
+   SEARCH PARTICIPANT
+============================================================ */
 
 function searchParticipant() {
 
   const mobile =
-    document.getElementById("mobileNumber").value.trim();
+    document.getElementById("mobileNumber")
+      .value
+      .trim();
+
 
   const error =
     document.getElementById("errorMessage");
 
+
   const details =
     document.getElementById("detailsSection");
 
+
+  const loading =
+    document.getElementById("loading");
+
+
+  const searchButton =
+    document.getElementById("searchButton");
+
+
   error.style.display = "none";
+
   details.style.display = "none";
 
+
+  /* ---------------------------------------------
+     Validate mobile number
+  --------------------------------------------- */
 
   if (!/^\d{10}$/.test(mobile)) {
 
@@ -599,11 +1025,17 @@ function searchParticipant() {
     );
 
     return;
+
   }
 
 
-  document.getElementById("loading").style.display =
-    "block";
+  /* ---------------------------------------------
+     Start loading
+  --------------------------------------------- */
+
+  loading.style.display = "block";
+
+  searchButton.disabled = true;
 
 
   const callbackName =
@@ -612,28 +1044,72 @@ function searchParticipant() {
 
   window[callbackName] = function(response) {
 
-    document.getElementById("loading").style.display =
-      "none";
+
+    loading.style.display = "none";
+
+    searchButton.disabled = false;
 
 
-    if (!response.success) {
+    /* -------------------------------------------
+       API ERROR
+    ------------------------------------------- */
 
-      showError(response.message);
+    if (!response || !response.success) {
 
-      delete window[callbackName];
+      showError(
+        response && response.message
+          ? response.message
+          : "Unable to retrieve participant details."
+      );
+
+      cleanupCallback(callbackName);
 
       return;
+
     }
 
 
+    /* -------------------------------------------
+       CHECK ALREADY VERIFIED
+       
+       The backend should return one of these
+       indicators when the participant has already
+       been verified.
+    ------------------------------------------- */
+
+    if (isAlreadyVerified(response)) {
+
+      participantData = null;
+
+      details.style.display = "none";
+
+      showAlreadyVerifiedModal();
+
+      cleanupCallback(callbackName);
+
+      return;
+
+    }
+
+
+    /* -------------------------------------------
+       STORE PARTICIPANT DATA
+    ------------------------------------------- */
+
     participantData = response.data;
+
 
     displayParticipant(participantData);
 
-    delete window[callbackName];
+
+    cleanupCallback(callbackName);
 
   };
 
+
+  /* ---------------------------------------------
+     CREATE JSONP SCRIPT
+  --------------------------------------------- */
 
   const script =
     document.createElement("script");
@@ -650,12 +1126,17 @@ function searchParticipant() {
 
   script.onerror = function() {
 
-    document.getElementById("loading").style.display =
-      "none";
+    loading.style.display = "none";
+
+    searchButton.disabled = false;
+
 
     showError(
       "Unable to connect to the verification server."
     );
+
+
+    cleanupCallback(callbackName);
 
   };
 
@@ -665,106 +1146,152 @@ function searchParticipant() {
 }
 
 
-/*
- * ============================================================
- * DISPLAY PARTICIPANT
- * ============================================================
- */
+
+/* ============================================================
+   CHECK ALREADY VERIFIED
+============================================================ */
+
+function isAlreadyVerified(response) {
+
+  /*
+   * This accepts several possible backend formats.
+   *
+   * Recommended backend response:
+   *
+   * {
+   *   success: true,
+   *   alreadyVerified: true
+   * }
+   *
+   * OR:
+   *
+   * {
+   *   success: false,
+   *   alreadyVerified: true
+   * }
+   */
+
+
+  if (response.alreadyVerified === true) {
+
+    return true;
+
+  }
+
+
+  if (response.verified === true) {
+
+    return true;
+
+  }
+
+
+  if (
+    response.data &&
+    (
+      response.data.alreadyVerified === true ||
+      response.data.verified === true ||
+      response.data.Verified === true ||
+      response.data.Status === "Verified" ||
+      response.data["Verification Status"] === "Verified"
+    )
+  ) {
+
+    return true;
+
+  }
+
+
+  /*
+   * Check for a verification timestamp.
+   */
+
+  if (
+    response.data &&
+    (
+      response.data["Verified At"] ||
+      response.data["Verification Date"] ||
+      response.data["Verification Time"]
+    )
+  ) {
+
+    return true;
+
+  }
+
+
+  return false;
+
+}
+
+
+
+/* ============================================================
+   DISPLAY PARTICIPANT
+============================================================ */
 
 function displayParticipant(data) {
+
 
   document.getElementById("sno").textContent =
     data["S. No."] || "";
 
+
   document.getElementById("suffix").textContent =
-    data["Prefix (Mr./Ms./Mrs./Dr.)"] || "";
+    data["Prefix (Mr./Ms./Mrs./Dr.)"] ||
+    data["Suffix"] ||
+    "";
+
 
   document.getElementById("name").textContent =
     data["Name"] || "";
 
+
   document.getElementById("designation").textContent =
     data["Designation"] || "";
+
 
   document.getElementById("department").textContent =
     data["Department"] || "";
 
+
   document.getElementById("institution").textContent =
-    data["Institution Name"] || "";
+    data["Institution Name"] ||
+    data["Institute"] ||
+    "";
+
 
   document.getElementById("place").textContent =
-    data["Place/State"] || "";
+    data["Place/State"] ||
+    data["Place"] ||
+    "";
 
 
-  document.getElementById("detailsSection").style.display =
-    "block";
+  /*
+   * Make sure the details section is visible.
+   */
+
+  document.getElementById("detailsSection")
+    .style.display = "block";
+
+
+  /*
+   * Reset buttons in case the participant performs
+   * another search during the same browser session.
+   */
+
+  resetEditMode();
 
 }
 
 
-/*
- * ============================================================
- * ENABLE EDITING
- * ============================================================
- */
+
+/* ============================================================
+   ENABLE EDITING
+============================================================ */
 
 function enableEditing() {
 
-  const fields = [
-
-    ["Name", "name"],
-
-    ["Designation", "designation"],
-
-    ["Department", "department"],
-
-    ["Institution Name", "institution"],
-
-    ["Place/State", "place"]
-
-  ];
-
-
-  fields.forEach(function(field) {
-
-    const key = field[0];
-
-    const id = field[1];
-
-
-    const element =
-      document.getElementById(id);
-
-
-    const value =
-      participantData[key] || "";
-
-
-    element.innerHTML =
-      '<input type="text" class="edit-input" ' +
-      'id="edit_' + id + '" value="' +
-      escapeHtml(value) +
-      '">';
-
-  });
-
-
-  document.getElementById("editButton").style.display =
-    "none";
-
-
-  document.getElementById("submitButton").innerHTML =
-    '<i class="fas fa-check me-2"></i> Save Changes & Submit';
-
-}
-
-
-/*
- * ============================================================
- * SUBMIT VERIFICATION
- * ============================================================
- */
-
-function submitVerification() {
 
   if (!participantData) {
 
@@ -773,45 +1300,292 @@ function submitVerification() {
     );
 
     return;
+
   }
 
+
+  /*
+   * Fields that participants are allowed to edit.
+   *
+   * DESIGNATION IS INCLUDED HERE.
+   */
+
+  const fields = [
+
+    {
+      key: "Name",
+      id: "name"
+    },
+
+    {
+      key: "Designation",
+      id: "designation"
+    },
+
+    {
+      key: "Department",
+      id: "department"
+    },
+
+    {
+      key: "Institution Name",
+      id: "institution"
+    },
+
+    {
+      key: "Place/State",
+      id: "place"
+    }
+
+  ];
+
+
+  fields.forEach(function(field) {
+
+
+    const element =
+      document.getElementById(field.id);
+
+
+    if (!element) {
+
+      return;
+
+    }
+
+
+    let value =
+      participantData[field.key] || "";
+
+
+    /*
+     * Support old backend field names.
+     */
+
+    if (
+      field.key === "Institution Name" &&
+      !value
+    ) {
+
+      value =
+        participantData["Institute"] || "";
+
+    }
+
+
+    if (
+      field.key === "Place/State" &&
+      !value
+    ) {
+
+      value =
+        participantData["Place"] || "";
+
+    }
+
+
+    /*
+     * Create input element properly.
+     * This works reliably on desktop and mobile.
+     */
+
+    const input =
+      document.createElement("input");
+
+
+    input.type = "text";
+
+    input.className = "edit-input";
+
+    input.value = value;
+
+    input.id =
+      "edit_" + field.id;
+
+    input.autocomplete = "off";
+
+
+    /*
+     * Replace table cell contents.
+     */
+
+    element.innerHTML = "";
+
+    element.appendChild(input);
+
+  });
+
+
+  /*
+   * Hide Edit button.
+   */
+
+  document.getElementById("editButton")
+    .style.display = "none";
+
+
+  /*
+   * Change Submit button text.
+   */
+
+  document.getElementById("submitButton")
+    .innerHTML =
+      '<i class="fas fa-check me-2"></i>' +
+      ' Save Changes & Submit';
+
+
+  /*
+   * Put cursor inside Name field.
+   */
+
+  const nameInput =
+    document.getElementById("edit_name");
+
+
+  if (nameInput) {
+
+    nameInput.focus();
+
+  }
+
+}
+
+
+
+/* ============================================================
+   SUBMIT VERIFICATION
+============================================================ */
+
+function submitVerification() {
+
+
+  if (!participantData) {
+
+    showError(
+      "Please search for your details first."
+    );
+
+    return;
+
+  }
+
+
+  /*
+   * Check whether editing mode is active.
+   */
 
   const editName =
     document.getElementById("edit_name");
 
 
-  /*
-   * If the participant selected
-   * "Submit & Edit", collect the edited values.
-   */
-
   if (editName) {
 
-    participantData["Name"] =
-      document.getElementById("edit_name").value.trim();
 
+    /*
+     * Collect edited Name.
+     */
+
+    participantData["Name"] =
+      document.getElementById("edit_name")
+        .value
+        .trim();
+
+
+    /*
+     * Collect edited Designation.
+     *
+     * THIS FIXES THE DESIGNATION EDITING ISSUE.
+     */
 
     participantData["Designation"] =
-      document.getElementById("edit_designation").value.trim();
+      document.getElementById("edit_designation")
+        .value
+        .trim();
 
+
+    /*
+     * Collect Department.
+     */
 
     participantData["Department"] =
-      document.getElementById("edit_department").value.trim();
+      document.getElementById("edit_department")
+        .value
+        .trim();
 
+
+    /*
+     * Collect Institution.
+     */
 
     participantData["Institution Name"] =
-      document.getElementById("edit_institution").value.trim();
+      document.getElementById("edit_institution")
+        .value
+        .trim();
 
+
+    /*
+     * Collect Place/State.
+     */
 
     participantData["Place/State"] =
-      document.getElementById("edit_place").value.trim();
+      document.getElementById("edit_place")
+        .value
+        .trim();
 
   }
 
 
-  document.getElementById("submitButton").disabled =
-    true;
+  /*
+   * Basic validation.
+   */
 
+  if (!participantData["Name"]) {
+
+    showError("Please enter your name.");
+
+    return;
+
+  }
+
+
+  if (!participantData["Designation"]) {
+
+    showError("Please enter your designation.");
+
+    return;
+
+  }
+
+
+  if (!participantData["Institution Name"]) {
+
+    showError("Please enter your institution name.");
+
+    return;
+
+  }
+
+
+  /*
+   * Disable Submit button.
+   */
+
+  const submitButton =
+    document.getElementById("submitButton");
+
+
+  submitButton.disabled = true;
+
+
+  submitButton.innerHTML =
+    '<span class="spinner-border spinner-border-sm me-2"></span>' +
+    'Submitting...';
+
+
+
+  /* ==========================================================
+     CREATE CALLBACK
+  ========================================================== */
 
   const callbackName =
     "qmiVerify_" + Date.now();
@@ -819,33 +1593,85 @@ function submitVerification() {
 
   window[callbackName] = function(response) {
 
-    document.getElementById("submitButton").disabled =
-      false;
+
+    submitButton.disabled = false;
 
 
-    if (!response.success) {
+    submitButton.innerHTML =
+      '<i class="fas fa-check me-2"></i>' +
+      ' Submit';
 
-      showError(response.message);
 
-      delete window[callbackName];
+    /*
+     * If backend says already verified.
+     */
+
+    if (
+      response &&
+      (
+        response.alreadyVerified === true ||
+        response.verified === true ||
+        (
+          response.message &&
+          /already verified|re-verification|reverification/i
+            .test(response.message)
+        )
+      )
+    ) {
+
+      showAlreadyVerifiedModal();
+
+      cleanupCallback(callbackName);
 
       return;
+
     }
 
 
-    const modal =
-      new bootstrap.Modal(
-        document.getElementById("verificationModal")
+    /*
+     * Normal API error.
+     */
+
+    if (!response || !response.success) {
+
+      showError(
+        response && response.message
+          ? response.message
+          : "Verification could not be completed."
       );
+
+
+      cleanupCallback(callbackName);
+
+      return;
+
+    }
+
+
+    /*
+     * Successful verification.
+     */
+
+    const modalElement =
+      document.getElementById("verificationModal");
+
+
+    const modal =
+      new bootstrap.Modal(modalElement);
 
 
     modal.show();
 
 
-    delete window[callbackName];
+    cleanupCallback(callbackName);
 
   };
 
+
+
+  /* ==========================================================
+     CREATE JSONP REQUEST
+  ========================================================== */
 
   const script =
     document.createElement("script");
@@ -866,18 +1692,103 @@ function submitVerification() {
     callbackName;
 
 
+  script.onerror = function() {
+
+
+    submitButton.disabled = false;
+
+
+    submitButton.innerHTML =
+      '<i class="fas fa-check me-2"></i>' +
+      ' Submit';
+
+
+    showError(
+      "Unable to connect to the verification server."
+    );
+
+
+    cleanupCallback(callbackName);
+
+  };
+
+
   document.body.appendChild(script);
 
 }
 
 
-/*
- * ============================================================
- * ERROR MESSAGE
- * ============================================================
- */
+
+/* ============================================================
+   ALREADY VERIFIED MODAL
+============================================================ */
+
+function showAlreadyVerifiedModal() {
+
+
+  const modalElement =
+    document.getElementById(
+      "alreadyVerifiedModal"
+    );
+
+
+  const modal =
+    new bootstrap.Modal(modalElement);
+
+
+  modal.show();
+
+}
+
+
+
+/* ============================================================
+   REDIRECT TO HOME PAGE
+============================================================ */
+
+function goToHomePage() {
+
+  window.location.href = "index.html";
+
+}
+
+
+
+/* ============================================================
+   RESET EDIT MODE
+============================================================ */
+
+function resetEditMode() {
+
+
+  const editButton =
+    document.getElementById("editButton");
+
+
+  const submitButton =
+    document.getElementById("submitButton");
+
+
+  editButton.style.display = "inline-block";
+
+
+  submitButton.disabled = false;
+
+
+  submitButton.innerHTML =
+    '<i class="fas fa-check me-2"></i>' +
+    ' Submit';
+
+}
+
+
+
+/* ============================================================
+   ERROR MESSAGE
+============================================================ */
 
 function showError(message) {
+
 
   const error =
     document.getElementById("errorMessage");
@@ -890,49 +1801,86 @@ function showError(message) {
   error.style.display =
     "block";
 
-}
 
+  /*
+   * Scroll to error on mobile.
+   */
 
-/*
- * ============================================================
- * ESCAPE HTML
- * ============================================================
- */
-
-function escapeHtml(value) {
-
-  return String(value)
-
-    .replace(/&/g, "&amp;")
-
-    .replace(/</g, "&lt;")
-
-    .replace(/>/g, "&gt;")
-
-    .replace(/"/g, "&quot;")
-
-    .replace(/'/g, "&#039;");
+  error.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
 
 }
 
 
-/*
- * ============================================================
- * ENTER KEY SEARCH
- * ============================================================
- */
+
+/* ============================================================
+   CLEAN CALLBACK
+============================================================ */
+
+function cleanupCallback(callbackName) {
+
+
+  try {
+
+    delete window[callbackName];
+
+  } catch (error) {
+
+    window[callbackName] = undefined;
+
+  }
+
+}
+
+
+
+/* ============================================================
+   ENTER KEY SEARCH
+============================================================ */
 
 document
   .getElementById("mobileNumber")
-  .addEventListener("keypress", function(event) {
+  .addEventListener(
+    "keydown",
+    function(event) {
 
-    if (event.key === "Enter") {
+      if (event.key === "Enter") {
 
-      searchParticipant();
+        event.preventDefault();
+
+        searchParticipant();
+
+      }
 
     }
+  );
 
-  });
+
+
+/* ============================================================
+   MOBILE NUMBER INPUT
+============================================================ */
+
+document
+  .getElementById("mobileNumber")
+  .addEventListener(
+    "input",
+    function() {
+
+      /*
+       * Allow digits only.
+       */
+
+      this.value =
+        this.value
+          .replace(/\D/g, "")
+          .slice(0, 10);
+
+    }
+  );
+
 
 </script>
 
