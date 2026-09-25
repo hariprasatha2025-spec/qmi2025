@@ -1,74 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
-
-  <title>Certificate Verification - QMI 2026</title>
-
-
-  <!-- ============================================================
-       BOOTSTRAP
-  ============================================================= -->
+  <title>Certificate Verification | QMI 2026</title>
 
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet">
-
-
-  <!-- ============================================================
-       FONT AWESOME
-  ============================================================= -->
+    rel="stylesheet"
+  >
 
   <link
+    rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    rel="stylesheet">
-
-
-  <!-- ============================================================
-       CSS
-  ============================================================= -->
+  >
 
   <style>
-
-    /* ==========================================================
-       BODY
-    ========================================================== */
-
     body {
       font-family: Arial, sans-serif;
       background-color: #f5f7fa;
-      color: #222;
       margin: 0;
       padding: 0;
     }
 
-
-    /* ==========================================================
-       NAVBAR
-    ========================================================== */
-
+    /* NAVBAR */
     .navbar {
       background-color: #002147;
     }
 
     .navbar-brand img {
-      height: 48px;
+      height: 55px;
       width: auto;
     }
 
-    .navbar .nav-link {
-      color: #fff !important;
+    .navbar-nav .nav-link {
+      color: white !important;
       font-weight: 500;
+      margin-left: 8px;
+      margin-right: 8px;
     }
 
-    .navbar .nav-link:hover,
-    .navbar .nav-link.active {
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
       color: #ffd700 !important;
     }
 
@@ -80,625 +54,346 @@
       filter: invert(1);
     }
 
-
-    /* ==========================================================
-       CERTIFICATE SECTION
-    ========================================================== */
-
+    /* MAIN */
     .certificate-section {
-      min-height: 70vh;
-      padding: 60px 0;
+      min-height: calc(100vh - 150px);
+      padding: 60px 15px;
     }
-
-
-    /* ==========================================================
-       MAIN CARD
-    ========================================================== */
 
     .certificate-card {
-      background: #fff;
+      max-width: 850px;
+      margin: auto;
+      background: white;
       border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      padding: 35px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
     }
 
+    .certificate-title {
+      text-align: center;
+      color: #002147;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
 
-    /* ==========================================================
-       SEARCH BOX
-    ========================================================== */
+    .certificate-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
 
     .search-box {
       max-width: 650px;
       margin: auto;
     }
 
-
-    /* ==========================================================
-       FORM
-    ========================================================== */
-
-    .form-control {
-      min-height: 50px;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-
-    .form-control:focus {
-      border-color: #002147;
-      box-shadow: 0 0 0 0.2rem rgba(0,33,71,0.15);
-    }
-
-
-    /* ==========================================================
-       QMI BUTTON
-    ========================================================== */
-
-    .btn-qmi {
-      background-color: #002147;
-      color: #fff;
-      border: none;
+    .search-box label {
       font-weight: 600;
-      padding: 12px 25px;
-      border-radius: 6px;
-    }
-
-    .btn-qmi:hover {
-      background-color: #003b78;
-      color: #fff;
-    }
-
-    .btn-qmi:disabled {
-      background-color: #6c757d;
-      cursor: not-allowed;
-    }
-
-
-    /* ==========================================================
-       EDIT BUTTON
-    ========================================================== */
-
-    .btn-edit {
-      background-color: #d4af37;
-      color: #000;
-      border: none;
-      font-weight: 600;
-      padding: 12px 25px;
-      border-radius: 6px;
-    }
-
-    .btn-edit:hover {
-      background-color: #c29d2e;
-      color: #000;
-    }
-
-
-    /* ==========================================================
-       DETAILS
-    ========================================================== */
-
-    #detailsSection {
-      display: none;
-      margin-top: 35px;
-    }
-
-    .details-table {
-      margin-top: 20px;
-      width: 100%;
-    }
-
-    .details-table th {
-      width: 35%;
-      background-color: #f1f4f8;
       color: #002147;
-      font-weight: 700;
     }
 
-    .details-table td,
-    .details-table th {
-      padding: 13px;
-      vertical-align: middle;
-      word-break: break-word;
-    }
-
-
-    /* ==========================================================
-       EDITABLE INPUTS
-    ========================================================== */
-
-    .edit-input {
-      display: block;
-
-      width: 100%;
-
-      min-height: 46px;
-
-      padding: 10px 12px;
-
-      border: 1px solid #999;
-
-      border-radius: 6px;
-
-      background-color: #ffffff;
-
-      color: #222222;
-
-      font-size: 16px;
-
-      font-family: Arial, sans-serif;
-
-      box-sizing: border-box;
-
-      pointer-events: auto;
-
-      cursor: text;
-
-      user-select: text;
-
-      -webkit-user-select: text;
-
-      -webkit-appearance: none;
-
-      appearance: none;
-
-      opacity: 1;
-
-      position: relative;
-
-      z-index: 10;
-    }
-
-
-    .edit-input:hover {
-      border-color: #666;
-    }
-
-
-    .edit-input:focus {
-      outline: none;
-
-      border-color: #002147;
-
-      box-shadow:
-        0 0 0 3px rgba(0,33,71,0.15);
-
-      background-color: #fff;
-
-      color: #222;
-    }
-
-
-    .edit-input:disabled {
-      opacity: 1;
-
-      background-color: #fff;
-
-      color: #222;
-
-      cursor: text;
-    }
-
-
-    /* ==========================================================
-       LOADING
-    ========================================================== */
-
-    #loading {
-      display: none;
-      margin-top: 20px;
-    }
-
-
-    /* ==========================================================
-       ERROR
-    ========================================================== */
-
-    #errorMessage {
-      display: none;
-      margin-top: 20px;
-    }
-
-
-    /* ==========================================================
-       FOOTER
-    ========================================================== */
-
-    footer {
+    .search-btn {
       background-color: #002147;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
+      color: white;
+      border: none;
+      font-weight: 600;
     }
 
-
-    /* ==========================================================
-       MODALS
-    ========================================================== */
-
-    .modal-header {
-      background-color: #002147;
+    .search-btn:hover {
+      background-color: #00366f;
       color: white;
     }
 
-    .verification-icon {
-      font-size: 55px;
-      color: #198754;
+    .details-section {
+      margin-top: 35px;
+      display: none;
+    }
+
+    .details-title {
+      color: #002147;
+      font-weight: 700;
       margin-bottom: 15px;
     }
 
-    .already-verified-icon {
-      font-size: 55px;
-      color: #dc3545;
-      margin-bottom: 15px;
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
     }
 
+    .details-table th,
+    .details-table td {
+      border: 1px solid #dee2e6;
+      padding: 12px;
+      vertical-align: middle;
+    }
 
-    /* ==========================================================
-       MOBILE
-    ========================================================== */
+    .details-table th {
+      background-color: #f1f4f8;
+      color: #002147;
+      width: 35%;
+    }
 
+    .details-table input {
+      width: 100%;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      padding: 8px 10px;
+    }
+
+    .details-table input:focus {
+      border-color: #002147;
+      outline: none;
+      box-shadow: 0 0 0 0.15rem rgba(0,33,71,0.15);
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .edit-btn {
+      background-color: #6c757d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-weight: 600;
+      border-radius: 5px;
+    }
+
+    .edit-btn:hover {
+      background-color: #5a6268;
+      color: white;
+    }
+
+    .submit-btn {
+      background-color: #198754;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      font-weight: 600;
+      border-radius: 5px;
+    }
+
+    .submit-btn:hover {
+      background-color: #157347;
+      color: white;
+    }
+
+    .back-btn {
+      background-color: #002147;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      font-weight: 600;
+      border-radius: 5px;
+    }
+
+    .back-btn:hover {
+      background-color: #00366f;
+      color: white;
+    }
+
+    /* LOADING */
+    .loading-section {
+      display: none;
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .loading-section .spinner-border {
+      color: #002147;
+    }
+
+    /* MESSAGE */
+    .message-box {
+      display: none;
+      margin-top: 20px;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #002147;
+      color: white;
+      text-align: center;
+      padding: 18px 10px;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
     @media (max-width: 768px) {
 
+      .navbar-brand img {
+        height: 45px;
+      }
+
       .certificate-section {
-        padding: 30px 10px;
+        padding: 35px 12px;
       }
 
       .certificate-card {
-        padding: 20px 15px;
-        border-radius: 10px;
+        padding: 22px 15px;
       }
 
-      .certificate-card h3 {
-        font-size: 21px;
+      .certificate-title {
+        font-size: 24px;
       }
 
-      .search-box {
-        width: 100%;
+      .certificate-subtitle {
+        font-size: 14px;
       }
 
-      .input-group {
-        display: flex;
-        flex-wrap: nowrap;
-      }
-
-      .input-group .form-control {
-        min-width: 0;
-        width: 100%;
-      }
-
-      .input-group .btn {
-        white-space: nowrap;
-        padding: 10px 14px;
+      .details-table th,
+      .details-table td {
+        padding: 9px;
+        font-size: 14px;
       }
 
       .details-table th {
         width: 40%;
-        font-size: 14px;
       }
 
-      .details-table td {
-        font-size: 14px;
+      .button-row {
+        flex-direction: column;
       }
 
-      .details-table th,
-      .details-table td {
-        padding: 10px 8px;
-      }
-
-      .edit-input {
-        min-height: 46px;
-        font-size: 16px;
-      }
-
-      #editButton,
-      #submitButton {
+      .button-row button {
         width: 100%;
-        margin: 5px 0 !important;
       }
-
-      footer {
-        font-size: 13px;
-      }
-
     }
-
-
-    /* ==========================================================
-       SMALL MOBILE
-    ========================================================== */
-
-    @media (max-width: 480px) {
-
-      .navbar-brand img {
-        height: 40px;
-      }
-
-      .certificate-card {
-        padding: 18px 12px;
-      }
-
-      .certificate-card h3 {
-        font-size: 19px;
-      }
-
-      .details-table th,
-      .details-table td {
-        padding: 10px 8px;
-        font-size: 13px;
-      }
-
-      .edit-input {
-        min-height: 46px;
-        font-size: 16px;
-      }
-
-      .input-group .btn {
-        padding: 10px 11px;
-      }
-
-      .input-group .btn i {
-        margin-right: 0 !important;
-      }
-
-    }
-
   </style>
-
 </head>
-
 
 <body>
 
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
 
-<!-- ============================================================
-     NAVBAR
-============================================================ -->
+      <a class="navbar-brand" href="index.html">
+        <img src="QMI 2026.png" alt="QMI 2026">
+      </a>
 
-<nav class="navbar navbar-expand-lg">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <div class="container">
+      <div class="collapse navbar-collapse" id="navbarNav">
 
-    <a
-      class="navbar-brand"
-      href="index.html">
+        <ul class="navbar-nav ms-auto">
 
-      <img
-        src="QMI 2026.png"
-        alt="QMI 2026">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
 
-    </a>
+          <li class="nav-item">
+            <a class="nav-link" href="organizers.html">Organizers</a>
+          </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="speakers.html">Speakers</a>
+          </li>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation">
+          <li class="nav-item">
+            <a class="nav-link" href="registration.html">Registration</a>
+          </li>
 
-      <span class="navbar-toggler-icon"></span>
+          <li class="nav-item">
+            <a class="nav-link" href="accomodation.html">Accommodation</a>
+          </li>
 
-    </button>
+          <li class="nav-item">
+            <a class="nav-link" href="schedule.html">Schedule</a>
+          </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="activities.html">Activities</a>
+          </li>
 
-    <div
-      class="collapse navbar-collapse"
-      id="navbarNav">
+          <li class="nav-item">
+            <a class="nav-link" href="howtoreach.html">How to Reach</a>
+          </li>
 
-      <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="sightseeing.html">Sightseeing</a>
+          </li>
 
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="index.html">
-            Home
-          </a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pastevents.html">Past Events</a>
+          </li>
 
+          <li class="nav-item">
+            <a class="nav-link active" href="certificates.html">
+              Certificates
+            </a>
+          </li>
 
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="organizers.html">
-            Organizers
-          </a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
 
-
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="speakers.html">
-            Speakers
-          </a>
-        </li>
-
-
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="registration.html">
-            Registration
-          </a>
-        </li>
-
-
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="accomodation.html">
-            Accomodation
-          </a>
-        </li>
-
-
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="schedule.html">
-            Schedule
-          </a>
-        </li>
-
-
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="activities.html">
-            Activities
-          </a>
-        </li>
-
-
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="howtoreach.html">
-            How to Reach
-          </a>
-        </li>
-
-
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="sightseeing.html">
-            Sightseeing
-          </a>
-        </li>
-
-
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="pastevents.html">
-            Past Events
-          </a>
-        </li>
-
-
-        <li class="nav-item">
-          <a
-            class="nav-link active"
-            href="certificates.html">
-            Certificates
-          </a>
-        </li>
-
-
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="contact.html">
-            Contact
-          </a>
-        </li>
-
-      </ul>
-
-
-      <div class="ms-auto">
-
-        <a
-          href="QMI 2026 Brochure Updated 12-08.pdf"
-          class="btn btn-outline-light">
-
-          View Flyer
-
-        </a>
+        </ul>
 
       </div>
-
     </div>
-
-  </div>
-
-</nav>
+  </nav>
 
 
-
-<!-- ============================================================
-     CERTIFICATE SECTION
-============================================================ -->
-
-<section class="certificate-section">
-
-  <div class="container">
+  <!-- MAIN SECTION -->
+  <section class="certificate-section">
 
     <div class="certificate-card">
 
+      <h2 class="certificate-title">
+        <i class="fa-solid fa-certificate"></i>
+        Certificate Verification
+      </h2>
 
-      <!-- ======================================================
-           TITLE
-      ======================================================= -->
-
-      <div class="text-center mb-4">
-
-        <h3
-          class="fw-bold"
-          style="color:#002147;">
-
-          QMI 2026 Certificate Details Verification
-
-        </h3>
+      <p class="certificate-subtitle">
+        Enter your registered mobile number to verify your certificate details.
+      </p>
 
 
-        <p class="text-muted mb-0">
-
-          Enter your registered mobile number to verify your
-          certificate details.
-
-          <br>
-
-          <strong class="text-danger">
-
-            Once verified, re-verification is not allowed.
-
-          </strong>
-
-        </p>
-
-      </div>
-
-
-
-      <!-- ======================================================
-           SEARCH
-      ======================================================= -->
-
+      <!-- SEARCH -->
       <div class="search-box">
 
-        <label
-          for="mobileNumber"
-          class="form-label fw-bold">
+        <div class="mb-3">
 
-          Registered Mobile Number
-
-        </label>
-
-
-        <div class="input-group">
+          <label for="mobileNumber" class="form-label">
+            Registered Mobile Number
+          </label>
 
           <input
             type="tel"
-            id="mobileNumber"
             class="form-control"
-            placeholder="Enter your 10-digit mobile number"
+            id="mobileNumber"
+            placeholder="Enter 10-digit mobile number"
             maxlength="10"
             inputmode="numeric"
-            autocomplete="tel">
+            autocomplete="tel"
+          >
 
+        </div>
+
+        <div class="d-grid">
 
           <button
+            type="button"
+            class="btn search-btn"
             id="searchButton"
-            class="btn btn-qmi"
-            type="button">
-
-            <i class="fas fa-search me-2"></i>
-
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
             Search
-
           </button>
 
         </div>
@@ -706,136 +401,74 @@
       </div>
 
 
+      <!-- LOADING -->
+      <div class="loading-section" id="loadingSection">
 
-      <!-- ======================================================
-           LOADING
-      ======================================================= -->
-
-      <div
-        id="loading"
-        class="text-center">
-
-        <div
-          class="spinner-border text-primary"
-          role="status">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
 
-        <p class="mt-2 mb-0">
-
-          Searching your details...
-
+        <p class="mt-2">
+          Searching for your details...
         </p>
 
       </div>
 
 
-
-      <!-- ======================================================
-           ERROR
-      ======================================================= -->
-
+      <!-- ERROR MESSAGE -->
       <div
+        class="alert alert-danger message-box"
         id="errorMessage"
-        class="alert alert-danger text-center">
-      </div>
+      ></div>
 
 
+      <!-- DETAILS -->
+      <div class="details-section" id="detailsSection">
 
-      <!-- ======================================================
-           DETAILS
-      ======================================================= -->
-
-      <div id="detailsSection">
-
-
-        <h4
-          class="fw-bold mb-3"
-          style="color:#002147;">
-
-          Participant Details
-
-        </h4>
-
-
-        <div class="alert alert-info">
-
-          <i class="fas fa-circle-info me-2"></i>
-
-          Please verify that all the information below is correct.
-          These details will be used for generating your certificate.
-
-        </div>
-
+        <h5 class="details-title">
+          <i class="fa-solid fa-user-check"></i>
+          Your Registered Details
+        </h5>
 
         <div class="table-responsive">
 
-          <table
-            class="table table-bordered details-table">
+          <table class="details-table">
 
             <tbody>
 
               <tr>
-
                 <th>S. No.</th>
-
                 <td id="sno"></td>
-
               </tr>
 
-
               <tr>
-
-                <th>
-                  Prefix (Mr./Ms./Mrs./Dr.)
-                </th>
-
+                <th>Suffix</th>
                 <td id="suffix"></td>
-
               </tr>
 
-
               <tr>
-
                 <th>Name</th>
-
                 <td id="name"></td>
-
               </tr>
 
-
               <tr>
-
                 <th>Designation</th>
-
                 <td id="designation"></td>
-
               </tr>
 
-
               <tr>
-
                 <th>Department</th>
-
                 <td id="department"></td>
-
               </tr>
 
-
               <tr>
-
-                <th>Institution Name</th>
-
+                <th>Institution</th>
                 <td id="institution"></td>
-
               </tr>
 
-
               <tr>
-
-                <th>Place/State</th>
-
+                <th>Place / State</th>
                 <td id="place"></td>
-
               </tr>
 
             </tbody>
@@ -845,135 +478,96 @@
         </div>
 
 
-
-        <!-- ==================================================
-             BUTTONS
-        =================================================== -->
-
-        <div class="text-center mt-4">
-
+        <!-- BUTTONS -->
+        <div class="button-row">
 
           <button
+            type="button"
+            class="edit-btn"
             id="editButton"
-            class="btn btn-edit me-2"
-            type="button">
-
-            <i class="fas fa-pen-to-square me-2"></i>
-
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
             Edit & Submit
-
           </button>
-
 
           <button
+            type="button"
+            class="submit-btn"
             id="submitButton"
-            class="btn btn-qmi"
-            type="button">
-
-            <i class="fas fa-check me-2"></i>
-
+          >
+            <i class="fa-solid fa-check"></i>
             Submit
-
           </button>
 
-
         </div>
 
       </div>
 
     </div>
 
-  </div>
-
-</section>
+  </section>
 
 
-
-<!-- ============================================================
-     SUCCESS MODAL
-============================================================ -->
-
-<div
-  class="modal fade"
-  id="verificationModal"
-  tabindex="-1"
-  aria-hidden="true">
-
+  <!-- VERIFICATION SUCCESS MODAL -->
   <div
-    class="modal-dialog modal-dialog-centered">
+    class="modal fade"
+    id="verificationModal"
+    tabindex="-1"
+    aria-labelledby="verificationModalLabel"
+    aria-hidden="true"
+  >
 
-    <div class="modal-content">
+    <div class="modal-dialog modal-dialog-centered">
 
+      <div class="modal-content">
 
-      <div class="modal-header">
+        <div class="modal-header bg-success text-white">
 
-        <h5 class="modal-title">
+          <h5
+            class="modal-title"
+            id="verificationModalLabel"
+          >
+            <i class="fa-solid fa-circle-check"></i>
+            Details Verified
+          </h5>
 
-          Certificate Verification
-
-        </h5>
-
-
-        <button
-          type="button"
-          class="btn-close btn-close-white"
-          data-bs-dismiss="modal"
-          aria-label="Close">
-        </button>
-
-      </div>
-
-
-      <div class="modal-body text-center p-4">
-
-
-        <div class="verification-icon">
-
-          <i class="fas fa-circle-check"></i>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
 
         </div>
 
+        <div class="modal-body text-center">
 
-        <h4 class="fw-bold">
+          <i
+            class="fa-solid fa-circle-check text-success"
+            style="font-size: 55px;"
+          ></i>
 
-          Your Details Are Verified
+          <p class="mt-3 mb-2">
+            Your details have been successfully verified.
+          </p>
 
-        </h4>
+          <p class="text-muted">
+            The verified information will be used for your certificate.
+          </p>
 
+        </div>
 
-        <p class="mt-3">
+        <div class="modal-footer justify-content-center">
 
-          Your details have been successfully verified.
+          <button
+            type="button"
+            class="back-btn"
+            id="successOkButton"
+          >
+            OK
+          </button>
 
-        </p>
-
-
-        <p>
-
-          This verified information will be used in your certificate.
-
-        </p>
-
-
-        <p class="fw-bold">
-
-          Please ensure that the information you submitted is correct.
-
-        </p>
-
-      </div>
-
-
-      <div class="modal-footer justify-content-center">
-
-        <button
-          type="button"
-          class="btn btn-qmi px-4"
-          onclick="goToHomePage()">
-
-          OK
-
-        </button>
+        </div>
 
       </div>
 
@@ -981,96 +575,68 @@
 
   </div>
 
-</div>
 
-
-
-<!-- ============================================================
-     ALREADY VERIFIED MODAL
-============================================================ -->
-
-<div
-  class="modal fade"
-  id="alreadyVerifiedModal"
-  tabindex="-1"
-  aria-hidden="true">
-
+  <!-- ALREADY VERIFIED MODAL -->
   <div
-    class="modal-dialog modal-dialog-centered">
+    class="modal fade"
+    id="alreadyVerifiedModal"
+    tabindex="-1"
+    aria-labelledby="alreadyVerifiedModalLabel"
+    aria-hidden="true"
+  >
 
-    <div class="modal-content">
+    <div class="modal-dialog modal-dialog-centered">
 
+      <div class="modal-content">
 
-      <div class="modal-header">
+        <div class="modal-header bg-warning">
 
-        <h5 class="modal-title">
+          <h5
+            class="modal-title"
+            id="alreadyVerifiedModalLabel"
+          >
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Already Verified
+          </h5>
 
-          Certificate Verification
-
-        </h5>
-
-
-        <button
-          type="button"
-          class="btn-close btn-close-white"
-          data-bs-dismiss="modal"
-          aria-label="Close">
-        </button>
-
-      </div>
-
-
-      <div class="modal-body text-center p-4">
-
-
-        <div class="already-verified-icon">
-
-          <i class="fas fa-circle-exclamation"></i>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
 
         </div>
 
+        <div class="modal-body text-center">
 
-        <h4 class="fw-bold text-danger">
+          <i
+            class="fa-solid fa-circle-info text-warning"
+            style="font-size: 55px;"
+          ></i>
 
-          Already Verified
+          <p class="mt-3">
+            Your details have already been verified.
+          </p>
 
-        </h4>
+          <p class="text-muted">
+            Re-verification is not allowed. Please contact the QMI team
+            if you need to make a correction.
+          </p>
 
+        </div>
 
-        <p class="mt-3">
+        <div class="modal-footer justify-content-center">
 
-          Your certificate details have already been verified.
+          <button
+            type="button"
+            class="back-btn"
+            data-bs-dismiss="modal"
+          >
+            OK
+          </button>
 
-        </p>
-
-
-        <p class="fw-bold">
-
-          Re-verification is not allowed.
-
-        </p>
-
-
-        <p>
-
-          If you need to make any changes,
-          please contact the QMI Team.
-
-        </p>
-
-      </div>
-
-
-      <div class="modal-footer justify-content-center">
-
-        <button
-          type="button"
-          class="btn btn-qmi px-4"
-          data-bs-dismiss="modal">
-
-          OK
-
-        </button>
+        </div>
 
       </div>
 
@@ -1078,222 +644,284 @@
 
   </div>
 
-</div>
 
-
-
-<!-- ============================================================
-     FOOTER
-============================================================ -->
-
-<footer>
-
-  <div class="container">
-
+  <!-- FOOTER -->
+  <footer>
     © 2026 QMI Workshop – VIT Chennai | All Rights Reserved
+  </footer>
 
-  </div>
 
-</footer>
+  <!-- BOOTSTRAP -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  ></script>
 
 
+  <!-- CERTIFICATE VERIFICATION SCRIPT -->
+  <script>
 
-<!-- ============================================================
-     BOOTSTRAP JAVASCRIPT
-============================================================ -->
+    /*
+      ============================================================
+      IMPORTANT
+      ============================================================
 
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
+      After creating your NEW Google Apps Script Web App deployment,
+      paste the new /exec URL here.
 
+      Example:
 
+      const API_URL =
+        "https://script.google.com/macros/s/XXXXXXXXXXXX/exec";
 
-<!-- ============================================================
-     CERTIFICATE JAVASCRIPT
-============================================================ -->
+      ============================================================
+    */
 
-<script>
+    const API_URL =
+      "https://script.google.com/macros/s/AKfycbzUiZ9kTlE8MehgA6MOaq0xZyXSku8am28TYmg_ja51fKgIiIWnSeJGunqJu1Jn2leT/exec";
 
 
-/* ============================================================ 
-   GOOGLE APPS SCRIPT WEB APP URL
+    let currentParticipant = null;
+    let currentMobile = "";
 
-   IMPORTANT:
-   This is the WEB APP URL.
-   Do NOT replace it with the Library URL.
-============================================================ */
 
-const API_URL =
-  "https://script.google.com/macros/s/AKfycbyrEvIDZkTwGS3pXJLWeejpLj1dDy73BILZ2hLVAtbadFaRZcEoAJTuhmYwZ9in61Qj8Q/exec";
+    /* ============================================================
+       COMMON FUNCTIONS
+       ============================================================ */
 
-/* ============================================================
-   GLOBAL DATA
-============================================================ */
+    function showLoading(show) {
 
-let participantData = null;
+      const loadingSection =
+        document.getElementById("loadingSection");
 
-let verificationCompleted = false;
+      loadingSection.style.display =
+        show ? "block" : "none";
 
+    }
 
-/* ============================================================
-   DOM ELEMENTS
-============================================================ */
 
-const mobileNumber =
-  document.getElementById("mobileNumber");
+    function showError(message) {
 
-const searchButton =
-  document.getElementById("searchButton");
+      const errorMessage =
+        document.getElementById("errorMessage");
 
-const editButton =
-  document.getElementById("editButton");
+      errorMessage.textContent = message;
 
-const submitButton =
-  document.getElementById("submitButton");
+      errorMessage.style.display = "block";
 
+    }
 
-/* ============================================================
-   SEARCH BUTTON
-============================================================ */
 
-searchButton.addEventListener(
-  "click",
-  searchParticipant
-);
+    function hideError() {
 
+      const errorMessage =
+        document.getElementById("errorMessage");
 
-/* ============================================================
-   EDIT BUTTON
-============================================================ */
+      errorMessage.textContent = "";
 
-editButton.addEventListener(
-  "click",
-  enableEditing
-);
+      errorMessage.style.display = "none";
 
+    }
 
-/* ============================================================
-   SUBMIT BUTTON
-============================================================ */
 
-submitButton.addEventListener(
-  "click",
-  submitVerification
-);
+    function clearDetails() {
 
+      document.getElementById("sno").textContent = "";
+      document.getElementById("suffix").textContent = "";
+      document.getElementById("name").textContent = "";
+      document.getElementById("designation").textContent = "";
+      document.getElementById("department").textContent = "";
+      document.getElementById("institution").textContent = "";
+      document.getElementById("place").textContent = "";
 
-/* ============================================================
-   SEARCH PARTICIPANT
-============================================================ */
+    }
 
-function searchParticipant() {
 
-  const mobile =
-    mobileNumber.value.trim();
+    function showDetails() {
 
+      document.getElementById("detailsSection").style.display =
+        "block";
 
-  const error =
-    document.getElementById(
-      "errorMessage"
-    );
+    }
 
 
-  const details =
-    document.getElementById(
-      "detailsSection"
-    );
+    function hideDetails() {
 
+      document.getElementById("detailsSection").style.display =
+        "none";
 
-  const loading =
-    document.getElementById(
-      "loading"
-    );
+    }
 
 
-  error.style.display = "none";
+    function getValue(data, keys) {
 
-  details.style.display = "none";
+      for (let i = 0; i < keys.length; i++) {
 
+        const key = keys[i];
 
-  /* ----------------------------------------------------------
-     VALIDATE MOBILE
-  ---------------------------------------------------------- */
+        if (
+          data &&
+          Object.prototype.hasOwnProperty.call(data, key) &&
+          data[key] !== null &&
+          data[key] !== undefined &&
+          String(data[key]).trim() !== ""
+        ) {
 
-  if (!/^\d{10}$/.test(mobile)) {
+          return data[key];
 
-    showError(
-      "Please enter a valid 10-digit mobile number."
-    );
+        }
 
-    return;
+      }
 
-  }
+      return "";
 
+    }
 
-  /* ----------------------------------------------------------
-     START LOADING
-  ---------------------------------------------------------- */
 
-  loading.style.display = "block";
+    function isAlreadyVerified(response) {
 
-  searchButton.disabled = true;
+      if (!response) {
+        return false;
+      }
 
+      if (response.alreadyVerified === true) {
+        return true;
+      }
 
-  const callbackName =
-    "qmiSearchCallback_" +
-    Date.now();
+      const message =
+        String(response.message || "");
 
+      return /already\s*verified|re-?verification/i.test(
+        message
+      );
 
-  window[callbackName] =
-    function(response) {
+    }
 
-      loading.style.display = "none";
 
-      searchButton.disabled = false;
+    /* ============================================================
+       DISPLAY PARTICIPANT
+       ============================================================ */
 
+    function displayParticipant(data) {
 
-      /* ------------------------------------------------------
-         ALREADY VERIFIED
-      ------------------------------------------------------ */
+      currentParticipant = data;
 
-      if (
-        response &&
-        isAlreadyVerified(response)
-      ) {
+      const sno = getValue(data, [
+        "S. No.",
+        "S.No",
+        "S No",
+        "Serial Number"
+      ]);
 
-        participantData = null;
+      const suffix = getValue(data, [
+        "Suffix",
+        "Prefix (Mr./Ms./Mrs./Dr.)",
+        "Prefix"
+      ]);
 
-        details.style.display = "none";
+      const name = getValue(data, [
+        "Name"
+      ]);
 
-        showAlreadyVerifiedModal();
+      const designation = getValue(data, [
+        "Designation"
+      ]);
 
-        cleanupCallback(
-          callbackName
+      const department = getValue(data, [
+        "Department"
+      ]);
+
+      const institution = getValue(data, [
+        "Institute",
+        "Institution Name",
+        "Institution"
+      ]);
+
+      const place = getValue(data, [
+        "Place",
+        "Place/State",
+        "Place / State"
+      ]);
+
+
+      document.getElementById("sno").textContent =
+        sno;
+
+      document.getElementById("suffix").textContent =
+        suffix;
+
+      document.getElementById("name").textContent =
+        name;
+
+      document.getElementById("designation").textContent =
+        designation;
+
+      document.getElementById("department").textContent =
+        department;
+
+      document.getElementById("institution").textContent =
+        institution;
+
+      document.getElementById("place").textContent =
+        place;
+
+
+      showDetails();
+
+    }
+
+
+    /* ============================================================
+       SEARCH USING JSONP
+       ============================================================ */
+
+    function searchParticipant() {
+
+      hideError();
+      hideDetails();
+      clearDetails();
+
+      const mobileInput =
+        document.getElementById("mobileNumber");
+
+      let mobile =
+        mobileInput.value.trim().replace(/\D/g, "");
+
+      mobileInput.value = mobile;
+
+
+      if (!mobile) {
+
+        showError(
+          "Please enter your registered mobile number."
         );
+
+        mobileInput.focus();
 
         return;
 
       }
 
 
-      /* ------------------------------------------------------
-         API ERROR
-      ------------------------------------------------------ */
+      if (mobile.length !== 10) {
+
+        showError(
+          "Please enter a valid 10-digit mobile number."
+        );
+
+        mobileInput.focus();
+
+        return;
+
+      }
+
 
       if (
-        !response ||
-        !response.success
+        !API_URL ||
+        API_URL === "PASTE_YOUR_NEW_WEB_APP_EXEC_URL_HERE"
       ) {
 
         showError(
-          response &&
-          response.message
-            ? response.message
-            : "Unable to retrieve participant details."
-        );
-
-        cleanupCallback(
-          callbackName
+          "Certificate verification server is not configured yet."
         );
 
         return;
@@ -1301,22 +929,390 @@ function searchParticipant() {
       }
 
 
-      /* ------------------------------------------------------
-         STORE PARTICIPANT DATA
-      ------------------------------------------------------ */
+      currentMobile = mobile;
 
-      participantData =
-        response.data || null;
+      showLoading(true);
 
 
-      if (!participantData) {
+      /*
+        Unique callback name prevents collisions when the
+        participant searches multiple times.
+      */
+
+      const callbackName =
+        "qmiSearchCallback_" +
+        Date.now() +
+        "_" +
+        Math.floor(Math.random() * 100000);
+
+
+      let completed = false;
+
+      const script =
+        document.createElement("script");
+
+
+      const timeoutId =
+        setTimeout(function () {
+
+          if (completed) {
+            return;
+          }
+
+          completed = true;
+
+          showLoading(false);
+
+          if (script.parentNode) {
+            script.parentNode.removeChild(script);
+          }
+
+          try {
+            delete window[callbackName];
+          } catch (e) {
+            window[callbackName] = undefined;
+          }
+
+          showError(
+            "Unable to connect to the verification server. Please check your internet connection and try again."
+          );
+
+        }, 15000);
+
+
+      window[callbackName] =
+        function(response) {
+
+          if (completed) {
+            return;
+          }
+
+          completed = true;
+
+          clearTimeout(timeoutId);
+
+          showLoading(false);
+
+
+          if (script.parentNode) {
+            script.parentNode.removeChild(script);
+          }
+
+          try {
+            delete window[callbackName];
+          } catch (e) {
+            window[callbackName] = undefined;
+          }
+
+
+          if (!response) {
+
+            showError(
+              "No response was received from the verification server."
+            );
+
+            return;
+
+          }
+
+
+          if (isAlreadyVerified(response)) {
+
+            const modalElement =
+              document.getElementById(
+                "alreadyVerifiedModal"
+              );
+
+            const modal =
+              bootstrap.Modal.getOrCreateInstance(
+                modalElement
+              );
+
+            modal.show();
+
+            return;
+
+          }
+
+
+          if (!response.success) {
+
+            showError(
+              response.message ||
+              "Participant details could not be found."
+            );
+
+            return;
+
+          }
+
+
+          if (!response.data) {
+
+            showError(
+              "Participant details were not returned by the server."
+            );
+
+            return;
+
+          }
+
+
+          displayParticipant(response.data);
+
+        };
+
+
+      script.src =
+        API_URL +
+        "?action=search" +
+        "&mobile=" +
+        encodeURIComponent(mobile) +
+        "&callback=" +
+        encodeURIComponent(callbackName) +
+        "&_t=" +
+        Date.now();
+
+
+      script.async = true;
+
+      script.charset = "UTF-8";
+
+
+      script.onerror =
+        function() {
+
+          if (completed) {
+            return;
+          }
+
+          completed = true;
+
+          clearTimeout(timeoutId);
+
+          showLoading(false);
+
+
+          if (script.parentNode) {
+            script.parentNode.removeChild(script);
+          }
+
+          try {
+            delete window[callbackName];
+          } catch (e) {
+            window[callbackName] = undefined;
+          }
+
+
+          showError(
+            "Unable to connect to the verification server. Please try again."
+          );
+
+        };
+
+
+      document.body.appendChild(script);
+
+    }
+
+
+    /* ============================================================
+       EDIT DETAILS
+       ============================================================ */
+
+    function makeEditable() {
+
+      if (!currentParticipant) {
+        return;
+      }
+
+
+      const currentName =
+        document.getElementById("name").textContent;
+
+      const currentDesignation =
+        document.getElementById("designation").textContent;
+
+      const currentDepartment =
+        document.getElementById("department").textContent;
+
+      const currentInstitution =
+        document.getElementById("institution").textContent;
+
+      const currentPlace =
+        document.getElementById("place").textContent;
+
+
+      document.getElementById("name").innerHTML =
+        '<input type="text" id="editName" value="' +
+        escapeAttribute(currentName) +
+        '">';
+
+
+      document.getElementById("designation").innerHTML =
+        '<input type="text" id="editDesignation" value="' +
+        escapeAttribute(currentDesignation) +
+        '">';
+
+
+      document.getElementById("department").innerHTML =
+        '<input type="text" id="editDepartment" value="' +
+        escapeAttribute(currentDepartment) +
+        '">';
+
+
+      document.getElementById("institution").innerHTML =
+        '<input type="text" id="editInstitution" value="' +
+        escapeAttribute(currentInstitution) +
+        '">';
+
+
+      document.getElementById("place").innerHTML =
+        '<input type="text" id="editPlace" value="' +
+        escapeAttribute(currentPlace) +
+        '">';
+
+
+      document.getElementById("editButton").style.display =
+        "none";
+
+
+      document.getElementById("submitButton").style.display =
+        "inline-block";
+
+
+      const firstInput =
+        document.getElementById("editName");
+
+      if (firstInput) {
+        firstInput.focus();
+      }
+
+    }
+
+
+    function escapeAttribute(value) {
+
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
+    }
+
+
+    /* ============================================================
+       GET FINAL DATA
+       ============================================================ */
+
+    function getFinalData() {
+
+      const nameInput =
+        document.getElementById("editName");
+
+      const designationInput =
+        document.getElementById("editDesignation");
+
+      const departmentInput =
+        document.getElementById("editDepartment");
+
+      const institutionInput =
+        document.getElementById("editInstitution");
+
+      const placeInput =
+        document.getElementById("editPlace");
+
+
+      const finalName =
+        nameInput
+          ? nameInput.value.trim()
+          : document.getElementById("name").textContent.trim();
+
+
+      const finalDesignation =
+        designationInput
+          ? designationInput.value.trim()
+          : document.getElementById("designation").textContent.trim();
+
+
+      const finalDepartment =
+        departmentInput
+          ? departmentInput.value.trim()
+          : document.getElementById("department").textContent.trim();
+
+
+      const finalInstitution =
+        institutionInput
+          ? institutionInput.value.trim()
+          : document.getElementById("institution").textContent.trim();
+
+
+      const finalPlace =
+        placeInput
+          ? placeInput.value.trim()
+          : document.getElementById("place").textContent.trim();
+
+
+      return {
+        "S. No.": getValue(
+          currentParticipant,
+          ["S. No.", "S.No", "S No"]
+        ),
+
+        "Suffix": getValue(
+          currentParticipant,
+          [
+            "Suffix",
+            "Prefix (Mr./Ms./Mrs./Dr.)",
+            "Prefix"
+          ]
+        ),
+
+        "Name": finalName,
+
+        "Gender": getValue(
+          currentParticipant,
+          ["Gender"]
+        ),
+
+        "Designation": finalDesignation,
+
+        "Department": finalDepartment,
+
+        "Institute": finalInstitution,
+
+        "Institution Name": finalInstitution,
+
+        "Place": finalPlace,
+
+        "Place/State": finalPlace,
+
+        "Mobile Number": currentMobile,
+
+        "Email": getValue(
+          currentParticipant,
+          ["Email"]
+        )
+
+      };
+
+    }
+
+
+    /* ============================================================
+       VERIFY
+       ============================================================ */
+
+    function submitVerification() {
+
+      hideError();
+
+
+      if (!currentParticipant || !currentMobile) {
 
         showError(
-          "Participant details were not returned by the server."
-        );
-
-        cleanupCallback(
-          callbackName
+          "Please search for your mobile number first."
         );
 
         return;
@@ -1324,763 +1320,14 @@ function searchParticipant() {
       }
 
 
-      /* ------------------------------------------------------
-         DISPLAY DATA
-      ------------------------------------------------------ */
+      const finalData =
+        getFinalData();
 
-      displayParticipant(
-        participantData
-      );
 
-
-      cleanupCallback(
-        callbackName
-      );
-
-    };
-
-
-  /* ----------------------------------------------------------
-     CREATE JSONP SCRIPT
-  ---------------------------------------------------------- */
-
-  const script =
-    document.createElement(
-      "script"
-    );
-
-
-  script.src =
-    API_URL +
-    "?action=search" +
-    "&mobile=" +
-    encodeURIComponent(
-      mobile
-    ) +
-    "&callback=" +
-    callbackName;
-
-
-  script.onerror =
-    function() {
-
-      loading.style.display = "none";
-
-      searchButton.disabled = false;
-
-      showError(
-        "Unable to connect to the verification server."
-      );
-
-      cleanupCallback(
-        callbackName
-      );
-
-    };
-
-
-  document.body.appendChild(
-    script
-  );
-
-}
-
-
-/* ============================================================
-   CHECK ALREADY VERIFIED
-============================================================ */
-
-function isAlreadyVerified(response) {
-
-  if (!response) {
-
-    return false;
-
-  }
-
-
-  if (
-    response.alreadyVerified === true
-  ) {
-
-    return true;
-
-  }
-
-
-  if (
-    response.verified === true
-  ) {
-
-    return true;
-
-  }
-
-
-  if (response.data) {
-
-    if (
-      response.data.alreadyVerified === true ||
-      response.data.verified === true ||
-      response.data.Verified === true
-    ) {
-
-      return true;
-
-    }
-
-
-    if (
-      String(
-        response.data.Status || ""
-      ).toLowerCase() === "verified"
-    ) {
-
-      return true;
-
-    }
-
-
-    if (
-      response.data["Verified At"] ||
-      response.data["Verification Date"] ||
-      response.data["Verification Time"]
-    ) {
-
-      return true;
-
-    }
-
-  }
-
-
-  if (
-    response.message &&
-    /already\s*verified|re-?verification/i
-      .test(response.message)
-  ) {
-
-    return true;
-
-  }
-
-
-  return false;
-
-}
-
-
-/* ============================================================
-   DISPLAY PARTICIPANT
-============================================================ */
-
-function displayParticipant(data) {
-
-  document.getElementById(
-    "sno"
-  ).textContent =
-    data["S. No."] || "";
-
-
-  document.getElementById(
-    "suffix"
-  ).textContent =
-    data["Prefix (Mr./Ms./Mrs./Dr.)"] ||
-    data["Suffix"] ||
-    "";
-
-
-  document.getElementById(
-    "name"
-  ).textContent =
-    data["Name"] || "";
-
-
-  document.getElementById(
-    "designation"
-  ).textContent =
-    data["Designation"] || "";
-
-
-  document.getElementById(
-    "department"
-  ).textContent =
-    data["Department"] || "";
-
-
-  document.getElementById(
-    "institution"
-  ).textContent =
-    data["Institution Name"] ||
-    data["Institute"] ||
-    "";
-
-
-  document.getElementById(
-    "place"
-  ).textContent =
-    data["Place/State"] ||
-    data["Place"] ||
-    "";
-
-
-  document.getElementById(
-    "detailsSection"
-  ).style.display =
-    "block";
-
-
-  resetEditMode();
-
-}
-
-
-/* ============================================================
-   CREATE EDITABLE INPUT
-============================================================ */
-
-function createEditableInput(
-  id,
-  value,
-  autocompleteValue
-) {
-
-  const input =
-    document.createElement(
-      "input"
-    );
-
-
-  input.type = "text";
-
-  input.id = id;
-
-  input.className =
-    "edit-input";
-
-
-  input.value =
-    value || "";
-
-
-  /* ----------------------------------------------------------
-     EXPLICITLY MAKE INPUT EDITABLE
-  ---------------------------------------------------------- */
-
-  input.disabled = false;
-
-  input.readOnly = false;
-
-  input.removeAttribute(
-    "disabled"
-  );
-
-  input.removeAttribute(
-    "readonly"
-  );
-
-
-  input.tabIndex = 0;
-
-
-  input.autocomplete =
-    autocompleteValue || "off";
-
-
-  input.spellcheck = false;
-
-
-  /* ----------------------------------------------------------
-     FORCE TEXT INPUT BEHAVIOUR
-  ---------------------------------------------------------- */
-
-  input.style.pointerEvents =
-    "auto";
-
-  input.style.cursor =
-    "text";
-
-  input.style.userSelect =
-    "text";
-
-  input.style.webkitUserSelect =
-    "text";
-
-
-  /* ----------------------------------------------------------
-     CLICK
-  ---------------------------------------------------------- */
-
-  input.addEventListener(
-    "click",
-    function(event) {
-
-      event.stopPropagation();
-
-      this.focus();
-
-    }
-  );
-
-
-  /* ----------------------------------------------------------
-     MOUSE DOWN
-  ---------------------------------------------------------- */
-
-  input.addEventListener(
-    "mousedown",
-    function(event) {
-
-      event.stopPropagation();
-
-    }
-  );
-
-
-  return input;
-
-}
-
-
-/* ============================================================
-   ENABLE EDITING
-============================================================ */
-
-function enableEditing() {
-
-  if (!participantData) {
-
-    showError(
-      "Please search for your details first."
-    );
-
-    return;
-
-  }
-
-
-  /* ==========================================================
-     NAME
-  ========================================================== */
-
-  const nameCell =
-    document.getElementById(
-      "name"
-    );
-
-
-  const nameInput =
-    createEditableInput(
-      "edit_name",
-      participantData["Name"],
-      "off"
-    );
-
-
-  nameCell.innerHTML = "";
-
-  nameCell.appendChild(
-    nameInput
-  );
-
-
-  /* ==========================================================
-     DESIGNATION
-  ========================================================== */
-
-  const designationCell =
-    document.getElementById(
-      "designation"
-    );
-
-
-  const designationInput =
-    createEditableInput(
-      "edit_designation",
-      participantData["Designation"],
-      "organization-title"
-    );
-
-
-  designationCell.innerHTML = "";
-
-  designationCell.appendChild(
-    designationInput
-  );
-
-
-  /* ==========================================================
-     DEPARTMENT
-  ========================================================== */
-
-  const departmentCell =
-    document.getElementById(
-      "department"
-    );
-
-
-  const departmentInput =
-    createEditableInput(
-      "edit_department",
-      participantData["Department"],
-      "organization"
-    );
-
-
-  departmentCell.innerHTML = "";
-
-  departmentCell.appendChild(
-    departmentInput
-  );
-
-
-  /* ==========================================================
-     INSTITUTION
-  ========================================================== */
-
-  const institutionCell =
-    document.getElementById(
-      "institution"
-    );
-
-
-  const institutionInput =
-    createEditableInput(
-      "edit_institution",
-
-      participantData["Institution Name"] ||
-      participantData["Institute"],
-
-      "organization"
-    );
-
-
-  institutionCell.innerHTML = "";
-
-  institutionCell.appendChild(
-    institutionInput
-  );
-
-
-  /* ==========================================================
-     PLACE / STATE
-  ========================================================== */
-
-  const placeCell =
-    document.getElementById(
-      "place"
-    );
-
-
-  const placeInput =
-    createEditableInput(
-      "edit_place",
-
-      participantData["Place/State"] ||
-      participantData["Place"],
-
-      "address-level1"
-    );
-
-
-  placeCell.innerHTML = "";
-
-  placeCell.appendChild(
-    placeInput
-  );
-
-
-  /* ==========================================================
-     HIDE EDIT BUTTON
-  ========================================================== */
-
-  editButton.style.display =
-    "none";
-
-
-  /* ==========================================================
-     ENABLE SUBMIT
-  ========================================================== */
-
-  submitButton.disabled =
-    false;
-
-
-  submitButton.innerHTML =
-    '<i class="fas fa-check me-2"></i>' +
-    ' Save Changes & Submit';
-
-
-  /* ==========================================================
-     FOCUS DESIGNATION
-
-     This is intentional so you can immediately test
-     whether the Designation field is editable.
-  ========================================================== */
-
-  setTimeout(
-    function() {
-
-      designationInput.focus();
-
-      designationInput.select();
-
-    },
-    100
-  );
-
-}
-
-
-/* ============================================================
-   SUBMIT VERIFICATION
-============================================================ */
-
-function submitVerification() {
-
-  if (!participantData) {
-
-    showError(
-      "Please search for your details first."
-    );
-
-    return;
-
-  }
-
-
-  /* ==========================================================
-     NAME
-  ========================================================== */
-
-  const editName =
-    document.getElementById(
-      "edit_name"
-    );
-
-
-  if (editName) {
-
-    participantData["Name"] =
-      editName.value.trim();
-
-  }
-
-
-  /* ==========================================================
-     DESIGNATION
-  ========================================================== */
-
-  const editDesignation =
-    document.getElementById(
-      "edit_designation"
-    );
-
-
-  if (editDesignation) {
-
-    participantData["Designation"] =
-      editDesignation.value.trim();
-
-  }
-
-
-  /* ==========================================================
-     DEPARTMENT
-  ========================================================== */
-
-  const editDepartment =
-    document.getElementById(
-      "edit_department"
-    );
-
-
-  if (editDepartment) {
-
-    participantData["Department"] =
-      editDepartment.value.trim();
-
-  }
-
-
-  /* ==========================================================
-     INSTITUTION
-  ========================================================== */
-
-  const editInstitution =
-    document.getElementById(
-      "edit_institution"
-    );
-
-
-  if (editInstitution) {
-
-    participantData["Institution Name"] =
-      editInstitution.value.trim();
-
-  }
-
-
-  /* ==========================================================
-     PLACE
-  ========================================================== */
-
-  const editPlace =
-    document.getElementById(
-      "edit_place"
-    );
-
-
-  if (editPlace) {
-
-    participantData["Place/State"] =
-      editPlace.value.trim();
-
-  }
-
-
-  /* ==========================================================
-     VALIDATION
-  ========================================================== */
-
-  if (
-    !participantData["Name"]
-  ) {
-
-    showError(
-      "Please enter your name."
-    );
-
-    return;
-
-  }
-
-
-  if (
-    !participantData["Designation"]
-  ) {
-
-    showError(
-      "Please enter your designation."
-    );
-
-    return;
-
-  }
-
-
-  if (
-    !participantData["Institution Name"] &&
-    !participantData["Institute"]
-  ) {
-
-    showError(
-      "Please enter your institution name."
-    );
-
-    return;
-
-  }
-
-
-  if (
-    !participantData["Place/State"] &&
-    !participantData["Place"]
-  ) {
-
-    showError(
-      "Please enter your place/state."
-    );
-
-    return;
-
-  }
-
-
-  /* ==========================================================
-     DISABLE SUBMIT
-  ========================================================== */
-
-  submitButton.disabled =
-    true;
-
-
-  submitButton.innerHTML =
-    '<span class="spinner-border spinner-border-sm me-2"></span>' +
-    'Submitting...';
-
-
-  /* ==========================================================
-     CALLBACK
-  ========================================================== */
-
-  const callbackName =
-    "qmiVerifyCallback_" +
-    Date.now();
-
-
-  window[callbackName] =
-    function(response) {
-
-
-      /* ------------------------------------------------------
-         ALREADY VERIFIED
-      ------------------------------------------------------ */
-
-      if (
-        response &&
-        isAlreadyVerified(response)
-      ) {
-
-        submitButton.disabled =
-          false;
-
-
-        submitButton.innerHTML =
-          '<i class="fas fa-check me-2"></i>' +
-          ' Submit';
-
-
-        showAlreadyVerifiedModal();
-
-
-        cleanupCallback(
-          callbackName
-        );
-
-        return;
-
-      }
-
-
-      /* ------------------------------------------------------
-         ERROR
-      ------------------------------------------------------ */
-
-      if (
-        !response ||
-        !response.success
-      ) {
-
-        submitButton.disabled =
-          false;
-
-
-        submitButton.innerHTML =
-          '<i class="fas fa-check me-2"></i>' +
-          ' Submit';
-
+      if (!finalData.Name) {
 
         showError(
-          response &&
-          response.message
-            ? response.message
-            : "Verification could not be completed."
-        );
-
-
-        cleanupCallback(
-          callbackName
+          "Name cannot be empty."
         );
 
         return;
@@ -2088,262 +1335,307 @@ function submitVerification() {
       }
 
 
-      /* ------------------------------------------------------
-         SUCCESS
-      ------------------------------------------------------ */
+      if (!finalData.Designation) {
 
-      verificationCompleted =
-        true;
-
-
-      submitButton.disabled =
-        true;
-
-
-      editButton.disabled =
-        true;
-
-
-      cleanupCallback(
-        callbackName
-      );
-
-
-      /* ------------------------------------------------------
-         SUCCESS MODAL
-      ------------------------------------------------------ */
-
-      const modalElement =
-        document.getElementById(
-          "verificationModal"
+        showError(
+          "Designation cannot be empty."
         );
 
+        return;
 
-      const modal =
-        bootstrap.Modal.getOrCreateInstance(
-          modalElement
+      }
+
+
+      if (!finalData["Institute"]) {
+
+        showError(
+          "Institution cannot be empty."
         );
 
+        return;
 
-      modal.show();
+      }
 
-    };
 
+      if (!finalData["Place"]) {
 
-  /* ==========================================================
-     CREATE JSONP SCRIPT
-  ========================================================== */
+        showError(
+          "Place / State cannot be empty."
+        );
 
-  const script =
-    document.createElement(
-      "script"
-    );
+        return;
 
+      }
 
-  script.src =
-    API_URL +
-    "?action=verify" +
-    "&mobile=" +
-    encodeURIComponent(
-      participantData["Mobile Number"] || ""
-    ) +
-    "&data=" +
-    encodeURIComponent(
-      JSON.stringify(
-        participantData
-      )
-    ) +
-    "&callback=" +
-    callbackName;
 
+      showLoading(true);
 
-  script.onerror =
-    function() {
 
-      submitButton.disabled =
-        false;
+      const callbackName =
+        "qmiVerifyCallback_" +
+        Date.now() +
+        "_" +
+        Math.floor(Math.random() * 100000);
 
 
-      submitButton.innerHTML =
-        '<i class="fas fa-check me-2"></i>' +
-        ' Submit';
+      let completed = false;
 
 
-      showError(
-        "Unable to connect to the verification server."
-      );
+      const script =
+        document.createElement("script");
 
 
-      cleanupCallback(
-        callbackName
-      );
+      const timeoutId =
+        setTimeout(function() {
 
-    };
+          if (completed) {
+            return;
+          }
 
+          completed = true;
 
-  document.body.appendChild(
-    script
-  );
+          showLoading(false);
 
-}
 
+          if (script.parentNode) {
+            script.parentNode.removeChild(script);
+          }
 
-/* ============================================================
-   ALREADY VERIFIED MODAL
-============================================================ */
+          try {
+            delete window[callbackName];
+          } catch (e) {
+            window[callbackName] = undefined;
+          }
 
-function showAlreadyVerifiedModal() {
 
-  const modalElement =
-    document.getElementById(
-      "alreadyVerifiedModal"
-    );
+          showError(
+            "Unable to connect to the verification server. Please try again."
+          );
 
+        }, 15000);
 
-  const modal =
-    bootstrap.Modal.getOrCreateInstance(
-      modalElement
-    );
 
+      window[callbackName] =
+        function(response) {
 
-  modal.show();
+          if (completed) {
+            return;
+          }
 
-}
+          completed = true;
 
+          clearTimeout(timeoutId);
 
-/* ============================================================
-   SUCCESS → HOME
-============================================================ */
+          showLoading(false);
 
-function goToHomePage() {
 
-  window.location.href =
-    "index.html";
+          if (script.parentNode) {
+            script.parentNode.removeChild(script);
+          }
 
-}
+          try {
+            delete window[callbackName];
+          } catch (e) {
+            window[callbackName] = undefined;
+          }
 
 
-/* ============================================================
-   RESET EDIT MODE
-============================================================ */
+          if (!response) {
 
-function resetEditMode() {
+            showError(
+              "No response was received from the verification server."
+            );
 
-  editButton.style.display =
-    "inline-block";
+            return;
 
+          }
 
-  editButton.disabled =
-    false;
 
+          if (isAlreadyVerified(response)) {
 
-  submitButton.disabled =
-    false;
+            const modalElement =
+              document.getElementById(
+                "alreadyVerifiedModal"
+              );
 
+            const modal =
+              bootstrap.Modal.getOrCreateInstance(
+                modalElement
+              );
 
-  submitButton.innerHTML =
-    '<i class="fas fa-check me-2"></i>' +
-    ' Submit';
+            modal.show();
 
-}
+            return;
 
+          }
 
-/* ============================================================
-   ERROR MESSAGE
-============================================================ */
 
-function showError(message) {
+          if (!response.success) {
 
-  const error =
-    document.getElementById(
-      "errorMessage"
-    );
+            showError(
+              response.message ||
+              "Verification failed. Please try again."
+            );
 
+            return;
 
-  error.textContent =
-    message;
+          }
 
 
-  error.style.display =
-    "block";
+          const modalElement =
+            document.getElementById(
+              "verificationModal"
+            );
 
+          const modal =
+            bootstrap.Modal.getOrCreateInstance(
+              modalElement
+            );
 
-  error.scrollIntoView({
-    behavior: "smooth",
-    block: "center"
-  });
+          modal.show();
 
-}
+        };
 
 
-/* ============================================================
-   CLEAN JSONP CALLBACK
-============================================================ */
+      script.src =
+        API_URL +
+        "?action=verify" +
+        "&mobile=" +
+        encodeURIComponent(currentMobile) +
+        "&data=" +
+        encodeURIComponent(JSON.stringify(finalData)) +
+        "&callback=" +
+        encodeURIComponent(callbackName) +
+        "&_t=" +
+        Date.now();
 
-function cleanupCallback(
-  callbackName
-) {
 
-  try {
+      script.async = true;
 
-    delete window[
-      callbackName
-    ];
+      script.charset = "UTF-8";
 
-  }
 
-  catch (error) {
+      script.onerror =
+        function() {
 
-    window[
-      callbackName
-    ] = undefined;
+          if (completed) {
+            return;
+          }
 
-  }
+          completed = true;
 
-}
+          clearTimeout(timeoutId);
 
+          showLoading(false);
 
-/* ============================================================
-   ENTER KEY SEARCH
-============================================================ */
 
-mobileNumber.addEventListener(
-  "keydown",
-  function(event) {
+          if (script.parentNode) {
+            script.parentNode.removeChild(script);
+          }
 
-    if (
-      event.key === "Enter"
-    ) {
 
-      event.preventDefault();
+          try {
+            delete window[callbackName];
+          } catch (e) {
+            window[callbackName] = undefined;
+          }
 
-      searchParticipant();
+
+          showError(
+            "Unable to connect to the verification server. Please try again."
+          );
+
+        };
+
+
+      document.body.appendChild(script);
 
     }
 
-  }
-);
+
+    /* ============================================================
+       EVENT LISTENERS
+       ============================================================ */
+
+    document
+      .getElementById("searchButton")
+      .addEventListener(
+        "click",
+        searchParticipant
+      );
 
 
-/* ============================================================
-   MOBILE NUMBER INPUT
-============================================================ */
+    document
+      .getElementById("editButton")
+      .addEventListener(
+        "click",
+        makeEditable
+      );
 
-mobileNumber.addEventListener(
-  "input",
-  function() {
 
-    this.value =
-      this.value
-        .replace(/\D/g, "")
-        .slice(0, 10);
+    document
+      .getElementById("submitButton")
+      .addEventListener(
+        "click",
+        submitVerification
+      );
 
-  }
-);
 
-</script>
+    document
+      .getElementById("mobileNumber")
+      .addEventListener(
+        "input",
+        function() {
 
+          this.value =
+            this.value
+              .replace(/\D/g, "")
+              .slice(0, 10);
+
+        }
+      );
+
+
+    document
+      .getElementById("mobileNumber")
+      .addEventListener(
+        "keypress",
+        function(event) {
+
+          if (event.key === "Enter") {
+
+            event.preventDefault();
+
+            searchParticipant();
+
+          }
+
+        }
+      );
+
+
+    document
+      .getElementById("successOkButton")
+      .addEventListener(
+        "click",
+        function() {
+
+          window.location.href =
+            "index.html";
+
+        }
+      );
+
+
+    /* ============================================================
+       INITIAL STATE
+       ============================================================ */
+
+    document
+      .getElementById("submitButton")
+      .style.display = "inline-block";
+
+  </script>
 
 </body>
-
 </html>
