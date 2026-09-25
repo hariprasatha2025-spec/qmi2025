@@ -202,32 +202,79 @@
 
 
     /* ==========================================================
-       EDIT INPUTS
-
-       Explicitly designed for desktop + mobile.
+       EDITABLE INPUTS
     ========================================================== */
 
     .edit-input {
       display: block;
+
       width: 100%;
+
       min-height: 46px;
+
       padding: 10px 12px;
+
       border: 1px solid #999;
+
       border-radius: 6px;
-      background-color: #fff;
-      color: #222;
+
+      background-color: #ffffff;
+
+      color: #222222;
+
       font-size: 16px;
+
       font-family: Arial, sans-serif;
+
       box-sizing: border-box;
 
+      pointer-events: auto;
+
+      cursor: text;
+
+      user-select: text;
+
+      -webkit-user-select: text;
+
       -webkit-appearance: none;
+
       appearance: none;
+
+      opacity: 1;
+
+      position: relative;
+
+      z-index: 10;
     }
+
+
+    .edit-input:hover {
+      border-color: #666;
+    }
+
 
     .edit-input:focus {
       outline: none;
+
       border-color: #002147;
-      box-shadow: 0 0 0 3px rgba(0,33,71,0.15);
+
+      box-shadow:
+        0 0 0 3px rgba(0,33,71,0.15);
+
+      background-color: #fff;
+
+      color: #222;
+    }
+
+
+    .edit-input:disabled {
+      opacity: 1;
+
+      background-color: #fff;
+
+      color: #222;
+
+      cursor: text;
     }
 
 
@@ -646,8 +693,7 @@
           <button
             id="searchButton"
             class="btn btn-qmi"
-            type="button"
-            onclick="searchParticipant()">
+            type="button">
 
             <i class="fas fa-search me-2"></i>
 
@@ -728,7 +774,6 @@
 
             <tbody>
 
-
               <tr>
 
                 <th>S. No.</th>
@@ -793,7 +838,6 @@
 
               </tr>
 
-
             </tbody>
 
           </table>
@@ -812,8 +856,7 @@
           <button
             id="editButton"
             class="btn btn-edit me-2"
-            type="button"
-            onclick="enableEditing()">
+            type="button">
 
             <i class="fas fa-pen-to-square me-2"></i>
 
@@ -825,8 +868,7 @@
           <button
             id="submitButton"
             class="btn btn-qmi"
-            type="button"
-            onclick="submitVerification()">
+            type="button">
 
             <i class="fas fa-check me-2"></i>
 
@@ -1075,10 +1117,14 @@
 
 /* ============================================================
    GOOGLE APPS SCRIPT WEB APP URL
+
+   IMPORTANT:
+   This is the WEB APP URL.
+   Do NOT replace it with the Library URL.
 ============================================================ */
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbx_L9YnA7Q6caJqbawIUpRksH6IL5iy0FX2FTsZBCzrFGUBhuFA3cUpGlkwOT9oC-h9-Q/exec";
+  "https://script.google.com/macros/s/AKfycbyrEvIDZkTwGS3pXJLWeejpLj1dDy73BILZ2hLVAtbadFaRZcEoAJTuhmYwZ9in61Qj8Q/exec";
 
 
 /* ============================================================
@@ -1091,32 +1137,78 @@ let verificationCompleted = false;
 
 
 /* ============================================================
+   DOM ELEMENTS
+============================================================ */
+
+const mobileNumber =
+  document.getElementById("mobileNumber");
+
+const searchButton =
+  document.getElementById("searchButton");
+
+const editButton =
+  document.getElementById("editButton");
+
+const submitButton =
+  document.getElementById("submitButton");
+
+
+/* ============================================================
+   SEARCH BUTTON
+============================================================ */
+
+searchButton.addEventListener(
+  "click",
+  searchParticipant
+);
+
+
+/* ============================================================
+   EDIT BUTTON
+============================================================ */
+
+editButton.addEventListener(
+  "click",
+  enableEditing
+);
+
+
+/* ============================================================
+   SUBMIT BUTTON
+============================================================ */
+
+submitButton.addEventListener(
+  "click",
+  submitVerification
+);
+
+
+/* ============================================================
    SEARCH PARTICIPANT
 ============================================================ */
 
 function searchParticipant() {
 
   const mobile =
-    document
-      .getElementById("mobileNumber")
-      .value
-      .trim();
+    mobileNumber.value.trim();
 
 
   const error =
-    document.getElementById("errorMessage");
+    document.getElementById(
+      "errorMessage"
+    );
 
 
   const details =
-    document.getElementById("detailsSection");
+    document.getElementById(
+      "detailsSection"
+    );
 
 
   const loading =
-    document.getElementById("loading");
-
-
-  const searchButton =
-    document.getElementById("searchButton");
+    document.getElementById(
+      "loading"
+    );
 
 
   error.style.display = "none";
@@ -1149,7 +1241,8 @@ function searchParticipant() {
 
 
   const callbackName =
-    "qmiSearchCallback_" + Date.now();
+    "qmiSearchCallback_" +
+    Date.now();
 
 
   window[callbackName] =
@@ -1161,7 +1254,7 @@ function searchParticipant() {
 
 
       /* ------------------------------------------------------
-         CHECK ALREADY VERIFIED FIRST
+         ALREADY VERIFIED
       ------------------------------------------------------ */
 
       if (
@@ -1175,7 +1268,9 @@ function searchParticipant() {
 
         showAlreadyVerifiedModal();
 
-        cleanupCallback(callbackName);
+        cleanupCallback(
+          callbackName
+        );
 
         return;
 
@@ -1192,12 +1287,15 @@ function searchParticipant() {
       ) {
 
         showError(
-          response && response.message
+          response &&
+          response.message
             ? response.message
             : "Unable to retrieve participant details."
         );
 
-        cleanupCallback(callbackName);
+        cleanupCallback(
+          callbackName
+        );
 
         return;
 
@@ -1218,7 +1316,9 @@ function searchParticipant() {
           "Participant details were not returned by the server."
         );
 
-        cleanupCallback(callbackName);
+        cleanupCallback(
+          callbackName
+        );
 
         return;
 
@@ -1234,7 +1334,9 @@ function searchParticipant() {
       );
 
 
-      cleanupCallback(callbackName);
+      cleanupCallback(
+        callbackName
+      );
 
     };
 
@@ -1244,14 +1346,18 @@ function searchParticipant() {
   ---------------------------------------------------------- */
 
   const script =
-    document.createElement("script");
+    document.createElement(
+      "script"
+    );
 
 
   script.src =
     API_URL +
     "?action=search" +
     "&mobile=" +
-    encodeURIComponent(mobile) +
+    encodeURIComponent(
+      mobile
+    ) +
     "&callback=" +
     callbackName;
 
@@ -1267,12 +1373,16 @@ function searchParticipant() {
         "Unable to connect to the verification server."
       );
 
-      cleanupCallback(callbackName);
+      cleanupCallback(
+        callbackName
+      );
 
     };
 
 
-  document.body.appendChild(script);
+  document.body.appendChild(
+    script
+  );
 
 }
 
@@ -1284,13 +1394,11 @@ function searchParticipant() {
 function isAlreadyVerified(response) {
 
   if (!response) {
+
     return false;
+
   }
 
-
-  /* ----------------------------------------------------------
-     Direct response flag
-  ---------------------------------------------------------- */
 
   if (
     response.alreadyVerified === true
@@ -1310,13 +1418,7 @@ function isAlreadyVerified(response) {
   }
 
 
-  /* ----------------------------------------------------------
-     Data response flag
-  ---------------------------------------------------------- */
-
-  if (
-    response.data
-  ) {
+  if (response.data) {
 
     if (
       response.data.alreadyVerified === true ||
@@ -1341,17 +1443,6 @@ function isAlreadyVerified(response) {
 
 
     if (
-      String(
-        response.data["Verification Status"] || ""
-      ).toLowerCase() === "verified"
-    ) {
-
-      return true;
-
-    }
-
-
-    if (
       response.data["Verified At"] ||
       response.data["Verification Date"] ||
       response.data["Verification Time"]
@@ -1363,10 +1454,6 @@ function isAlreadyVerified(response) {
 
   }
 
-
-  /* ----------------------------------------------------------
-     Message check
-  ---------------------------------------------------------- */
 
   if (
     response.message &&
@@ -1390,45 +1477,168 @@ function isAlreadyVerified(response) {
 
 function displayParticipant(data) {
 
-  document.getElementById("sno").textContent =
+  document.getElementById(
+    "sno"
+  ).textContent =
     data["S. No."] || "";
 
 
-  document.getElementById("suffix").textContent =
+  document.getElementById(
+    "suffix"
+  ).textContent =
     data["Prefix (Mr./Ms./Mrs./Dr.)"] ||
     data["Suffix"] ||
     "";
 
 
-  document.getElementById("name").textContent =
+  document.getElementById(
+    "name"
+  ).textContent =
     data["Name"] || "";
 
 
-  document.getElementById("designation").textContent =
+  document.getElementById(
+    "designation"
+  ).textContent =
     data["Designation"] || "";
 
 
-  document.getElementById("department").textContent =
+  document.getElementById(
+    "department"
+  ).textContent =
     data["Department"] || "";
 
 
-  document.getElementById("institution").textContent =
+  document.getElementById(
+    "institution"
+  ).textContent =
     data["Institution Name"] ||
     data["Institute"] ||
     "";
 
 
-  document.getElementById("place").textContent =
+  document.getElementById(
+    "place"
+  ).textContent =
     data["Place/State"] ||
     data["Place"] ||
     "";
 
 
-  document.getElementById("detailsSection")
-    .style.display = "block";
+  document.getElementById(
+    "detailsSection"
+  ).style.display =
+    "block";
 
 
   resetEditMode();
+
+}
+
+
+/* ============================================================
+   CREATE EDITABLE INPUT
+============================================================ */
+
+function createEditableInput(
+  id,
+  value,
+  autocompleteValue
+) {
+
+  const input =
+    document.createElement(
+      "input"
+    );
+
+
+  input.type = "text";
+
+  input.id = id;
+
+  input.className =
+    "edit-input";
+
+
+  input.value =
+    value || "";
+
+
+  /* ----------------------------------------------------------
+     EXPLICITLY MAKE INPUT EDITABLE
+  ---------------------------------------------------------- */
+
+  input.disabled = false;
+
+  input.readOnly = false;
+
+  input.removeAttribute(
+    "disabled"
+  );
+
+  input.removeAttribute(
+    "readonly"
+  );
+
+
+  input.tabIndex = 0;
+
+
+  input.autocomplete =
+    autocompleteValue || "off";
+
+
+  input.spellcheck = false;
+
+
+  /* ----------------------------------------------------------
+     FORCE TEXT INPUT BEHAVIOUR
+  ---------------------------------------------------------- */
+
+  input.style.pointerEvents =
+    "auto";
+
+  input.style.cursor =
+    "text";
+
+  input.style.userSelect =
+    "text";
+
+  input.style.webkitUserSelect =
+    "text";
+
+
+  /* ----------------------------------------------------------
+     CLICK
+  ---------------------------------------------------------- */
+
+  input.addEventListener(
+    "click",
+    function(event) {
+
+      event.stopPropagation();
+
+      this.focus();
+
+    }
+  );
+
+
+  /* ----------------------------------------------------------
+     MOUSE DOWN
+  ---------------------------------------------------------- */
+
+  input.addEventListener(
+    "mousedown",
+    function(event) {
+
+      event.stopPropagation();
+
+    }
+  );
+
+
+  return input;
 
 }
 
@@ -1455,23 +1665,17 @@ function enableEditing() {
   ========================================================== */
 
   const nameCell =
-    document.getElementById("name");
+    document.getElementById(
+      "name"
+    );
 
 
   const nameInput =
-    document.createElement("input");
-
-
-  nameInput.type = "text";
-
-  nameInput.id = "edit_name";
-
-  nameInput.className = "edit-input";
-
-  nameInput.value =
-    participantData["Name"] || "";
-
-  nameInput.autocomplete = "off";
+    createEditableInput(
+      "edit_name",
+      participantData["Name"],
+      "off"
+    );
 
 
   nameCell.innerHTML = "";
@@ -1483,34 +1687,20 @@ function enableEditing() {
 
   /* ==========================================================
      DESIGNATION
-
-     EXPLICITLY CREATED AS AN INPUT
-     THIS IS THE FIX
   ========================================================== */
 
   const designationCell =
-    document.getElementById("designation");
+    document.getElementById(
+      "designation"
+    );
 
 
   const designationInput =
-    document.createElement("input");
-
-
-  designationInput.type = "text";
-
-  designationInput.id =
-    "edit_designation";
-
-  designationInput.className =
-    "edit-input";
-
-
-  designationInput.value =
-    participantData["Designation"] || "";
-
-
-  designationInput.autocomplete =
-    "organization-title";
+    createEditableInput(
+      "edit_designation",
+      participantData["Designation"],
+      "organization-title"
+    );
 
 
   designationCell.innerHTML = "";
@@ -1525,28 +1715,17 @@ function enableEditing() {
   ========================================================== */
 
   const departmentCell =
-    document.getElementById("department");
+    document.getElementById(
+      "department"
+    );
 
 
   const departmentInput =
-    document.createElement("input");
-
-
-  departmentInput.type = "text";
-
-  departmentInput.id =
-    "edit_department";
-
-  departmentInput.className =
-    "edit-input";
-
-
-  departmentInput.value =
-    participantData["Department"] || "";
-
-
-  departmentInput.autocomplete =
-    "organization";
+    createEditableInput(
+      "edit_department",
+      participantData["Department"],
+      "organization"
+    );
 
 
   departmentCell.innerHTML = "";
@@ -1561,30 +1740,20 @@ function enableEditing() {
   ========================================================== */
 
   const institutionCell =
-    document.getElementById("institution");
+    document.getElementById(
+      "institution"
+    );
 
 
   const institutionInput =
-    document.createElement("input");
+    createEditableInput(
+      "edit_institution",
 
+      participantData["Institution Name"] ||
+      participantData["Institute"],
 
-  institutionInput.type = "text";
-
-  institutionInput.id =
-    "edit_institution";
-
-  institutionInput.className =
-    "edit-input";
-
-
-  institutionInput.value =
-    participantData["Institution Name"] ||
-    participantData["Institute"] ||
-    "";
-
-
-  institutionInput.autocomplete =
-    "organization";
+      "organization"
+    );
 
 
   institutionCell.innerHTML = "";
@@ -1599,30 +1768,20 @@ function enableEditing() {
   ========================================================== */
 
   const placeCell =
-    document.getElementById("place");
+    document.getElementById(
+      "place"
+    );
 
 
   const placeInput =
-    document.createElement("input");
+    createEditableInput(
+      "edit_place",
 
+      participantData["Place/State"] ||
+      participantData["Place"],
 
-  placeInput.type = "text";
-
-  placeInput.id =
-    "edit_place";
-
-  placeInput.className =
-    "edit-input";
-
-
-  placeInput.value =
-    participantData["Place/State"] ||
-    participantData["Place"] ||
-    "";
-
-
-  placeInput.autocomplete =
-    "address-level1";
+      "address-level1"
+    );
 
 
   placeCell.innerHTML = "";
@@ -1633,15 +1792,19 @@ function enableEditing() {
 
 
   /* ==========================================================
-     CHANGE BUTTON
+     HIDE EDIT BUTTON
   ========================================================== */
 
-  document.getElementById("editButton")
-    .style.display = "none";
+  editButton.style.display =
+    "none";
 
 
-  const submitButton =
-    document.getElementById("submitButton");
+  /* ==========================================================
+     ENABLE SUBMIT
+  ========================================================== */
+
+  submitButton.disabled =
+    false;
 
 
   submitButton.innerHTML =
@@ -1650,13 +1813,18 @@ function enableEditing() {
 
 
   /* ==========================================================
-     FOCUS NAME
+     FOCUS DESIGNATION
+
+     This is intentional so you can immediately test
+     whether the Designation field is editable.
   ========================================================== */
 
   setTimeout(
     function() {
 
-      nameInput.focus();
+      designationInput.focus();
+
+      designationInput.select();
 
     },
     100
@@ -1683,99 +1851,91 @@ function submitVerification() {
 
 
   /* ==========================================================
-     CHECK EDIT MODE
+     NAME
   ========================================================== */
 
   const editName =
-    document.getElementById("edit_name");
+    document.getElementById(
+      "edit_name"
+    );
 
 
   if (editName) {
 
-
-    /* --------------------------------------------------------
-       NAME
-    -------------------------------------------------------- */
-
     participantData["Name"] =
-      document
-        .getElementById("edit_name")
-        .value
-        .trim();
+      editName.value.trim();
+
+  }
 
 
-    /* --------------------------------------------------------
-       DESIGNATION
+  /* ==========================================================
+     DESIGNATION
+  ========================================================== */
 
-       EXPLICITLY READ FROM edit_designation
-    -------------------------------------------------------- */
-
-    const editDesignation =
-      document.getElementById(
-        "edit_designation"
-      );
+  const editDesignation =
+    document.getElementById(
+      "edit_designation"
+    );
 
 
-    if (editDesignation) {
+  if (editDesignation) {
 
-      participantData["Designation"] =
-        editDesignation.value.trim();
+    participantData["Designation"] =
+      editDesignation.value.trim();
 
-    }
-
-
-    /* --------------------------------------------------------
-       DEPARTMENT
-    -------------------------------------------------------- */
-
-    const editDepartment =
-      document.getElementById(
-        "edit_department"
-      );
+  }
 
 
-    if (editDepartment) {
+  /* ==========================================================
+     DEPARTMENT
+  ========================================================== */
 
-      participantData["Department"] =
-        editDepartment.value.trim();
-
-    }
-
-
-    /* --------------------------------------------------------
-       INSTITUTION
-    -------------------------------------------------------- */
-
-    const editInstitution =
-      document.getElementById(
-        "edit_institution"
-      );
+  const editDepartment =
+    document.getElementById(
+      "edit_department"
+    );
 
 
-    if (editInstitution) {
+  if (editDepartment) {
 
-      participantData["Institution Name"] =
-        editInstitution.value.trim();
+    participantData["Department"] =
+      editDepartment.value.trim();
 
-    }
-
-
-    /* --------------------------------------------------------
-       PLACE / STATE
-    -------------------------------------------------------- */
-
-    const editPlace =
-      document.getElementById(
-        "edit_place"
-      );
+  }
 
 
-    if (editPlace) {
+  /* ==========================================================
+     INSTITUTION
+  ========================================================== */
 
-      participantData["Place/State"] =
-        editPlace.value.trim();
+  const editInstitution =
+    document.getElementById(
+      "edit_institution"
+    );
 
-    }
+
+  if (editInstitution) {
+
+    participantData["Institution Name"] =
+      editInstitution.value.trim();
+
+  }
+
+
+  /* ==========================================================
+     PLACE
+  ========================================================== */
+
+  const editPlace =
+    document.getElementById(
+      "edit_place"
+    );
+
+
+  if (editPlace) {
+
+    participantData["Place/State"] =
+      editPlace.value.trim();
 
   }
 
@@ -1839,16 +1999,11 @@ function submitVerification() {
 
 
   /* ==========================================================
-     SUBMIT BUTTON
+     DISABLE SUBMIT
   ========================================================== */
 
-  const submitButton =
-    document.getElementById(
-      "submitButton"
-    );
-
-
-  submitButton.disabled = true;
+  submitButton.disabled =
+    true;
 
 
   submitButton.innerHTML =
@@ -1857,7 +2012,7 @@ function submitVerification() {
 
 
   /* ==========================================================
-     JSONP CALLBACK
+     CALLBACK
   ========================================================== */
 
   const callbackName =
@@ -1878,7 +2033,9 @@ function submitVerification() {
         isAlreadyVerified(response)
       ) {
 
-        submitButton.disabled = false;
+        submitButton.disabled =
+          false;
+
 
         submitButton.innerHTML =
           '<i class="fas fa-check me-2"></i>' +
@@ -1886,6 +2043,7 @@ function submitVerification() {
 
 
         showAlreadyVerifiedModal();
+
 
         cleanupCallback(
           callbackName
@@ -1897,7 +2055,7 @@ function submitVerification() {
 
 
       /* ------------------------------------------------------
-         API ERROR
+         ERROR
       ------------------------------------------------------ */
 
       if (
@@ -1905,7 +2063,9 @@ function submitVerification() {
         !response.success
       ) {
 
-        submitButton.disabled = false;
+        submitButton.disabled =
+          false;
+
 
         submitButton.innerHTML =
           '<i class="fas fa-check me-2"></i>' +
@@ -1913,7 +2073,8 @@ function submitVerification() {
 
 
         showError(
-          response && response.message
+          response &&
+          response.message
             ? response.message
             : "Verification could not be completed."
         );
@@ -1932,14 +2093,16 @@ function submitVerification() {
          SUCCESS
       ------------------------------------------------------ */
 
-      verificationCompleted = true;
+      verificationCompleted =
+        true;
 
 
-      submitButton.disabled = true;
+      submitButton.disabled =
+        true;
 
-      document.getElementById(
-        "editButton"
-      ).disabled = true;
+
+      editButton.disabled =
+        true;
 
 
       cleanupCallback(
@@ -1948,7 +2111,7 @@ function submitVerification() {
 
 
       /* ------------------------------------------------------
-         SHOW SUCCESS MODAL
+         SUCCESS MODAL
       ------------------------------------------------------ */
 
       const modalElement =
@@ -1969,11 +2132,13 @@ function submitVerification() {
 
 
   /* ==========================================================
-     CREATE JSONP REQUEST
+     CREATE JSONP SCRIPT
   ========================================================== */
 
   const script =
-    document.createElement("script");
+    document.createElement(
+      "script"
+    );
 
 
   script.src =
@@ -1996,7 +2161,9 @@ function submitVerification() {
   script.onerror =
     function() {
 
-      submitButton.disabled = false;
+      submitButton.disabled =
+        false;
+
 
       submitButton.innerHTML =
         '<i class="fas fa-check me-2"></i>' +
@@ -2046,7 +2213,7 @@ function showAlreadyVerifiedModal() {
 
 
 /* ============================================================
-   GO TO HOME PAGE
+   SUCCESS → HOME
 ============================================================ */
 
 function goToHomePage() {
@@ -2062,18 +2229,6 @@ function goToHomePage() {
 ============================================================ */
 
 function resetEditMode() {
-
-  const editButton =
-    document.getElementById(
-      "editButton"
-    );
-
-
-  const submitButton =
-    document.getElementById(
-      "submitButton"
-    );
-
 
   editButton.style.display =
     "inline-block";
@@ -2153,50 +2308,42 @@ function cleanupCallback(
    ENTER KEY SEARCH
 ============================================================ */
 
-document
-  .getElementById(
-    "mobileNumber"
-  )
-  .addEventListener(
-    "keydown",
-    function(event) {
+mobileNumber.addEventListener(
+  "keydown",
+  function(event) {
 
-      if (
-        event.key === "Enter"
-      ) {
+    if (
+      event.key === "Enter"
+    ) {
 
-        event.preventDefault();
+      event.preventDefault();
 
-        searchParticipant();
-
-      }
+      searchParticipant();
 
     }
-  );
+
+  }
+);
 
 
 /* ============================================================
    MOBILE NUMBER INPUT
 ============================================================ */
 
-document
-  .getElementById(
-    "mobileNumber"
-  )
-  .addEventListener(
-    "input",
-    function() {
+mobileNumber.addEventListener(
+  "input",
+  function() {
 
-      this.value =
-        this.value
-          .replace(/\D/g, "")
-          .slice(0, 10);
+    this.value =
+      this.value
+        .replace(/\D/g, "")
+        .slice(0, 10);
 
-    }
-  );
-
+  }
+);
 
 </script>
+
 
 </body>
 
