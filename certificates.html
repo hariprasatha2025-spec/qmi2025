@@ -436,7 +436,7 @@
             onclick="enableEditing()">
 
             <i class="fas fa-pen-to-square me-2"></i>
-            Submit & Edit
+             Edit & Submit 
 
           </button>
 
@@ -461,7 +461,82 @@
 
 </section>
 
+<!-- ================= ALREADY VERIFIED MODAL ================= -->
 
+<div
+  class="modal fade"
+  id="alreadyVerifiedModal"
+  tabindex="-1"
+  aria-hidden="true">
+
+  <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h5 class="modal-title">
+          Already Verified
+        </h5>
+
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal">
+        </button>
+
+      </div>
+
+      <div class="modal-body text-center p-4">
+
+        <div
+          style="
+            font-size:55px;
+            color:#d4af37;
+            margin-bottom:15px;
+          ">
+
+          <i class="fas fa-circle-info"></i>
+
+        </div>
+
+        <h4 class="fw-bold">
+          Your Details Are Already Verified
+        </h4>
+
+        <p class="mt-3">
+          Your certificate details have already been verified.
+        </p>
+
+        <p class="fw-bold">
+          Re-verification is not allowed.
+        </p>
+
+        <p>
+          If you need to make any changes or corrections,
+          please contact the QMI team.
+        </p>
+
+      </div>
+
+      <div class="modal-footer justify-content-center">
+
+        <button
+          type="button"
+          class="btn btn-qmi px-4"
+          data-bs-dismiss="modal">
+
+          OK
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 <!-- ================= VERIFICATION MODAL ================= -->
 
 <div
@@ -612,28 +687,83 @@ function searchParticipant() {
 
   window[callbackName] = function(response) {
 
-    document.getElementById("loading").style.display =
-      "none";
+  document.getElementById("loading").style.display = "none";
 
 
-    if (!response.success) {
+  /*
+   * FIRST CHECK:
+   * If this mobile number has already been verified,
+   * show the Already Verified window.
+   */
 
-      showError(response.message);
+  if (response && response.alreadyVerified === true) {
 
-      delete window[callbackName];
+    const modal = new bootstrap.Modal(
+      document.getElementById("alreadyVerifiedModal")
+    );
 
-      return;
-    }
-
-
-    participantData = response.data;
-
-    displayParticipant(participantData);
+    modal.show();
 
     delete window[callbackName];
 
-  };
+    return;
+  }
 
+
+  /*
+   * Also handle an already-verified message returned
+   * by the server.
+   */
+
+  if (
+    response &&
+    response.message &&
+    /already\s*verified|re-?verification/i.test(
+      response.message
+    )
+  ) {
+
+    const modal = new bootstrap.Modal(
+      document.getElementById("alreadyVerifiedModal")
+    );
+
+    modal.show();
+
+    delete window[callbackName];
+
+    return;
+  }
+
+
+  /*
+   * Normal error
+   */
+
+  if (!response || !response.success) {
+
+    showError(
+      response && response.message
+        ? response.message
+        : "Unable to retrieve participant details."
+    );
+
+    delete window[callbackName];
+
+    return;
+  }
+
+
+  /*
+   * Normal participant result
+   */
+
+  participantData = response.data;
+
+  displayParticipant(participantData);
+
+  delete window[callbackName];
+
+};
 
   const script =
     document.createElement("script");
